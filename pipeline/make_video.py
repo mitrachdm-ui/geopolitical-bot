@@ -17,7 +17,7 @@ from PIL import Image, ImageDraw, ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 W, H, FPS, XF = 1080, 1920, 30, 0.35          # XF = Überblendung in Sekunden
 RM = 150                                       # rechter Rand frei für TikTok-Buttons
-VOICE_DEFAULT = "de-DE-ConradNeural"           # Alternative: de-DE-KatjaNeural, de-DE-FlorianMultilingualNeural
+VOICE_DEFAULT = "de-DE-SeraphinaMultilingualNeural"   # gewählt 18.10.2026 (Stimmprobe Nr. 6)
 
 # --- Farben (Markenfarben Geopolitical_) ---
 BG, BG2 = (8, 13, 26), (22, 34, 62)
