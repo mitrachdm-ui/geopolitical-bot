@@ -1,0 +1,24 @@
+name: Stimmproben
+
+on:
+  workflow_dispatch:
+  push:
+    paths: ["pipeline/stimmproben.py"]
+
+permissions:
+  contents: write
+
+jobs:
+  proben:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -q edge-tts
+      - run: python pipeline/stimmproben.py stimmproben
+      - name: Als Release veröffentlichen
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          gh release view stimmproben >/dev/null 2>&1 || gh release create stimmproben --title "Stimmproben" --notes "Hörproben KI-Stimmen"
+          gh release upload stimmproben stimmproben/*.mp3 --clobber

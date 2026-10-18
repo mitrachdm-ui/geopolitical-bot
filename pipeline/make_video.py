@@ -72,7 +72,7 @@ def base(idx, total, date):
     d.rectangle([70 + tw + 6, 180, 70 + tw + 40, 188], fill=AMBER)
     d.text((70, 200), date, font=font(32, False), fill=GREY)
     # Fußzeile (Pflicht: KI-Hinweis + keine Anlageberatung) – über der TikTok-UI
-    d.text((70, H - 300), "KI-Stimme · Keine Anlageberatung · Quellen im Kommentar",
+    d.text((70, H - 300), "KI-Stimme · Keine Anlageberatung · Quellen in der Beschreibung",
            font=font(26, False), fill=GREY)
     return im, d
 

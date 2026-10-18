@@ -10,7 +10,8 @@
    "big": "10",
    "bigcolor": "RED",
    "title": "Schiffe in einer Woche angegriffen – Rekord seit Kriegsbeginn",
-   "say": "Zehn Schiffe in einer Woche angegriffen. Rekord seit Beginn des Iran-Kriegs."
+   "say": "Zehn Schiffe in einer Woche angegriffen. Rekord seit Beginn des Iran-Kriegs.",
+   "source": "UKMTO via CBS News, 18.10."
   },
   {
    "sec": 9,
@@ -86,7 +87,8 @@
     "Di 27.10.: Wahl in Israel",
     "27.–28.10.: US-Notenbank Fed"
    ],
-   "say": "Im Blick: Mittwoch US-Öllager, am siebenundzwanzigsten die Wahl in Israel, danach die Fed."
+   "say": "Im Blick: Mittwoch US-Öllager, am siebenundzwanzigsten die Wahl in Israel, danach die Fed.",
+   "source": "EIA, Times of Israel, Fed-Kalender"
   },
   {
    "sec": 5,
