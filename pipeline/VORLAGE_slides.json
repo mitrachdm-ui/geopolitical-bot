@@ -1,0 +1,23 @@
+{
+  "date": "Stand: Wochentag, TT. Monat JJJJ",
+  "outfile": "geopolitical_JJJJ-MM-TT.mp4",
+  "voice": "de-DE-ConradNeural",
+  "rate": "+8%",
+  "slides": [
+    {"sec": 5, "tag": "THEMA", "big": "ZAHL", "bigcolor": "RED",
+     "title": "Hook-Satz: Was ist passiert?",
+     "say": "Gesprochener Hook, maximal 2 Sätze."},
+    {"sec": 8, "tag": "REGION · AKTEUR",
+     "title": "Überschrift Thema 1",
+     "bullets": ["Fakt 1", "Fakt 2", "Fakt 3"],
+     "source": "Quelle kurz",
+     "say": "Gesprochener Text zu Thema 1."},
+    {"sec": 8, "tag": "MÄRKTE", "tagcolor": "BLUE",
+     "title": "So reagiert die Börse",
+     "bullets": ["▲ steigt = grün", "▼ fällt = rot", "!▲ steigt, ist aber schlecht = rot"],
+     "say": "Gesprochener Text zum Markt."},
+    {"sec": 5, "title": "Folge Geopolitical_ für die Weltlage in 60 Sekunden",
+     "bullets": ["Frage an die Community?"],
+     "say": "Folge Geopolitical für die Weltlage in sechzig Sekunden."}
+  ]
+}

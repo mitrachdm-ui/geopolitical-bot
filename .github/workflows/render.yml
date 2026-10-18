@@ -1,0 +1,60 @@
+name: Video rendern
+
+on:
+  push:
+    paths:
+      - "videos/**/slides.json"
+  workflow_dispatch:
+    inputs:
+      folder:
+        description: "Ordnername unter videos/ (leer = neuester)"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Ordner bestimmen
+        id: dir
+        run: |
+          F="${{ github.event.inputs.folder }}"
+          if [ -z "$F" ] && [ "${{ github.event_name }}" = "push" ]; then
+            F=$(git diff --name-only HEAD~1 HEAD -- 'videos/*/slides.json' | head -1 | cut -d/ -f2)
+          fi
+          if [ -z "$F" ]; then F=$(ls -1 videos | sort | tail -1); fi
+          echo "folder=$F" >> "$GITHUB_OUTPUT"
+          echo "Ordner: $F"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Abhängigkeiten
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q pillow edge-tts
+
+      - name: Rendern (mit KI-Stimme)
+        run: python pipeline/make_video.py "videos/${{ steps.dir.outputs.folder }}"
+
+      - name: Als Release veröffentlichen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          F="${{ steps.dir.outputs.folder }}"
+          MP4=$(ls videos/$F/*.mp4 | head -1)
+          TAG="video-$F"
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "$F" --notes-file "videos/$F/caption_und_quellen.txt"
+          gh release upload "$TAG" "$MP4" --clobber
+          echo "URL: https://github.com/${{ github.repository }}/releases/download/$TAG/$(basename $MP4)"
