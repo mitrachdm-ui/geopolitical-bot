@@ -48,12 +48,29 @@ Erklär-Ideen auf Vorrat: Straße von Hormus · OPEC+ · Strategische Ölreserve
 - **Regionen:** #iran #nahost #hormus #ukraine #russland #china #taiwan #usa #israel #eu
 - **Reichweite:** #lernenmittiktok #wissen #fyp
 
-## Quellen-Hierarchie
+## Quellen & Faktencheck (Pflicht)
 
-1. Agenturen & Behörden: Reuters, AP, dpa, UKMTO, IEA, EIA
-2. Qualitätsmedien: NYT, WSJ, FT, Bloomberg, Handelsblatt, Tagesschau
-3. Analysen: ISW/Critical Threats, CSIS
-4. Sonstige nur, wenn von 1–3 bestätigt.
+**Regel:** Eine Nachricht kommt nur ins Video, wenn sie von **mindestens 3 unabhängigen Quellen aus mindestens 2 Weltregionen** bestätigt ist.
+
+Pflicht-Abgleich bei jedem Thema:
+- **Westen:** Reuters, AP, BBC, NYT, WSJ, FT, Tagesschau, Handelsblatt
+- **Nahost:** Al Jazeera (Katar), Times of Israel, Arab News (Saudi-Arabien), Middle East Eye
+- **Asien:** SCMP (Hongkong), Nikkei Asia (Japan), The Hindu (Indien), Straits Times (Singapur)
+- **Russland/Ukraine:** Kyiv Independent, Meduza (unabhängig, russisch); Staatsmedien (TASS, RT, Xinhua, Press TV) nur als „laut russischen/chinesischen/iranischen Staatsmedien …“
+- **Fachquellen:** UKMTO, IEA, EIA, ISW, OPEC, Zentralbanken
+
+Achtung: Viele Zeitungen übernehmen dieselbe Agenturmeldung (Reuters/AP). Das zählt als **eine** Quelle, nicht als mehrere.
+
+Formulierung:
+- Bestätigt (3+ Quellen, 2+ Regionen) → als Fakt, mit „laut …“
+- Nur 1–2 Quellen oder nur eine Seite → „Berichten zufolge …“ oder weglassen
+- Konfliktparteien widersprechen sich → beide Versionen nennen („Iran spricht von Minen, die USA von Angriffen“)
+- Zahlen von Konfliktparteien (Opfer, Abschüsse) nie ungeprüft übernehmen
+
+## POSTEN.txt (pro Video, fertig zum Kopieren)
+
+Jeder Videoordner enthält `POSTEN.txt`: Caption + Quellenliste mit Herkunftsland + „KI-Stimme. Keine Anlageberatung.“ + Hashtags.
+Denny kopiert den kompletten Inhalt 1:1 in die TikTok-Beschreibung. Max. 2.200 Zeichen.
 
 ## Kennzahlen (wöchentlich prüfen)
 
