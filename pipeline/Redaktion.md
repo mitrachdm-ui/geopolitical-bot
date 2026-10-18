@@ -89,7 +89,7 @@ Fehler im veröffentlichten Video → sofort Korrektur-Kommentar (anpinnen) bzw.
 
 ## POSTEN.txt (pro Video, fertig zum Kopieren)
 
-Jeder Videoordner enthält `POSTEN.txt`: Caption + Quellenliste mit Herkunftsland + „KI-Stimme. Keine Anlageberatung.“ + Hashtags.
+Jeder Videoordner enthält `POSTEN.txt`: Caption + Quellenliste mit Herkunftsland + „KI-Stimme. Keine Anlageberatung. Impressum: mitrachdm-ui.github.io“ + Hashtags.
 Denny kopiert den kompletten Inhalt 1:1 in die TikTok-Beschreibung. Max. 2.200 Zeichen.
 
 ## Kennzahlen (wöchentlich prüfen)
