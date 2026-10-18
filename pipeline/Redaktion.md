@@ -41,12 +41,11 @@
 
 Erklär-Ideen auf Vorrat: Straße von Hormus · OPEC+ · Strategische Ölreserve · Sanktionspakete der EU · Houthis · Taiwan & Chips · Seltene Erden · Rubel/Ölpreisdeckel · NATO-Artikel 5 · Fed & Ölpreis
 
-## Hashtags (3–6 pro Video, immer 2 Kern + Themen)
+## Hashtags (3–5 pro Video, präzise)
 
-- **Kern:** #geopolitik #nachrichten #weltlage #news
-- **Markt:** #börse #aktien #ölpreis #gold #inflation
-- **Regionen:** #iran #nahost #hormus #ukraine #russland #china #taiwan #usa #israel #eu
-- **Reichweite:** #lernenmittiktok #wissen #fyp
+- Immer 1–2 Kern: #geopolitik #weltlage
+- Dazu 2–3 Thema/Region: #iran #hormus #nahost #ukraine #russland #china #taiwan #usa #israel #eu #ölpreis #börse #inflation
+- Nicht verwenden: #fyp #viral #foryou #lernenmittiktok (wirkt unseriös)
 
 ## Quellen & Faktencheck (Pflicht)
 
@@ -67,6 +66,27 @@ Formulierung:
 - Konfliktparteien widersprechen sich → beide Versionen nennen („Iran spricht von Minen, die USA von Angriffen“)
 - Zahlen von Konfliktparteien (Opfer, Abschüsse) nie ungeprüft übernehmen
 
+## Stopp-Regel
+
+- Ist das Top-Thema nicht nach obiger Regel belegt oder widersprechen sich die Quellen ohne Klärung → **kein Video**. Stattdessen Meldung „NEEDS-VERIFICATION“ an Denny mit dem offenen Punkt.
+- Laufende Ereignisse („Breaking“) erst bringen, wenn bestätigt. Lieber einen Tag später als falsch.
+- Keine Vorhersagen als Tatsache („X wird passieren“), keine Wahlwerbung, keine Spendenaufrufe, keine Partei ergreifen.
+
+## research.md (Quellenprotokoll, pro Video Pflicht)
+
+Für jede Aussage im Video: Aussage · Quelle(n) mit URL · Veröffentlichungsdatum · Region · Status (bestätigt / Berichten zufolge). Am Ende: offene Unsicherheiten. Dient als Beleg, falls ein Video angezweifelt wird.
+
+## Korrekturen
+
+Fehler im veröffentlichten Video → sofort Korrektur-Kommentar (anpinnen) bzw. Folgevideo, nie still löschen. Eintrag in `published/korrekturen.md` (Datum, Video, Fehler, Korrektur).
+
+## Längen-Test (19.10.–01.11.2026)
+
+- Mo / Mi / Fr: **Kurzformat** 30–35 s – 4–5 Folien, max. 85 Wörter, 1 Thema
+- Di / Do: **Langformat** 50–60 s – 6–8 Folien, max. 145 Wörter
+- Sa (Rückblick) / So (Erklärvideo): Langformat
+- Auswertung am 01.11. in `analytics/`: Ø gesehene Sekunden, Abschlussrate, Shares und neue Follower je 1.000 Aufrufe – jeweils kurz vs. lang.
+
 ## POSTEN.txt (pro Video, fertig zum Kopieren)
 
 Jeder Videoordner enthält `POSTEN.txt`: Caption + Quellenliste mit Herkunftsland + „KI-Stimme. Keine Anlageberatung.“ + Hashtags.
@@ -76,3 +96,13 @@ Denny kopiert den kompletten Inhalt 1:1 in die TikTok-Beschreibung. Max. 2.200 Z
 
 - Ø Wiedergabedauer (Ziel > 50 %) · Abschlussrate · Follower pro Video · Kommentare
 - Hook schlecht = Absprung in den ersten 3 Sek. → Hook-Formel wechseln
+- Wöchentliche Auswertung automatisch sonntags in `analytics/JJJJ-KWnn.md`
+
+## Checkliste vor dem Posten (Denny, in der App)
+
+- [ ] Video komplett angesehen (Ton, Zahlen, Folien)
+- [ ] POSTEN.txt komplett eingefügt (Caption + Quellen + Hashtags)
+- [ ] „KI-generierte Inhalte“ eingeschaltet
+- [ ] Öffentlich
+- [ ] **Nie „Promote“/Werbung nutzen** – politische Werbung ist auf TikTok verboten
+- [ ] Likes, Kommentare, Antworten nur von Hand
