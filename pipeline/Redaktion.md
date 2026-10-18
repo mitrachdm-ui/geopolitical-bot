@@ -87,6 +87,14 @@ Fehler im veröffentlichten Video → sofort Korrektur-Kommentar (anpinnen) bzw.
 - Sa (Rückblick) / So (Erklärvideo): Langformat
 - Auswertung am 01.11. in `analytics/`: Ø gesehene Sekunden, Abschlussrate, Shares und neue Follower je 1.000 Aufrufe – jeweils kurz vs. lang.
 
+## Breaking (Zusatzvideo auf Zuruf)
+
+- Auslöser: Denny schreibt im Projekt-Chat „Breaking: <Thema>“.
+- Nur wenn bestätigt (3 Quellen, 2 Regionen) – sonst Antwort „noch nicht bestätigt“ mit Stand.
+- 20–30 s, 3–4 Folien, max. 70 Wörter, ein Thema, Tag „EILMELDUNG“ (RED).
+- Ordner `videos/JJJJ-MM-TT_Breaking-Thema/`, sonst gleicher Ablauf (Push → Render → Entwurf → POSTEN.txt, research.md, Log).
+- Normalfall bleibt 1 Video pro Tag.
+
 ## POSTEN.txt (pro Video, fertig zum Kopieren)
 
 Jeder Videoordner enthält `POSTEN.txt`: Caption + Quellenliste mit Herkunftsland + „KI-Stimme. Keine Anlageberatung. Impressum: mitrachdm-ui.github.io“ + Hashtags.
