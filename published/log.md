@@ -2,4 +2,4 @@
 
 | Datum | Ordner | Thema | Länge | Entwurf hochgeladen | Gepostet (Denny) | Link |
 |---|---|---|---|---|---|---|
-| 2026-10-18 | 2026-10-18_Hormus-Rekord | Hormus: 10 Angriffe/Woche, Öl ~110 $ | 63 s | ja (v_inbox_file) | – | – |
+| 2026-10-18 | 2026-10-18_Hormus-Rekord | Hormus: 10 Angriffe/Woche, Öl ~110 $ | 54 s (lang) | ja (v_inbox_file) | ja, 18.10. 11:48 – mit Promote 25 € (siehe Hinweis) | – |
