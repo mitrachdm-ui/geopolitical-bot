@@ -12,10 +12,10 @@ Recherche-Stand: 18.10.2026, ca. 10:00 Uhr MESZ
 | Houthis: Drohnen über Riad abgefangen, Raketen auf Flughafen Aden | ISW 17.10.; CBS News; Al Jazeera Live 18.10. | 16.–18.10. | USA, Katar | bestätigt |
 | Brent 109,86 $ (+3,7 %), höchster Schluss seit Mai; WTI +10,4 % Woche | [Rio Times/EnergyNow](https://www.riotimesonline.com/oil-markets-latam-friday-october-16-2026/); FinanceFeeds; Yahoo Finance (≈109,55 $) | 16.10. | Brasilien/Kanada, USA | bestätigt |
 | Nasdaq −2,1 % (Woche −4,5 %), S&P 500 −1,1 %, VIX +21 %, 10J-Rendite ~5,1 % | [AP via ABC](https://abcnews.com/Business/wireStory/major-us-stock-indexes-fared-friday-10162026-137331951); [Yahoo Finance](https://finance.yahoo.com/markets/stocks/articles/markets-news-oct-16-2026-103800633.html) | 16.10. | USA | Marktdaten, bestätigt |
-| Selenskyj bittet um ≥ 70 Mrd. € für 2027; EU bereitet 22. Sanktionspaket vor | [Rio Times Europe Brief](https://www.riotimesonline.com/europe-intelligence-brief-saturday-october-17-2026/) | 16.–17.10. | Brasilien (Aggregator) | **nur 1 Quelle** – vor Wiederverwendung gegenprüfen (Reuters/Tagesschau) |
+| Selenskyj bittet um ≥ 70 Mrd. € für 2027; EU bereitet 22. Sanktionspaket vor | [Rio Times Europe Brief](https://www.riotimesonline.com/europe-intelligence-brief-saturday-october-17-2026/) | 16.–17.10. | Brasilien (Aggregator) | **nur 1 Quelle** → Folie am 18.10. entfernt (Stopp-Regel) |
 | Wahl in Israel am 27.10. | [Times of Israel](https://www.timesofisrael.com/liveblog-october-17-2026/) | 17.10. | Israel | bestätigt (Termin) |
 | Fed-Sitzung 27.–28.10.; EIA-Öllager Mi 21.10. | FinanceFeeds; Fed-Kalender | 16.10. | USA | Termine |
 
 ## Offene Unsicherheiten
-- Ukraine-Finanzbedarf/Sanktionspaket: nur eine Quelle (Aggregator) – hätte nach neuer Regel weiterer Bestätigung bedurft.
+- Ukraine-Finanzbedarf/Sanktionspaket: nur eine Quelle → aus dem Video entfernt.
 - Durchfluss-Zahlen Hormus stark tagesabhängig; Angabe ist Wochenschnitt.
