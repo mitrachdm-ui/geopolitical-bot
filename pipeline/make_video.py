@@ -125,12 +125,17 @@ def make_voice(slides, data, tmp):
     except ImportError:
         print("Hinweis: edge-tts nicht installiert -> Video ohne Stimme.")
         return None
-    voice, rate, files = data.get("voice", VOICE_DEFAULT), data.get("rate", "+8%"), []
+    voice, rate, files = data.get("voice", VOICE_DEFAULT), data.get("rate", "+18%"), []
     for i, s in enumerate(slides):
         if not s.get("say"): files.append(None); continue
         p = os.path.join(tmp, f"say_{i:02d}.mp3")
         print(f"Stimme Folie {i+1}/{len(slides)} …")
-        asyncio.run(_tts(s["say"], voice, rate, p))
+        raw = p.replace(".mp3", "_raw.mp3")
+        asyncio.run(_tts(s["say"], voice, rate, raw))
+        # lange Sprechpausen zwischen Sätzen kürzen (TikTok-Tempo)
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw, "-af",
+            "silenceremove=start_periods=1:start_threshold=-45dB:stop_periods=-1:stop_duration=0.3:stop_threshold=-45dB:stop_silence=0.22",
+            p], check=True)
         files.append(p)
     return files
 
@@ -144,7 +149,7 @@ def main():
         durs = []
         for i, s in enumerate(slides):
             dur = float(s.get("sec", 6))
-            if voices and voices[i]: dur = probe(voices[i]) + 0.6 + XF
+            if voices and voices[i]: dur = probe(voices[i]) + 0.35 + XF
             durs.append(dur)
         pngs = [slide(s, i, len(slides), data["date"], tmp) for i, s in enumerate(slides)]
         clips = []
