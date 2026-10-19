@@ -1,0 +1,50 @@
+{
+ "date": "Stand: Montag, 19. Oktober 2026",
+ "outfile": "geopolitical_2026-10-19.mp4",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "slides": [
+  {
+   "sec": 6,
+   "tag": "UKRAINE · RUSSLAND",
+   "big": "1.015",
+   "bigcolor": "RED",
+   "title": "Drohnen in einer Nacht – laut Moskau",
+   "say": "Eintausendfünfzehn Drohnen in einer Nacht. Das meldet Russlands Verteidigungsministerium. Einer der größten ukrainischen Angriffe des Krieges.",
+   "source": "Russ. Verteidigungsmin. via Al Jazeera, FT, 18.10."
+  },
+  {
+   "sec": 10,
+   "tag": "ST. PETERSBURG",
+   "title": "Ölanlagen in Brand",
+   "bullets": [
+    "Ölterminal und Öllager getroffen",
+    "Mind. 1 Toter laut Gouverneur",
+    "Rund 20.000 Menschen ohne Strom"
+   ],
+   "source": "Al Jazeera, ABC News, Kyiv Independent, 18.10.",
+   "say": "Getroffen wurde vor allem Sankt Petersburg. Laut Gouverneur brennen das Ölterminal und ein Öllager. Mindestens ein Mensch starb. Rund zwanzigtausend Menschen waren ohne Strom."
+  },
+  {
+   "sec": 10,
+   "tag": "USA · DIPLOMATIE",
+   "tagcolor": "BLUE",
+   "title": "Trotz Trumps Energie-Waffenruhe",
+   "bullets": [
+    "11.10.: Trump verkündet Energie-Waffenruhe",
+    "Kyjiw: 76 russ. Angriffe auf Energie in 1 Woche",
+    "Trump verzichtet auf neue Russland-Sanktionen"
+   ],
+   "source": "Al Jazeera, FT/Reuters, ABC News, 18.–19.10.",
+   "say": "Brisant: Trump hatte eine Energie-Waffenruhe verkündet. Kyjiw sagt, Russland habe seitdem sechsundsiebzig Mal ukrainische Energieanlagen angegriffen. Trump verzichtet dennoch auf neue Sanktionen."
+  },
+  {
+   "sec": 5,
+   "title": "Folge Geopolitical_ für die Weltlage in 60 Sekunden",
+   "bullets": [
+    "Bringen Angriffe auf Öl die Verhandlungen voran?"
+   ],
+   "say": "Folge Geopolitical für die Weltlage in sechzig Sekunden. Bringen solche Angriffe die Verhandlungen voran?"
+  }
+ ]
+}
