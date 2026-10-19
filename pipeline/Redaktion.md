@@ -82,10 +82,24 @@ Fehler im veröffentlichten Video → sofort Korrektur-Kommentar (anpinnen) bzw.
 
 ## Längen-Test (19.10.–01.11.2026)
 
-- Mo / Mi / Fr: **Kurzformat** 30–35 s – 4–5 Folien, max. 85 Wörter, 1 Thema
-- Di / Do: **Langformat** 50–60 s – 6–8 Folien, max. 145 Wörter
+- Mo / Mi / Fr: **Kurzformat** 30–35 s – 4–5 Folien, ca. 55–62 Wörter, 1 Thema
+- Di / Do: **Langformat** 50–60 s – 6–8 Folien, ca. 120–135 Wörter
 - Sa (Rückblick) / So (Erklärvideo): Langformat
 - Auswertung am 01.11. in `analytics/`: Ø gesehene Sekunden, Abschlussrate, Shares und neue Follower je 1.000 Aufrufe – jeweils kurz vs. lang.
+
+## Prüf-Agent (unabhängiger Faktencheck, seit 20.10.2026)
+
+Vor jedem Push prüft ein zweiter Agent mit frischem Kontext jede Aussage in `slides.json` und der Caption gegen die verlinkten Quellen: Zahlen, Daten, Namen, Zuordnungen, Veröffentlichungsdatum, 3-Quellen/2-Regionen-Regel, Angaben von Konfliktparteien, keine Vorhersagen/Wertungen.
+Urteile: OK / FEHLER / UNBELEGT / ÜBERHOLT → alles außer OK wird korrigiert, gekennzeichnet oder gestrichen. Gesamturteil STOPP fürs Top-Thema = Stopp-Regel.
+Ergebnis steht in `research.md` unter „Faktencheck (Prüf-Agent)“.
+
+## Lernschleife
+
+Die tägliche Produktion liest vor jedem Video die neueste Datei in `analytics/` und `published/korrekturen.md` und setzt die Empfehlungen um (Themen, Hooks, CTA-Fragen, Aufbau). Die Regeln in dieser Datei haben immer Vorrang. Was umgesetzt wurde, steht in `research.md` unter „Angewandte Empfehlungen“.
+
+## Länge (kalibriert)
+
+Gemessen: 76 Wörter / 4 Folien = 40 s · 128 Wörter / 7 Folien = 54 s. Richtwerte: KURZ ca. 55–62 Wörter, LANG ca. 120–135 Wörter. Nach dem Rendern wird die Dauer gemessen; zu lang (kurz > 38 s, lang > 63 s) → einmal kürzen und neu rendern.
 
 ## Breaking (Zusatzvideo auf Zuruf)
 
