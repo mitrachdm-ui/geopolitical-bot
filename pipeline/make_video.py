@@ -243,11 +243,9 @@ def draw_map(bg, s, hook):
         return min(xs), min(ys), max(xs), max(ys)
     world_view = False
     if s.get("map_box"): lo1, la1, lo2, la2 = s["map_box"]
-    elif sel:
-        lo1, la1, lo2, la2 = bbox(sel)
-        if lo2 - lo1 > 70:                                  # zu groß: auf das erstgenannte Land zielen
-            first = [c for c in sel if c["a3"] == map_codes(s)[0]] or sel[:1]
-            lo1, la1, lo2, la2 = bbox(first)
+    elif sel:   # Ausschnitt = zuerst genanntes Land (Hauptschauplatz)
+        first = [c for c in sel if c["a3"] == map_codes(s)[0]] or sel[:1]
+        lo1, la1, lo2, la2 = bbox(first)
         if lo2 - lo1 > 300: lo1, lo2 = 20, 180               # Russland über Datumsgrenze
     else:
         lo1, la1, lo2, la2 = -50, 0, 110, 60; world_view = True   # Europa/Nahost/Asien im Blick
@@ -255,7 +253,7 @@ def draw_map(bg, s, hook):
     if world_view:
         sc = W / ((lo2 - lo1) * kx)
     else:   # Markierung passt in das untere Feld (ca. 55–83 % der Höhe)
-        sc = min(W * 0.58 / max((lo2 - lo1) * kx, 12), H * 0.21 / max(la2 - la1, 8))
+        sc = min(W * 0.58 / max((lo2 - lo1) * kx, 10), H * 0.21 / max(la2 - la1, 7))
         sc = max(sc, W / 110)
     cxl, cyl = (lo1 + lo2) / 2, clat
     ox, oy = W * 0.52, H * 0.68
@@ -269,21 +267,24 @@ def draw_map(bg, s, hook):
             if len(pts) > 2: dl.polygon(pts, fill=(24, 37, 66, 255), outline=(48, 68, 108, 255))
     hl = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dh = ImageDraw.Draw(hl)
     farea = max((fx2 - fx1) * (fy2 - fy1), 1)
+    mainl = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dm = ImageDraw.Draw(mainl)
     for c in sel:
         bx1, by1, bx2, by2 = bbox([c])
-        huge = (bx2 - bx1) * (by2 - by1) > 4 * farea        # Riesenland (z. B. Russland) nur andeuten
+        main = c["a3"] == map_codes(s)[0]
+        huge = not main and (bx2 - bx1) * (by2 - by1) > 4 * farea   # Riesenland (z. B. Russland) nur andeuten
         for poly in c["p"]:
             pts = [P(x, y) for x, y in poly[0]]
             if len(pts) > 2:
-                dh.polygon(pts, fill=(232, 72, 72, 70 if huge else 255), outline=(255, 120, 120, 255))
-                if huge: dh.line(pts + pts[:1], fill=(255, 110, 110, 255), width=4)
+                dh.polygon(pts, fill=(232, 72, 72, 255 if main else (0 if huge else 90)), outline=(255, 120, 120, 255))
+                if main: dm.polygon(pts, fill=(232, 72, 72, 255))
+                if huge: dh.line(pts + pts[:1], fill=(255, 110, 110, 200), width=3)
     # sanft nach oben ausblenden, damit Text lesbar bleibt
     fade = Image.linear_gradient("L").resize((W, H))      # 0 oben … 255 unten
     fade = fade.point(lambda v: int(min(255, max(0, (v - 40) * 1.6))))
     land.putalpha(Image.composite(land.getchannel("A"), Image.new("L", (W, H), 0), fade))
     bg = bg.convert("RGBA"); bg.alpha_composite(land)
     if sel:
-        g = hl.filter(ImageFilter.GaussianBlur(40))
+        g = mainl.filter(ImageFilter.GaussianBlur(40))   # Schein nur ums Hauptland
         g.putalpha(g.getchannel("A").point(lambda v: int(v * 0.8)))
         bg.alpha_composite(g)                              # roter Schein (statisch)
         return bg.convert("RGB"), hl
