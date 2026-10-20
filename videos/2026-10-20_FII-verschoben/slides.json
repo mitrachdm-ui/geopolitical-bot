@@ -1,0 +1,91 @@
+{
+ "date": "Stand: Dienstag, 20. Oktober 2026",
+ "outfile": "geopolitical_2026-10-20.mp4",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "slides": [
+  {
+   "sec": 5,
+   "tag": "SAUDI-ARABIEN",
+   "big": "2027",
+   "bigcolor": "RED",
+   "title": "„Davos der Wüste“ fällt dieses Jahr aus",
+   "say": "Das Davos der Wüste fällt dieses Jahr aus. Saudi-Arabien verschiebt sein großes Investorentreffen auf zweitausendsiebenundzwanzig.",
+   "source": "FII Institute via Al Jazeera, Arab News, The National, 19.–20.10."
+  },
+  {
+   "sec": 9,
+   "tag": "RIAD · INVESTOREN",
+   "tagcolor": "BLUE",
+   "title": "Konferenz FII verschoben",
+   "bullets": [
+    "Geplant war 26.–29. Oktober in Riad",
+    "Offiziell: Qualität für Partner",
+    "Zuvor Huthi-Angriffe, u. a. Flughafen Riad"
+   ],
+   "source": "Al Jazeera, Arab News, The National, CNBC, 19.–20.10.",
+   "say": "Geplant war die Konferenz Ende Oktober in Riad. Offiziell geht es um Qualität für die Partner. Zuvor hatten die Huthis das Königreich wiederholt angegriffen, auch den Flughafen Riad."
+  },
+  {
+   "sec": 8,
+   "tag": "JEMEN · SAUDI-ARABIEN",
+   "title": "Huthis melden neue Angriffe auf Saudi-Arabien",
+   "bullets": [
+    "Laut Huthis: Aramco-Anlage Yanbu, Ölfeld Schaiba",
+    "Saudi-Arabien: bislang keine Bestätigung",
+    "Reuters: nicht unabhängig prüfbar"
+   ],
+   "source": "Huthi-Sprecher via Reuters, Times of India, Kurdistan24, 19.–20.10.",
+   "say": "Die Huthis melden neue Angriffe, etwa auf eine Aramco-Anlage in Yanbu. Saudi-Arabien hat das bislang nicht bestätigt."
+  },
+  {
+   "sec": 8,
+   "tag": "USA · UKRAINE",
+   "tagcolor": "BLUE",
+   "title": "Trump attackiert Selenskyj",
+   "bullets": [
+    "Trump verteidigt Lockerung von Russland-Sanktionen",
+    "Trump: Selenskyj wolle Krieg nicht beenden",
+    "Selenskyj kritisiert Washingtons Kurs"
+   ],
+   "source": "Al Jazeera, New York Times, CNN, 18.–19.10.",
+   "say": "Trump verteidigt seine Lockerung von Russland-Sanktionen. Selenskyj wolle den Krieg gar nicht beenden, schreibt er. Selenskyj kritisiert den Kurs Washingtons."
+  },
+  {
+   "sec": 8,
+   "tag": "TAIWAN · CHINA",
+   "big": "16",
+   "bigcolor": "RED",
+   "title": "Chinesische Schiffe vor Taiwan – laut Taipeh",
+   "bullets": [
+    "Küstenwache, Forschungs- und Fischerschiffe",
+    "Teils in Taiwans Sperrgewässern",
+    "Taipeh: „hybride Kriegsführung“"
+   ],
+   "source": "Taiwans Küstenwache via AFP, Marine Insight, Eastern Herald, 18.–19.10.",
+   "say": "Taiwan meldet sechzehn chinesische Schiffe gleichzeitig vor seinen Küsten. Einige drangen laut Taipeh in Sperrgewässer ein."
+  },
+  {
+   "sec": 7,
+   "tag": "ÖLPREIS",
+   "tagcolor": "AMBER",
+   "big": "109 $",
+   "bigcolor": "AMBER",
+   "title": "Brent nahe Fünfmonatshoch",
+   "bullets": [
+    "▼ Brent 109,55 $ (−0,3 % am Montag)",
+    "▲ Zeitweise 110,70 $ – Hoch seit Mai"
+   ],
+   "source": "Reuters, Nation Thailand, Investing.com, 19.–20.10.",
+   "say": "Öl bleibt teuer. Brent schloss am Montag bei rund hundertneun Dollar, nahe dem höchsten Stand seit Mai."
+  },
+  {
+   "sec": 5,
+   "title": "Folge Geopolitical_ für die Weltlage in 60 Sekunden",
+   "bullets": [
+    "Steigt Öl über 120 $? Schreib's in die Kommentare."
+   ],
+   "say": "Folge Geopolitical für die Weltlage in sechzig Sekunden. Steigt Öl über hundertzwanzig Dollar? Schreib's in die Kommentare."
+  }
+ ]
+}
