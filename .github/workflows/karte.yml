@@ -1,0 +1,18 @@
+name: Weltkarte laden
+on:
+  workflow_dispatch:
+  push:
+    paths: ["pipeline/karte_laden.py"]
+permissions:
+  contents: write
+jobs:
+  karte:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -q shapely && python pipeline/karte_laden.py
+      - run: |
+          git config user.name "github-actions"; git config user.email "actions@github.com"
+          git add pipeline/assets/welt.json && git commit -m "Weltkarte (Natural Earth 1:50m, gemeinfrei)" && git pull --rebase && git push || echo "unverändert"
