@@ -23,7 +23,10 @@ VOICE_DEFAULT = "de-DE-SeraphinaMultilingualNeural"   # gewählt 18.10.2026 (Sti
 BG, BG2 = (8, 13, 26), (22, 34, 62)
 WHITE, GREY, DIM = (240, 243, 248), (150, 162, 185), (50, 62, 90)
 AMBER, RED, GREEN, BLUE = (245, 180, 60), (232, 72, 72), (70, 200, 120), (90, 150, 240)
-COLORS = {"AMBER": AMBER, "RED": RED, "GREEN": GREEN, "WHITE": WHITE, "BLUE": BLUE}
+TEAL = (60, 200, 210)
+SERIES = None          # z. B. "SONNTAG ERKLÄRT" – wird aus slides.json ("series") gesetzt
+def accent(): return TEAL if SERIES else AMBER
+COLORS = {"TEAL": TEAL, "AMBER": AMBER, "RED": RED, "GREEN": GREEN, "WHITE": WHITE, "BLUE": BLUE}
 
 def _font_path(bold):
     cands = [os.path.join(HERE, "fonts", "Inter-Bold.otf" if bold else "Inter-Regular.otf"),
@@ -43,6 +46,11 @@ def wrap(d, text, fnt, maxw):
         else: lines.append(cur); cur = w
     lines.append(cur)
     return lines
+
+def series_badge(d, x, y):
+    f = font(34, black=True); tw = d.textlength(SERIES, font=f)
+    d.rounded_rectangle([x, y, x + tw + 44, y + 58], 29, outline=TEAL, width=4)
+    d.text((x + 22, y + 9), SERIES, font=f, fill=TEAL)
 
 def base(idx, total, date, hook=False, bar=True, globe=True):
     im = Image.new("RGB", (W, H), BG)
@@ -67,14 +75,17 @@ def base(idx, total, date, hook=False, bar=True, globe=True):
     for i in (range(total) if bar else []):
         x = 70 + i * (seg + 12)
         d.rounded_rectangle([x, 90, x + seg, 100], 5, fill=AMBER if i <= idx else DIM)
+    if hook and SERIES:   # Serien-Logo auch auf dem Hook (klein, oben)
+        series_badge(d, 70, 140)
     if hook:   # Hook-Folie: nichts, was nach Info-Tafel aussieht (Analyse 20.10.: Absprung bei 0:01)
         return im, d
     # Kopfzeile: GEOPOLITICAL_
     f = font(44, black=True)
     d.text((70, 140), "GEOPOLITICAL", font=f, fill=WHITE)
     tw = d.textlength("GEOPOLITICAL", font=f)
-    d.rectangle([70 + tw + 6, 180, 70 + tw + 40, 188], fill=AMBER)
+    d.rectangle([70 + tw + 6, 180, 70 + tw + 40, 188], fill=accent())
     d.text((70, 200), date, font=font(32, False), fill=GREY)
+    if SERIES: series_badge(d, 70 + tw + 70, 143)
     # Fußzeile (Pflicht: KI-Hinweis + keine Anlageberatung) – über der TikTok-UI
     d.text((70, H - 300), "KI-Stimme · Keine Anlageberatung · Quellen in der Beschreibung",
            font=font(26, False), fill=GREY)
@@ -336,7 +347,7 @@ def layout(s, idx, total, date):
         x0 = 70 if arrow else 120
         bl = wrap(d, b, bfnt, W - x0 - RM)
         im, dd = sprite(W - 70, 62 * len(bl) + 10)
-        if not arrow: dd.ellipse([5, 20, 25, 40], fill=AMBER)
+        if not arrow: dd.ellipse([5, 20, 25, 40], fill=accent())
         for k, line in enumerate(bl): dd.text((x0 - 70, k * 62), line, font=bfnt, fill=col)
         els.append(dict(img=im, x=70, y=y, kind="bullet", fx="right")); y += 62 * len(bl) + 26
     if not hook and els and not world():   # ohne Karte: Inhalt mittig im sichtbaren Bereich (unten liegt die TikTok-Beschriftung)
@@ -392,7 +403,7 @@ def anim_clip(s, idx, total, date, dur, path):
             x = 70 + i * (seg + 12)
             d.rounded_rectangle([x, 90, x + seg, 100], 5, fill=DIM)
             p = 1.0 if i < idx else (min(t / max(dur - XF, 0.1), 1.0) if i == idx else 0.0)
-            if p > 0: d.rounded_rectangle([x, 90, x + max(seg * p, 10), 100], 5, fill=AMBER)
+            if p > 0: d.rounded_rectangle([x, 90, x + max(seg * p, 10), 100], 5, fill=accent())
         for e in els:
             a = 1.0 if hook else ease((t - e["t"]) / 0.35)   # Hook: ab Frame 1 lesbar
             if a <= 0: continue
@@ -479,6 +490,8 @@ def main():
     folder = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else ".")
     data = json.load(open(os.path.join(folder, "slides.json"), encoding="utf-8"))
     slides = data["slides"]
+    global SERIES
+    SERIES = data.get("series")
     tmp = tempfile.mkdtemp(prefix="geo_")
     try:
         voices = make_voice(slides, data, tmp)
