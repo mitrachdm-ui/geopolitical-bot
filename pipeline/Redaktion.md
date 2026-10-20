@@ -4,7 +4,7 @@
 
 | Teil | Zeit | Inhalt |
 |---|---|---|
-| Hook | 0–3 s | Eine große Zahl + ein Satz. Muss ohne Ton verständlich sein. |
+| Hook | 0–3 s | Eine große Zahl + ein Satz. Muss ohne Ton verständlich sein. Regeln siehe „Hook-Regeln“. |
 | Hauptthema | 3–25 s | Was ist passiert, warum wichtig – 2 Folien |
 | Thema 2/3 | 25–40 s | Je 1 Folie, kurz |
 | Markt | 40–50 s | Öl / Gold / Indizes / Zinsen – nur Fakten |
@@ -17,6 +17,19 @@
 - Zahlen im `say`-Text ausschreiben („hundertzehn Dollar“), auf der Folie als Ziffer.
 - Abkürzungen auflösen oder erklären („die US-Notenbank Fed“).
 - Geopolitical_ wird „Geopolitical“ gesprochen.
+
+## Hook-Regeln (Pflicht, aus Analyse 18.–20.10.2026)
+
+Alle drei ersten Videos verloren die meisten Zuschauer bei **0:01** (nach 4 s nur noch ~25 %). Darum:
+
+1. **Die Zahl muss ohne Kontext „Wow“ sein:** Menge, Preis, Rekord, Anteil („110 $“, „1.015 Drohnen“, „10 Schiffe“). **Keine Jahreszahl** als Hook-Zahl („2027“ verwirrt).
+2. **Erster gesprochener Satz = die Zahl selbst**, max. 10 Wörter („Hundertzehn Dollar. So teuer war Öl seit Mai nicht.“). Kein „Heute…“, kein Kanalname, kein Datum.
+3. **Hook-Titel max. 6 Wörter.** Steht groß unter der Zahl.
+4. **Top-Thema nach Relevanz fürs DACH-Publikum** (45+, eher männlich, Börse/Öl-Interesse): Krieg in Europa, Energie/Öl, Börse, Zinsen, China/Taiwan > Gipfel, Konferenzen, Personalien. Lieber das relevanteste bestätigte Thema als das neueste.
+5. Die Quelle der Hook-Zahl steht nicht auf Folie 1 (Renderer blendet sie dort aus) → **auf Folie 2 wiederholen** (gleiches Thema vertiefen) und in POSTEN.txt.
+6. **Länge hart:** nie über 60 s (Renderer warnt). Kürzere Videos hielten besser (41 s: 23 % Ø gesehen vs. 54 s: 8 %).
+
+Der Renderer setzt automatisch um: Folie 1 ohne Kopfzeile/Datum/Fußzeile, Stimme ab 0,0 s, Zahl zählt hoch, Punch-in-Zoom, Farbschein hinter der Zahl, stärkerer Zoom auf allen Folien.
 
 ## Hook-Formeln
 

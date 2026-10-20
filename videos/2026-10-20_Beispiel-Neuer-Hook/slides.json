@@ -1,0 +1,29 @@
+{
+ "date": "Stand: Dienstag, 20. Oktober 2026",
+ "outfile": "geopolitical_2026-10-20_beispiel.mp4",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "slides": [
+  {"sec": 3, "tag": "ÖLPREIS", "tagcolor": "AMBER", "big": "110 $", "bigcolor": "AMBER",
+   "title": "Öl so teuer wie seit Mai nicht",
+   "say": "Hundertzehn Dollar. So teuer war Öl seit Mai nicht mehr."},
+  {"sec": 9, "tag": "ÖLPREIS", "tagcolor": "AMBER",
+   "title": "Brent nahe Fünfmonatshoch",
+   "bullets": ["▲ Zeitweise 110,70 $ – Hoch seit Mai", "▼ Schluss Montag 109,55 $ (−0,3 %)"],
+   "source": "Reuters, Nation Thailand, Investing.com, 19.–20.10.",
+   "say": "Die Ölsorte Brent stieg zeitweise auf hundertzehn Dollar siebzig. Am Montag schloss sie bei rund hundertneun Dollar."},
+  {"sec": 9, "tag": "JEMEN · SAUDI-ARABIEN",
+   "title": "Huthis melden Angriffe auf Saudi-Arabien",
+   "bullets": ["Laut Huthis: Aramco-Anlage Yanbu", "Saudi-Arabien: bislang keine Bestätigung", "Reuters: nicht unabhängig prüfbar"],
+   "source": "Huthi-Sprecher via Reuters, Times of India, Kurdistan24, 19.–20.10.",
+   "say": "Ein Grund für die Nervosität: Die Huthis melden neue Angriffe, etwa auf eine Aramco-Anlage. Saudi-Arabien hat das nicht bestätigt."},
+  {"sec": 9, "tag": "RIAD", "tagcolor": "BLUE",
+   "title": "„Davos der Wüste“ auf 2027 verschoben",
+   "bullets": ["Investorentreffen FII war Ende Oktober geplant", "Offiziell: Qualität für Partner", "Zuvor Huthi-Angriffe, u. a. Flughafen Riad"],
+   "source": "Al Jazeera, Arab News, The National, 19.–20.10.",
+   "say": "Saudi-Arabien verschiebt zudem sein großes Investorentreffen auf zweitausendsiebenundzwanzig. Offiziell nicht aus Sicherheitsgründen."},
+  {"sec": 5, "title": "Folge Geopolitical_ für die Weltlage in 60 Sekunden",
+   "bullets": ["Steigt Öl über 120 $? Schreib's in die Kommentare."],
+   "say": "Folge Geopolitical. Steigt Öl über hundertzwanzig Dollar? Schreib's in die Kommentare."}
+ ]
+}
