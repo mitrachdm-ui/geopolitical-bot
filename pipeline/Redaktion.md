@@ -31,6 +31,8 @@ Alle drei ersten Videos verloren die meisten Zuschauer bei **0:01** (nach 4 s nu
 
 **Animation (seit 20.10.):** Jede Folie wird animiert gerendert – Tag/Titel fliegen ein, Stichpunkte erscheinen nacheinander im Takt der Stimme (darum pro Folie 2–3 Stichpunkte, in der Reihenfolge des Sprechertexts), Fortschrittsbalken läuft mit, Zahlen zählen hoch. Dezente Soundeffekte (Wusch beim Folienwechsel, Klick je Stichpunkt, Puls im Hintergrund) – abschaltbar mit `"sfx": false` in slides.json.
 
+**Weltkarte (seit 20.10.):** Hintergrund ist eine Weltkarte; die Länder des Themas leuchten rot und pulsieren, die Karte zoomt auf die Region. Länder werden automatisch aus dem Tag erkannt (z. B. „JEMEN · SAUDI-ARABIEN“, „RIAD“, „HORMUS“). Sonst in slides.json pro Folie `"map": ["SAU", "YEM"]` (ISO-3-Codes) setzen; `"map": []` = nur Weltkarte. Das zuerst genannte Land bestimmt den Ausschnitt. Bei Markt-/Ölfolien ohne Land bleibt die Weltkarte ohne Markierung.
+
 Der Renderer setzt automatisch um: Folie 1 ohne Kopfzeile/Datum/Fußzeile, Stimme ab 0,0 s, Zahl zählt hoch, Punch-in-Zoom, Farbschein hinter der Zahl, stärkerer Zoom auf allen Folien.
 
 ## Hook-Formeln

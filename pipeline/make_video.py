@@ -44,22 +44,24 @@ def wrap(d, text, fnt, maxw):
     lines.append(cur)
     return lines
 
-def base(idx, total, date, hook=False, bar=True):
+def base(idx, total, date, hook=False, bar=True, globe=True):
     im = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(im)
     for y in range(H):
         k = y / H
         d.line([(0, y), (W, y)], fill=tuple(int(BG[i] + (BG2[i] - BG[i]) * k) for i in range(3)))
-    # dezenter Globus als Wasserzeichen
     import math
+    if not globe:   # Weltkarte statt Globus (wird in layout() gezeichnet)
+        cx = None
+    # dezenter Globus als Wasserzeichen
     cx, cy, R, LC = W * 0.78, H * 0.80, 520, (28, 42, 74)
-    d.ellipse([cx-R, cy-R, cx+R, cy+R], outline=LC, width=4)
-    for k in range(1, 6):
+    for k in (range(1, 6) if globe else []):
         rx = abs(R * math.cos(k * math.pi / 6)) or 1
         d.ellipse([cx-rx, cy-R, cx+rx, cy+R], outline=LC, width=3)
-    for lat in (-60, -30, 0, 30, 60):
+    if globe: d.ellipse([cx-R, cy-R, cx+R, cy+R], outline=LC, width=4)
+    for lat in ((-60, -30, 0, 30, 60) if globe else ()):
         yy = cy + R * math.sin(math.radians(lat)); hw = R * math.cos(math.radians(lat)); hh = hw * 0.3
-        d.arc([cx-hw, yy-hh, cx+hw, yy+hh], 0, 180, fill=LC, width=3)
+        if globe: d.arc([cx-hw, yy-hh, cx+hw, yy+hh], 0, 180, fill=LC, width=3)
     # Fortschrittsbalken
     seg = (W - 140 - (total - 1) * 12) / total
     for i in (range(total) if bar else []):
@@ -185,10 +187,119 @@ def ease(t):
 def sprite(w, h):
     im = Image.new("RGBA", (int(w), int(h)), (0, 0, 0, 0)); return im, ImageDraw.Draw(im)
 
+
+# ============================ Weltkarte (seit 20.10.2026) ============================
+# Hintergrund = Weltkarte (Natural Earth, gemeinfrei). Betroffene Länder leuchten rot und
+# pulsieren; die Karte zoomt automatisch auf die Region. Steuerung pro Folie in slides.json:
+#   "map": ["SAU", "YEM"]   Ländercodes (ISO-3/ADM0_A3) – sonst automatisch aus dem Tag
+#   "map": []               nur Weltkarte, nichts markiert
+#   "map_box": [lon1, lat1, lon2, lat2]   Ausschnitt manuell
+_WORLD = None
+def world():
+    global _WORLD
+    if _WORLD is None:
+        p = os.path.join(HERE, "assets", "welt.json")
+        _WORLD = json.load(open(p, encoding="utf-8")) if os.path.exists(p) else []
+    return _WORLD
+
+ALIAS = {   # Wörter aus Tags -> Ländercodes
+    "USA": ["USA"], "US": ["USA"], "WASHINGTON": ["USA"], "RUSSLAND": ["RUS"], "MOSKAU": ["RUS"],
+    "UKRAINE": ["UKR"], "KIEW": ["UKR"], "CHINA": ["CHN"], "PEKING": ["CHN"], "TAIWAN": ["TWN"], "TAIPEH": ["TWN"],
+    "IRAN": ["IRN"], "TEHERAN": ["IRN"], "ISRAEL": ["ISR"], "GAZA": ["PSX", "ISR"], "LIBANON": ["LBN"],
+    "JEMEN": ["YEM"], "HUTHIS": ["YEM"], "SAUDI-ARABIEN": ["SAU"], "RIAD": ["SAU"], "KATAR": ["QAT"],
+    "VAE": ["ARE"], "DUBAI": ["ARE"], "OMAN": ["OMN"], "IRAK": ["IRQ"], "SYRIEN": ["SYR"], "TÜRKEI": ["TUR"],
+    "ÄGYPTEN": ["EGY"], "SUEZ": ["EGY"], "HORMUS": ["IRN", "OMN", "ARE"], "ROTES": ["YEM", "ERI", "SAU"],
+    "NORDKOREA": ["PRK"], "SÜDKOREA": ["KOR"], "JAPAN": ["JPN"], "INDIEN": ["IND"], "PAKISTAN": ["PAK"],
+    "DEUTSCHLAND": ["DEU"], "BERLIN": ["DEU"], "FRANKREICH": ["FRA"], "POLEN": ["POL"], "EU": ["EUR"],
+    "NATO": ["NATO"], "VENEZUELA": ["VEN"], "BRASILIEN": ["BRA"], "PHILIPPINEN": ["PHL"], "OPEC": ["SAU", "IRQ", "ARE", "KWT", "IRN"],
+}
+GROUPS = {"EUR": ["DEU", "FRA", "ITA", "ESP", "POL", "NLD", "BEL", "AUT", "SWE", "FIN", "DNK", "PRT", "GRC", "CZE", "HUN", "ROU", "BGR", "SVK", "HRV", "SVN", "IRL", "LTU", "LVA", "EST", "LUX"],
+          "NATO": ["USA", "CAN", "GBR", "DEU", "FRA", "ITA", "ESP", "POL", "NLD", "BEL", "NOR", "TUR", "SWE", "FIN", "DNK", "PRT", "GRC", "CZE", "HUN", "ROU", "BGR", "SVK", "HRV", "SVN", "LTU", "LVA", "EST", "LUX", "ALB", "MNE", "MKD", "ISL"]}
+
+def map_codes(s):
+    if "map" in s: codes = s["map"]
+    else:
+        codes = []
+        for w in s.get("tag", "").replace("·", " ").split():
+            codes += ALIAS.get(w.upper(), [])
+        names = {c["de"].upper(): c["a3"] for c in world() if c.get("de")}
+        for w in s.get("tag", "").split("·"):
+            if w.strip().upper() in names: codes.append(names[w.strip().upper()])
+    out = []
+    for c in codes: out += GROUPS.get(c, [c])
+    return list(dict.fromkeys(out))
+
+def draw_map(bg, s, hook):
+    """Zeichnet die Karte auf bg; gibt (Hintergrund, Markierungs-Ebene RGBA oder None) zurück."""
+    import math
+    from PIL import ImageFilter
+    W_ = world()
+    if not W_: return bg, None
+    codes = set(map_codes(s))
+    sel = [c for c in W_ if c["a3"] in codes]
+    def bbox(cs):
+        xs = [x for c in cs for poly in c["p"] for x, _ in poly[0]]
+        ys = [y for c in cs for poly in c["p"] for _, y in poly[0]]
+        return min(xs), min(ys), max(xs), max(ys)
+    world_view = False
+    if s.get("map_box"): lo1, la1, lo2, la2 = s["map_box"]
+    elif sel:
+        lo1, la1, lo2, la2 = bbox(sel)
+        if lo2 - lo1 > 70:                                  # zu groß: auf das erstgenannte Land zielen
+            first = [c for c in sel if c["a3"] == map_codes(s)[0]] or sel[:1]
+            lo1, la1, lo2, la2 = bbox(first)
+        if lo2 - lo1 > 300: lo1, lo2 = 20, 180               # Russland über Datumsgrenze
+    else:
+        lo1, la1, lo2, la2 = -50, 0, 110, 60; world_view = True   # Europa/Nahost/Asien im Blick
+    clat = (la1 + la2) / 2; kx = math.cos(math.radians(max(min(clat, 70), -70)))
+    if world_view:
+        sc = W / ((lo2 - lo1) * kx)
+    else:   # Markierung passt in das untere Feld (ca. 55–83 % der Höhe)
+        sc = min(W * 0.58 / max((lo2 - lo1) * kx, 12), H * 0.21 / max(la2 - la1, 8))
+        sc = max(sc, W / 110)
+    cxl, cyl = (lo1 + lo2) / 2, clat
+    ox, oy = W * 0.52, H * 0.68
+    fx1, fy1, fx2, fy2 = lo1, la1, lo2, la2
+    def P(x, y): return (ox + (x - cxl) * kx * sc, oy - (y - cyl) * sc)
+    land = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dl = ImageDraw.Draw(land)
+    for c in W_:
+        if c["a3"] in codes: continue
+        for poly in c["p"]:
+            pts = [P(x, y) for x, y in poly[0]]
+            if len(pts) > 2: dl.polygon(pts, fill=(24, 37, 66, 255), outline=(48, 68, 108, 255))
+    hl = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dh = ImageDraw.Draw(hl)
+    farea = max((fx2 - fx1) * (fy2 - fy1), 1)
+    for c in sel:
+        bx1, by1, bx2, by2 = bbox([c])
+        huge = (bx2 - bx1) * (by2 - by1) > 4 * farea        # Riesenland (z. B. Russland) nur andeuten
+        for poly in c["p"]:
+            pts = [P(x, y) for x, y in poly[0]]
+            if len(pts) > 2:
+                dh.polygon(pts, fill=(232, 72, 72, 70 if huge else 255), outline=(255, 120, 120, 255))
+                if huge: dh.line(pts + pts[:1], fill=(255, 110, 110, 255), width=4)
+    # sanft nach oben ausblenden, damit Text lesbar bleibt
+    fade = Image.linear_gradient("L").resize((W, H))      # 0 oben … 255 unten
+    fade = fade.point(lambda v: int(min(255, max(0, (v - 40) * 1.6))))
+    land.putalpha(Image.composite(land.getchannel("A"), Image.new("L", (W, H), 0), fade))
+    bg = bg.convert("RGBA"); bg.alpha_composite(land)
+    if sel:
+        g = hl.filter(ImageFilter.GaussianBlur(40))
+        g.putalpha(g.getchannel("A").point(lambda v: int(v * 0.8)))
+        bg.alpha_composite(g)                              # roter Schein (statisch)
+        return bg.convert("RGB"), hl
+    return bg.convert("RGB"), None
+
 def layout(s, idx, total, date):
     """Hintergrund (statisch) + Liste animierter Elemente: dict(img, x, y, kind, fx)."""
     hook = idx == 0
-    bg, d = base(idx, total, date, hook, bar=False)
+    has_map = bool(world())
+    bg, d = base(idx, total, date, hook, bar=False, globe=not has_map)
+    hl = None
+    if has_map:
+        bg, hl = draw_map(bg, s, hook); d = ImageDraw.Draw(bg)
+        if not hook:
+            d.text((70, H - 300), "KI-Stimme · Keine Anlageberatung · Quellen in der Beschreibung",
+                   font=font(26, False), fill=GREY)
     col_big = COLORS.get(s.get("bigcolor", "WHITE" if not hook else "RED"), WHITE)
     if s.get("big"):
         bg = glow(bg, W * 0.42, 720 if hook else 640, 620 if hook else 480, col_big, 0.55 if hook else 0.35)
@@ -227,11 +338,11 @@ def layout(s, idx, total, date):
         if not arrow: dd.ellipse([5, 20, 25, 40], fill=AMBER)
         for k, line in enumerate(bl): dd.text((x0 - 70, k * 62), line, font=bfnt, fill=col)
         els.append(dict(img=im, x=70, y=y, kind="bullet", fx="right")); y += 62 * len(bl) + 26
-    if not hook and els:   # Inhalt mittig im sichtbaren Bereich (unten liegt die TikTok-Beschriftung)
+    if not hook and els and not world():   # ohne Karte: Inhalt mittig im sichtbaren Bereich (unten liegt die TikTok-Beschriftung)
         top, bottom = 330, H - 520
         shift = max(0, int((bottom - top - (y - els[0]["y"])) / 2 + top - els[0]["y"]))
         for e in els: e["y"] += shift
-    return bg, els
+    return bg, els, hl
 
 def schedule(els, dur, hook):
     """Einblendzeitpunkte: Tag/Zahl/Titel sofort, Stichpunkte gleichmäßig über die Sprechzeit."""
@@ -255,8 +366,14 @@ def big_sprite(e, text, cache):
 
 def anim_clip(s, idx, total, date, dur, path):
     hook = idx == 0
-    bg, els = layout(s, idx, total, date)
+    bg, els, hl = layout(s, idx, total, date)
     pops = schedule(els, dur, hook)
+    pulse = []
+    if hl is not None:   # 12 Helligkeitsstufen vorberechnen, dann pulsieren lassen
+        import math
+        A = hl.getchannel("A")
+        for k in range(12):
+            lv = hl.copy(); lv.putalpha(A.point(lambda v, f=0.55 + 0.4 * k / 11: int(v * f))); pulse.append(lv)
     nf, cache = int(dur * FPS), {}
     cu = countup_values(s["big"], int(0.7 * FPS)) if s.get("big") else None
     seg = (W - 140 - (total - 1) * 12) / total
@@ -266,6 +383,9 @@ def anim_clip(s, idx, total, date, dur, path):
     for f in range(nf):
         t = f / FPS
         fr = bg.copy().convert("RGBA")
+        if pulse:
+            ph = (math.sin(2 * math.pi * t / 1.4) + 1) / 2          # ein Puls alle 1,4 s
+            fr.alpha_composite(pulse[int(ph * 11)])
         d = ImageDraw.Draw(fr)
         for i in range(total):                       # Fortschrittsbalken läuft mit
             x = 70 + i * (seg + 12)
