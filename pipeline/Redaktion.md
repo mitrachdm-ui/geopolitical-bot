@@ -35,6 +35,17 @@ Alle drei ersten Videos verloren die meisten Zuschauer bei **0:01** (nach 4 s nu
 
 Der Renderer setzt automatisch um: Folie 1 ohne Kopfzeile/Datum/Fußzeile, Stimme ab 0,0 s, Zahl zählt hoch, Punch-in-Zoom, Farbschein hinter der Zahl, stärkerer Zoom auf allen Folien.
 
+## Regionen-Mix (Pflicht, seit 20.10.2026)
+
+Publikum: DACH, 45+. Wir sind ein Weltlage-Kanal, kein Nahost-Kanal.
+
+1. **Höchstens 2 Top-Themen pro Kalenderwoche aus derselben Region** (Regionen: Europa/Ukraine-Russland · Nahost/Golf · Asien-Pazifik · Amerika · Afrika). Ausnahme nur bei einer klar größeren Lage (z. B. neue Kriegshandlung mit direkter Wirkung auf Europa) – Begründung in research.md.
+2. **Jedes Video enthält mindestens ein Thema aus einer anderen Region** als das Top-Thema (Kurzformat: in der Markt- oder Ausblick-Zeile reicht ein Satz).
+3. **Bei gleichwertigen Themen gewinnt Europa/Ukraine oder ein Thema mit direkter Folge für Deutschland** (Energiepreise, Exporte, Zölle, Sicherheit).
+4. **Öl ist Markt, kein Selbstläufer:** Der Ölpreis gehört auf die Markt-Folie; Top-Thema nur bei außergewöhnlicher Bewegung.
+5. Vor der Themenwahl die Spalte „Region“ in `published/log.md` der letzten 7 Tage prüfen. Jede neue Log-Zeile bekommt die Region des Top-Themas.
+6. Die Sonntagsauswertung zählt den Regionen-Mix und empfiehlt keine Serien, die Regel 1 brechen.
+
 ## Hook-Formeln
 
 - **Rekord:** „Zehn Schiffe in einer Woche angegriffen. Das gab es noch nie.“
@@ -100,7 +111,7 @@ Fehler im veröffentlichten Video → sofort Korrektur-Kommentar (anpinnen) bzw.
 ## Längen-Test (19.10.–01.11.2026)
 
 - Mo / Mi / Fr: **Kurzformat** 30–35 s – 4–5 Folien, ca. 55–62 Wörter, 1 Thema
-- Di / Do: **Langformat** 50–60 s – 6–8 Folien, ca. 120–135 Wörter
+- Di / Do: **Langformat** 50–60 s – 6–8 Folien, ca. 115–130 Wörter (hart ≤ 60 s)
 - Sa (Rückblick) / So (Erklärvideo): Langformat
 - Auswertung am 01.11. in `analytics/`: Ø gesehene Sekunden, Abschlussrate, Shares und neue Follower je 1.000 Aufrufe – jeweils kurz vs. lang.
 

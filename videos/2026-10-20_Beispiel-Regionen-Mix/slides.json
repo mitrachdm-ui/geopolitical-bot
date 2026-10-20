@@ -1,0 +1,29 @@
+{
+ "date": "Stand: Dienstag, 20. Oktober 2026",
+ "outfile": "geopolitical_2026-10-20_beispiel_mix.mp4",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "slides": [
+  {"sec": 3, "tag": "TAIWAN · CHINA", "big": "16", "bigcolor": "RED",
+   "title": "Chinesische Schiffe vor Taiwan",
+   "say": "Sechzehn chinesische Schiffe gleichzeitig vor Taiwan. Das meldet Taipeh."},
+  {"sec": 9, "tag": "TAIWAN · CHINA",
+   "title": "Taipeh spricht von hybrider Kriegsführung",
+   "bullets": ["Küstenwache, Forschungs- und Fischerschiffe", "Teils in Taiwans Sperrgewässern", "Peking: bislang keine Stellungnahme"],
+   "source": "Taiwans Küstenwache via AFP, Marine Insight, Eastern Herald, 18.–19.10.",
+   "say": "Darunter Küstenwache, Forschungs- und Fischerschiffe. Einige drangen laut Taipeh in Sperrgewässer ein. Taiwan spricht von hybrider Kriegsführung."},
+  {"sec": 9, "tag": "UKRAINE · USA", "tagcolor": "BLUE",
+   "title": "Trump attackiert Selenskyj",
+   "bullets": ["Trump verteidigt Lockerung von Russland-Sanktionen", "Trump: Selenskyj wolle Krieg nicht beenden", "Selenskyj kritisiert Washingtons Kurs"],
+   "source": "Al Jazeera, New York Times, CNN, 18.–19.10.",
+   "say": "Auch in Europa wächst der Druck. Trump verteidigt seine Lockerung von Russland-Sanktionen. Selenskyj wolle den Krieg gar nicht beenden, schreibt er."},
+  {"sec": 7, "tag": "ÖLPREIS", "tagcolor": "AMBER", "big": "109 $", "bigcolor": "AMBER",
+   "title": "Brent nahe Fünfmonatshoch",
+   "bullets": ["▼ Schluss Montag 109,55 $ (−0,3 %)", "▲ Zeitweise 110,70 $ – Hoch seit Mai"],
+   "source": "Reuters, Nation Thailand, Investing.com, 19.–20.10.",
+   "say": "Und Öl bleibt teuer. Brent schloss am Montag bei rund hundertneun Dollar."},
+  {"sec": 5, "title": "Folge Geopolitical_ für die Weltlage in 60 Sekunden",
+   "bullets": ["Wie siehst du die Lage um Taiwan? Schreib's in die Kommentare."],
+   "say": "Folge Geopolitical. Wie siehst du die Lage um Taiwan? Schreib's in die Kommentare."}
+ ]
+}
