@@ -67,7 +67,12 @@ Publikum: DACH, 45+. Wir sind ein Weltlage-Kanal, kein Nahost-Kanal.
 | Sonntag | **Serie „SONNTAG ERKLÄRT“** – in slides.json `"series": "SONNTAG ERKLÄRT"` setzen (Renderer schaltet auf den eigenen Look: helles Atlas-Papier, Türkis, nummerierte Stichpunkte, Serien-Logo). CTA: „Folge Geopolitical_ – jeden Sonntag erklären wir ein Thema.“ Format: **Erklär-Video** – ein Hintergrund (z. B. „Was ist die Straße von Hormus?“, „Wie wirken Sanktionen?“, „Wer sind die Houthis?“) |
 | Bei Eilmeldung | **Breaking** – 20–30 Sek., nur ein Thema |
 
-Erklär-Ideen auf Vorrat: Suwalki-Lücke · Straße von Hormus · OPEC+ · Strategische Ölreserve · Sanktionspakete der EU · Houthis · Taiwan & Chips · Seltene Erden · Rubel/Ölpreisdeckel · NATO-Artikel 5 · Fed & Ölpreis
+Erklär-Ideen auf Vorrat (Reihenfolge = Priorität, oberstes passendes Thema nehmen und danach streichen; Regionen-Mix beachten):
+1. **Vorrang – Energie & Wirtschaft (Bezug Deutschland):** Wie funktioniert der Ölpreis – und warum zahlen wir mehr an der Tankstelle? · Seltene Erden: Warum China am längeren Hebel sitzt · Was sind Sanktionen – und wirken sie? · Straße von Hormus: Nadelöhr fürs Öl der Welt
+2. **Europa & Sicherheit:** Suwalki-Lücke · Kaliningrad: Russlands Exklave in der EU · NATO-Artikel 5: Was passiert im Ernstfall? · Warum die Ostsee so wichtig ist
+3. **Asien:** Taiwan & Chips · Südchinesisches Meer: Wem gehört das Wasser? · Straße von Malakka
+4. **Weltordnung:** BRICS – Gegenmodell zum Westen? · UN-Sicherheitsrat: Warum er sich blockiert · Arktis: Wettlauf ums Eis
+5. **Weitere:** OPEC+ · Strategische Ölreserve · Houthis · Rubel/Ölpreisdeckel · Fed & Ölpreis
 
 ## Hashtags (3–5 pro Video, präzise)
 
