@@ -23,10 +23,32 @@ VOICE_DEFAULT = "de-DE-SeraphinaMultilingualNeural"   # gewählt 18.10.2026 (Sti
 BG, BG2 = (8, 13, 26), (22, 34, 62)
 WHITE, GREY, DIM = (240, 243, 248), (150, 162, 185), (50, 62, 90)
 AMBER, RED, GREEN, BLUE = (245, 180, 60), (232, 72, 72), (70, 200, 120), (90, 150, 240)
-TEAL = (60, 200, 210)
-SERIES = None          # z. B. "SONNTAG ERKLÄRT" – wird aus slides.json ("series") gesetzt
-def accent(): return TEAL if SERIES else AMBER
+TEAL = (0, 150, 160)
+SERIES = None          # Serien-Name fürs Logo, aus slides.json ("series")
+THEME = "tag"          # "tag" (Mo–Fr) · "erklaert" (Sonntag) · "ausblick" (Samstag)
+ACCENT = AMBER
+LAND, LAND_EDGE, HL, HL_EDGE = (24, 37, 66), (48, 68, 108), (232, 72, 72), (255, 120, 120)
+def accent(): return ACCENT
 COLORS = {"TEAL": TEAL, "AMBER": AMBER, "RED": RED, "GREEN": GREEN, "WHITE": WHITE, "BLUE": BLUE}
+
+def apply_theme(name):
+    """Serien-Looks. Sonntag = helles Atlas-Papier, Samstag = Anthrazit mit Kalenderkarten."""
+    global BG, BG2, WHITE, GREY, DIM, ACCENT, LAND, LAND_EDGE, HL, HL_EDGE, THEME, GREEN, RED
+    THEME = name or "tag"
+    if THEME == "erklaert":
+        BG, BG2 = (246, 241, 230), (232, 224, 206)
+        WHITE, GREY, DIM = (22, 30, 48), (110, 108, 100), (210, 200, 180)
+        ACCENT = TEAL
+        LAND, LAND_EDGE = (225, 214, 190), (196, 182, 152)
+        HL, HL_EDGE = (0, 150, 160), (0, 110, 120)
+        GREEN, RED = (20, 140, 80), (200, 50, 50)
+    elif THEME == "ausblick":
+        BG, BG2 = (16, 16, 19), (40, 36, 31)
+        WHITE, GREY, DIM = (244, 240, 232), (168, 160, 148), (70, 64, 56)
+        ACCENT = AMBER
+        LAND, LAND_EDGE = (44, 41, 37), (78, 72, 64)
+        HL, HL_EDGE = (245, 180, 60), (255, 215, 130)
+    COLORS.update({"WHITE": WHITE, "RED": RED, "GREEN": GREEN})
 
 def _font_path(bold):
     cands = [os.path.join(HERE, "fonts", "Inter-Bold.otf" if bold else "Inter-Regular.otf"),
@@ -49,8 +71,8 @@ def wrap(d, text, fnt, maxw):
 
 def series_badge(d, x, y):
     f = font(34, black=True); tw = d.textlength(SERIES, font=f)
-    d.rounded_rectangle([x, y, x + tw + 44, y + 58], 29, outline=TEAL, width=4)
-    d.text((x + 22, y + 9), SERIES, font=f, fill=TEAL)
+    d.rounded_rectangle([x, y, x + tw + 44, y + 58], 29, fill=ACCENT)
+    d.text((x + 22, y + 9), SERIES, font=f, fill=(255, 255, 255) if THEME == "erklaert" else (20, 18, 15))
 
 def base(idx, total, date, hook=False, bar=True, globe=True):
     im = Image.new("RGB", (W, H), BG)
@@ -92,6 +114,7 @@ def base(idx, total, date, hook=False, bar=True, globe=True):
     return im, d
 
 def glow(im, cx, cy, r, col, strength=0.55):
+    if THEME == "erklaert": return im
     """Weicher Farbschein hinter der Hook-Zahl (mehr Kontrast im Feed)."""
     from PIL import ImageFilter
     g = Image.new("RGB", (W, H), (0, 0, 0)); gd = ImageDraw.Draw(g)
@@ -124,7 +147,7 @@ def render(s, idx, total, date, big_override=None):
         d.text((70, y), line, font=tf, fill=WHITE); y += tf.size + 16
     y += 40
     bfnt = font(48, False)
-    for b in s.get("bullets", []):
+    for bn, b in enumerate(s.get("bullets", []), 1):
         inv = b.startswith("!")          # "!▲ VIX" = steigt, ist aber schlecht -> rot
         b = b.lstrip("!")
         arrow = b[:1] in ("▲", "▼")
@@ -255,8 +278,12 @@ def draw_map(bg, s, hook):
     world_view = False
     if s.get("map_box"): lo1, la1, lo2, la2 = s["map_box"]
     elif sel:   # Ausschnitt = zuerst genanntes Land (Hauptschauplatz)
-        first = [c for c in sel if c["a3"] == map_codes(s)[0]] or sel[:1]
-        lo1, la1, lo2, la2 = bbox(first)
+        first = ([c for c in sel if c["a3"] == map_codes(s)[0]] or sel[:1])[0]
+        def area(poly):
+            xs = [x for x, _ in poly[0]]; ys = [y for _, y in poly[0]]
+            return (max(xs) - min(xs)) * (max(ys) - min(ys))
+        core = max(first["p"], key=area)        # Hauptfläche (ohne Alaska/Hawaii/Inseln)
+        lo1, la1, lo2, la2 = bbox([{"p": [core]}])
         if lo2 - lo1 > 300: lo1, lo2 = 20, 180               # Russland über Datumsgrenze
     else:
         lo1, la1, lo2, la2 = -50, 0, 110, 60; world_view = True   # Europa/Nahost/Asien im Blick
@@ -268,6 +295,7 @@ def draw_map(bg, s, hook):
         sc = max(sc, W / 110)
     cxl, cyl = (lo1 + lo2) / 2, clat
     ox, oy = W * 0.52, H * 0.68
+    if s.get("cal") and not world_view: sc *= 0.75; oy = H * 0.74     # Kalenderkarte braucht Platz
     fx1, fy1, fx2, fy2 = lo1, la1, lo2, la2
     def P(x, y): return (ox + (x - cxl) * kx * sc, oy - (y - cyl) * sc)
     land = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dl = ImageDraw.Draw(land)
@@ -275,7 +303,7 @@ def draw_map(bg, s, hook):
         if c["a3"] in codes: continue
         for poly in c["p"]:
             pts = [P(x, y) for x, y in poly[0]]
-            if len(pts) > 2: dl.polygon(pts, fill=(24, 37, 66, 255), outline=(48, 68, 108, 255))
+            if len(pts) > 2: dl.polygon(pts, fill=LAND + (255,), outline=LAND_EDGE + (255,))
     hl = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dh = ImageDraw.Draw(hl)
     farea = max((fx2 - fx1) * (fy2 - fy1), 1)
     mainl = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dm = ImageDraw.Draw(mainl)
@@ -286,9 +314,9 @@ def draw_map(bg, s, hook):
         for poly in c["p"]:
             pts = [P(x, y) for x, y in poly[0]]
             if len(pts) > 2:
-                dh.polygon(pts, fill=(232, 72, 72, 255 if main else (0 if huge else 90)), outline=(255, 120, 120, 255))
-                if main: dm.polygon(pts, fill=(232, 72, 72, 255))
-                if huge: dh.line(pts + pts[:1], fill=(255, 110, 110, 200), width=3)
+                dh.polygon(pts, fill=HL + (255 if main else (0 if huge else 90),), outline=HL_EDGE + (255,))
+                if main: dm.polygon(pts, fill=HL + (255,))
+                if huge: dh.line(pts + pts[:1], fill=HL_EDGE + (200,), width=3)
     # sanft nach oben ausblenden, damit Text lesbar bleibt
     fade = Image.linear_gradient("L").resize((W, H))      # 0 oben … 255 unten
     fade = fade.point(lambda v: int(min(255, max(0, (v - 40) * 1.6))))
@@ -312,7 +340,8 @@ def layout(s, idx, total, date):
         if not hook:
             d.text((70, H - 300), "KI-Stimme · Keine Anlageberatung · Quellen in der Beschreibung",
                    font=font(26, False), fill=GREY)
-    col_big = COLORS.get(s.get("bigcolor", "WHITE" if not hook else "RED"), WHITE)
+    dbig = {"erklaert": "TEAL", "ausblick": "AMBER"}.get(THEME, "RED" if hook else "WHITE")
+    col_big = COLORS.get(s.get("bigcolor", dbig), WHITE)
     if s.get("big"):
         bg = glow(bg, W * 0.42, 720 if hook else 640, 620 if hook else 480, col_big, 0.55 if hook else 0.35)
         d = ImageDraw.Draw(bg)
@@ -322,9 +351,20 @@ def layout(s, idx, total, date):
     if s.get("tag"):
         tf = font(38); tw = d.textlength(s["tag"], font=tf) + 50
         im, dd = sprite(tw, 70)
-        dd.rounded_rectangle([0, 0, tw - 1, 69], 14, fill=COLORS.get(s.get("tagcolor", "RED"), RED))
-        dd.text((25, 12), s["tag"], font=tf, fill=WHITE)
+        dflt = {"erklaert": "TEAL", "ausblick": "AMBER"}.get(THEME, "RED")
+        dd.rounded_rectangle([0, 0, tw - 1, 69], 14, fill=COLORS.get(s.get("tagcolor", dflt), RED))
+        dd.text((25, 12), s["tag"], font=tf, fill=(255, 255, 255) if THEME != "ausblick" else (20, 18, 15))
         els.append(dict(img=im, x=70, y=y, kind="tag", fx="left")); y += 120
+    if s.get("cal"):
+        wd, day, mon = (s["cal"] + ["", "", ""])[:3]
+        cw, ch = 300, 330
+        im, dd = sprite(cw, ch)
+        dd.rounded_rectangle([0, 0, cw - 1, ch - 1], 28, fill=(250, 246, 238))
+        dd.rounded_rectangle([0, 0, cw - 1, 96], 28, fill=AMBER); dd.rectangle([0, 60, cw - 1, 96], fill=AMBER)
+        f1 = font(52, black=True); dd.text(((cw - dd.textlength(wd, font=f1)) / 2, 18), wd, font=f1, fill=(20, 18, 15))
+        f2 = font(150, black=True); dd.text(((cw - dd.textlength(day, font=f2)) / 2, 100), day, font=f2, fill=(20, 18, 15))
+        f3 = font(44); dd.text(((cw - dd.textlength(mon, font=f3)) / 2, 262), mon, font=f3, fill=(120, 110, 95))
+        els.append(dict(img=im, x=70, y=y, kind="tag", fx="up")); y += ch + 50
     if s.get("big"):
         bf = font(330 if hook else 230, black=True)
         while d.textlength(s["big"], font=bf) > W - 140: bf = font(bf.size - 10, black=True)
@@ -339,7 +379,7 @@ def layout(s, idx, total, date):
         els.append(dict(img=im, x=70, y=y, kind="title", fx="up")); y += lh * len(lines)
     y += 40
     bfnt = font(48, False)
-    for b in s.get("bullets", []):
+    for bn, b in enumerate(s.get("bullets", []), 1):
         inv = b.startswith("!"); b = b.lstrip("!")
         arrow = b[:1] in ("▲", "▼")
         col = GREEN if b.startswith("▲") else RED if b.startswith("▼") else WHITE
@@ -347,7 +387,10 @@ def layout(s, idx, total, date):
         x0 = 70 if arrow else 120
         bl = wrap(d, b, bfnt, W - x0 - RM)
         im, dd = sprite(W - 70, 62 * len(bl) + 10)
-        if not arrow: dd.ellipse([5, 20, 25, 40], fill=accent())
+        if not arrow and THEME == "erklaert":
+            dd.ellipse([0, 4, 40, 44], fill=ACCENT)
+            nf = font(28, black=True); dd.text((20 - dd.textlength(str(bn), font=nf) / 2, 8), str(bn), font=nf, fill=(255, 255, 255))
+        elif not arrow: dd.ellipse([5, 20, 25, 40], fill=accent())
         for k, line in enumerate(bl): dd.text((x0 - 70, k * 62), line, font=bfnt, fill=col)
         els.append(dict(img=im, x=70, y=y, kind="bullet", fx="right")); y += 62 * len(bl) + 26
     if not hook and els and not world():   # ohne Karte: Inhalt mittig im sichtbaren Bereich (unten liegt die TikTok-Beschriftung)
@@ -492,6 +535,7 @@ def main():
     slides = data["slides"]
     global SERIES
     SERIES = data.get("series")
+    apply_theme(data.get("theme") or {"SONNTAG ERKLÄRT": "erklaert", "WOCHENAUSBLICK": "ausblick"}.get(SERIES))
     tmp = tempfile.mkdtemp(prefix="geo_")
     try:
         voices = make_voice(slides, data, tmp)

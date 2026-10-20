@@ -63,8 +63,8 @@ Publikum: DACH, 45+. Wir sind ein Weltlage-Kanal, kein Nahost-Kanal.
 | Tag | Format |
 |---|---|
 | Mo–Fr | **Tageslage** – Top-Thema + 2 Nebenthemen + Markt |
-| Samstag | **Wochenrückblick** – die 5 Ereignisse der Woche |
-| Sonntag | **Serie „SONNTAG ERKLÄRT“** – in slides.json `"series": "SONNTAG ERKLÄRT"` setzen (Renderer zeigt das Serien-Logo auf allen Folien, Akzentfarbe Türkis; Tags dann `"tagcolor": "TEAL"`). CTA: „Folge Geopolitical_ – jeden Sonntag erklären wir ein Thema.“ Format: **Erklär-Video** – ein Hintergrund (z. B. „Was ist die Straße von Hormus?“, „Wie wirken Sanktionen?“, „Wer sind die Houthis?“) |
+| Samstag | **Serie „WOCHENAUSBLICK“** – die 3 wichtigsten Termine der kommenden Woche (Zinsentscheide, Wahlen, Gipfel, OPEC, Abstimmungen, Fristen) und warum sie für Märkte/Deutschland zählen. Nur feststehende, offiziell angekündigte Termine; keine Prognosen als Tatsache („erwartet wird laut …“). In slides.json `"series": "WOCHENAUSBLICK"`; Hook z. B. `"big": "3"` + „Termine, die nächste Woche zählen“; je Termin eine Folie mit `"cal": ["MI", "28", "OKT"]` (Kalenderkarte) und Land im Tag (Karte). Look: Anthrazit, Gold, Kalenderkarten. CTA: „Folge Geopolitical_ – jeden Samstag der Ausblick.“ Langformat. Regionen-Mix: Termine aus mind. 2 Regionen. |
+| Sonntag | **Serie „SONNTAG ERKLÄRT“** – in slides.json `"series": "SONNTAG ERKLÄRT"` setzen (Renderer schaltet auf den eigenen Look: helles Atlas-Papier, Türkis, nummerierte Stichpunkte, Serien-Logo). CTA: „Folge Geopolitical_ – jeden Sonntag erklären wir ein Thema.“ Format: **Erklär-Video** – ein Hintergrund (z. B. „Was ist die Straße von Hormus?“, „Wie wirken Sanktionen?“, „Wer sind die Houthis?“) |
 | Bei Eilmeldung | **Breaking** – 20–30 Sek., nur ein Thema |
 
 Erklär-Ideen auf Vorrat: Suwalki-Lücke · Straße von Hormus · OPEC+ · Strategische Ölreserve · Sanktionspakete der EU · Houthis · Taiwan & Chips · Seltene Erden · Rubel/Ölpreisdeckel · NATO-Artikel 5 · Fed & Ölpreis
