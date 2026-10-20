@@ -44,7 +44,7 @@ def wrap(d, text, fnt, maxw):
     lines.append(cur)
     return lines
 
-def base(idx, total, date, hook=False):
+def base(idx, total, date, hook=False, bar=True):
     im = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(im)
     for y in range(H):
@@ -62,7 +62,7 @@ def base(idx, total, date, hook=False):
         d.arc([cx-hw, yy-hh, cx+hw, yy+hh], 0, 180, fill=LC, width=3)
     # Fortschrittsbalken
     seg = (W - 140 - (total - 1) * 12) / total
-    for i in range(total):
+    for i in (range(total) if bar else []):
         x = 70 + i * (seg + 12)
         d.rounded_rectangle([x, 90, x + seg, 100], 5, fill=AMBER if i <= idx else DIM)
     if hook:   # Hook-Folie: nichts, was nach Info-Tafel aussieht (Analyse 20.10.: Absprung bei 0:01)
@@ -174,6 +174,157 @@ def hook_clip(s, total, date, dur, path):
     proc.stdin.close(); proc.wait()
     if proc.returncode: raise SystemExit("Hook-Clip fehlgeschlagen")
 
+
+# ======================= Animations-Engine (seit 20.10.2026) =======================
+# Jede Folie wird Bild für Bild gerendert: Elemente fliegen nacheinander ein, Stichpunkte
+# erscheinen im Takt der Stimme, der Fortschrittsbalken läuft mit, Zahlen zählen hoch.
+
+def ease(t):
+    t = max(0.0, min(1.0, t)); return 1 - (1 - t) ** 3
+
+def sprite(w, h):
+    im = Image.new("RGBA", (int(w), int(h)), (0, 0, 0, 0)); return im, ImageDraw.Draw(im)
+
+def layout(s, idx, total, date):
+    """Hintergrund (statisch) + Liste animierter Elemente: dict(img, x, y, kind, fx)."""
+    hook = idx == 0
+    bg, d = base(idx, total, date, hook, bar=False)
+    col_big = COLORS.get(s.get("bigcolor", "WHITE" if not hook else "RED"), WHITE)
+    if s.get("big"):
+        bg = glow(bg, W * 0.42, 720 if hook else 640, 620 if hook else 480, col_big, 0.55 if hook else 0.35)
+        d = ImageDraw.Draw(bg)
+    if s.get("source") and not hook:
+        d.text((70, H - 360), "Quelle: " + s["source"], font=font(26, False), fill=GREY)
+    els, y = [], (330 if hook else 400)
+    if s.get("tag"):
+        tf = font(38); tw = d.textlength(s["tag"], font=tf) + 50
+        im, dd = sprite(tw, 70)
+        dd.rounded_rectangle([0, 0, tw - 1, 69], 14, fill=COLORS.get(s.get("tagcolor", "RED"), RED))
+        dd.text((25, 12), s["tag"], font=tf, fill=WHITE)
+        els.append(dict(img=im, x=70, y=y, kind="tag", fx="left")); y += 120
+    if s.get("big"):
+        bf = font(330 if hook else 230, black=True)
+        while d.textlength(s["big"], font=bf) > W - 140: bf = font(bf.size - 10, black=True)
+        els.append(dict(text=s["big"], font=bf, col=col_big, x=62, y=y - 20, kind="big", fx="pop"))
+        y += bf.size + 40
+    tf = font(96 if hook else 80)
+    lines = wrap(d, s.get("title", ""), tf, W - 70 - RM)
+    if lines and lines[0]:
+        lh = tf.size + 16
+        im, dd = sprite(W - 70, lh * len(lines) + 20)
+        for k, line in enumerate(lines): dd.text((0, k * lh), line, font=tf, fill=WHITE)
+        els.append(dict(img=im, x=70, y=y, kind="title", fx="up")); y += lh * len(lines)
+    y += 40
+    bfnt = font(48, False)
+    for b in s.get("bullets", []):
+        inv = b.startswith("!"); b = b.lstrip("!")
+        arrow = b[:1] in ("▲", "▼")
+        col = GREEN if b.startswith("▲") else RED if b.startswith("▼") else WHITE
+        if inv and arrow: col = RED if col == GREEN else GREEN
+        x0 = 70 if arrow else 120
+        bl = wrap(d, b, bfnt, W - x0 - RM)
+        im, dd = sprite(W - 70, 62 * len(bl) + 10)
+        if not arrow: dd.ellipse([5, 20, 25, 40], fill=AMBER)
+        for k, line in enumerate(bl): dd.text((x0 - 70, k * 62), line, font=bfnt, fill=col)
+        els.append(dict(img=im, x=70, y=y, kind="bullet", fx="right")); y += 62 * len(bl) + 26
+    if not hook and els:   # Inhalt mittig im sichtbaren Bereich (unten liegt die TikTok-Beschriftung)
+        top, bottom = 330, H - 520
+        shift = max(0, int((bottom - top - (y - els[0]["y"])) / 2 + top - els[0]["y"]))
+        for e in els: e["y"] += shift
+    return bg, els
+
+def schedule(els, dur, hook):
+    """Einblendzeitpunkte: Tag/Zahl/Titel sofort, Stichpunkte gleichmäßig über die Sprechzeit."""
+    bullets = [e for e in els if e["kind"] == "bullet"]
+    t = 0.0 if hook else 0.05
+    for e in els:
+        if e["kind"] in ("tag", "big", "title"):
+            e["t"] = t; t += 0.0 if hook else 0.12
+    span = max(dur - XF - 1.2, 0.5)
+    for k, e in enumerate(bullets):
+        e["t"] = 0.55 + span * k / max(len(bullets), 1)
+    return [e["t"] for e in bullets]
+
+def big_sprite(e, text, cache):
+    if text not in cache:
+        tw = int(ImageDraw.Draw(Image.new("RGB", (1, 1))).textlength(text, font=e["font"])) + 40
+        im, dd = sprite(tw, e["font"].size * 1.3)
+        dd.text((0, 0), text, font=e["font"], fill=e["col"])
+        cache[text] = im
+    return cache[text]
+
+def anim_clip(s, idx, total, date, dur, path):
+    hook = idx == 0
+    bg, els = layout(s, idx, total, date)
+    pops = schedule(els, dur, hook)
+    nf, cache = int(dur * FPS), {}
+    cu = countup_values(s["big"], int(0.7 * FPS)) if s.get("big") else None
+    seg = (W - 140 - (total - 1) * 12) / total
+    proc = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
+        "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-preset", "medium", "-crf", "20",
+        "-pix_fmt", "yuv420p", path], stdin=subprocess.PIPE)
+    for f in range(nf):
+        t = f / FPS
+        fr = bg.copy().convert("RGBA")
+        d = ImageDraw.Draw(fr)
+        for i in range(total):                       # Fortschrittsbalken läuft mit
+            x = 70 + i * (seg + 12)
+            d.rounded_rectangle([x, 90, x + seg, 100], 5, fill=DIM)
+            p = 1.0 if i < idx else (min(t / max(dur - XF, 0.1), 1.0) if i == idx else 0.0)
+            if p > 0: d.rounded_rectangle([x, 90, x + max(seg * p, 10), 100], 5, fill=AMBER)
+        for e in els:
+            a = 1.0 if hook else ease((t - e["t"]) / 0.35)   # Hook: ab Frame 1 lesbar
+            if a <= 0: continue
+            if e["kind"] == "big":
+                k = int((t - e["t"]) * FPS)
+                txt = cu[k] if cu and k < len(cu) else e["text"]
+                im = big_sprite(e, txt, cache)
+                sc = 1.0 + 0.18 * (1 - ease((t - e["t"]) / 0.25))      # kurzer „Pop“
+                if sc > 1.001:
+                    im = im.resize((int(im.width * sc), int(im.height * sc)), Image.BILINEAR)
+                x, y = e["x"], e["y"] - int((im.height - e["font"].size * 1.3) / 2)
+            else:
+                im, x, y = e["img"], e["x"], e["y"]
+                off = int(70 * (1 - a))
+                if e["fx"] == "left": x -= off
+                elif e["fx"] == "right": x += off
+                elif e["fx"] == "up": y += off
+            if a < 1:
+                im = im.copy(); im.putalpha(im.getchannel("A").point(lambda v: int(v * a)))
+            fr.alpha_composite(im, (int(x), int(y)))
+        fr = fr.convert("RGB")
+        if hook:
+            z = 1.08 - 0.08 * ease(t / 0.5) if t < 0.5 else 1.0 + 0.012 * (t - 0.5)
+        else:
+            z = 1.0 + 0.018 * t
+        if z != 1.0:
+            cw, ch = int(W / z), int(H / z)
+            x0, y0 = (W - cw) // 2, int((H - ch) * 0.35)
+            fr = fr.crop((x0, y0, x0 + cw, y0 + ch)).resize((W, H), Image.BILINEAR)
+        proc.stdin.write(fr.tobytes())
+    proc.stdin.close(); proc.wait()
+    if proc.returncode: raise SystemExit(f"Clip {idx} fehlgeschlagen")
+    return pops
+
+def make_sfx(tmp, total_len):
+    """Dezente Soundeffekte, synthetisch erzeugt (keine Lizenzfragen)."""
+    fx = {
+        "whoosh": "anoisesrc=color=pink:d=0.45:a=0.5,highpass=f=400,lowpass=f=5000,afade=t=in:d=0.25,afade=t=out:st=0.25:d=0.2,volume=0.22",
+        "pop":    "sine=f=880:d=0.09,afade=t=out:st=0.01:d=0.08,volume=0.10",
+        "impact": "sine=f=55:d=0.6,afade=t=out:st=0.02:d=0.58,volume=0.9",
+    }
+    out = {}
+    for k, f in fx.items():
+        p = os.path.join(tmp, f"sfx_{k}.wav")
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i", f, p], check=True); out[k] = p
+    # leiser Puls als Spannungsbett (unter der Stimme kaum hörbar, füllt aber Pausen)
+    p = os.path.join(tmp, "sfx_bed.wav")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i",
+        f"aevalsrc='0.5*sin(2*PI*1600*t)*exp(-90*mod(t,0.5))+0.35*sin(2*PI*65*t)*exp(-6*mod(t,1))':d={total_len:.2f}",
+        "-af", "volume=0.07,afade=t=out:st=" + f"{max(total_len-1.5,0):.2f}" + ":d=1.5", p], check=True)
+    out["bed"] = p
+    return out
+
 def probe(path):
     r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path],
                        capture_output=True, text=True)
@@ -215,16 +366,11 @@ def main():
             dur = float(s.get("sec", 6))
             if voices and voices[i]: dur = probe(voices[i]) + (0.1 if i == 0 else 0.35) + XF
             durs.append(dur)
-        pngs = [slide(s, i, len(slides), data["date"], tmp) for i, s in enumerate(slides)]
-        clips = []
-        for i, (p, dur) in enumerate(zip(pngs, durs)):
+        clips, pops = [], []
+        for i, (sl, dur) in enumerate(zip(slides, durs)):
             c = os.path.join(tmp, f"clip_{i:02d}.mp4")
-            if i == 0:
-                hook_clip(slides[0], len(slides), data["date"], dur, c); clips.append(c); continue
-            subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", p, "-t", f"{dur:.2f}",
-                "-vf", f"scale=1188:2112,zoompan=z='1+0.0006*on':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={int(dur*FPS)}:s={W}x{H}:fps={FPS},format=yuv420p",
-                "-c:v", "libx264", "-preset", "medium", "-crf", "20", c], check=True)
-            clips.append(c)
+            print(f"Folie {i+1}/{len(slides)} animieren …")
+            pops.append(anim_clip(sl, i, len(slides), data["date"], dur, c)); clips.append(c)
         # Video mit Überblendungen
         inputs, filt, last, off, starts = [], "", "0:v", 0.0, [0.0]
         for c in clips: inputs += ["-i", c]
@@ -233,14 +379,26 @@ def main():
             filt += f"[{last}][{i}:v]xfade=transition=slideleft:duration={XF}:offset={off:.2f}[v{i}];"; last = f"v{i}"
         cmd = ["ffmpeg", "-y", "-loglevel", "error", *inputs]
         amap = []
+        n = len(clips); k = 0; labels = []
+        total_len = sum(durs) - XF * (n - 1)
         if voices and any(voices):
-            n = len(clips); k = 0; labels = []
             for i, v in enumerate(voices):
                 if not v: continue
                 cmd += ["-i", v]
                 ms = 0 if i == 0 else int((starts[i] + 0.25) * 1000)   # Hook: Stimme ab Frame 1
                 filt += f"[{n+k}:a]adelay={ms}|{ms}[a{k}];"; labels.append(f"[a{k}]"); k += 1
-            filt += f"{''.join(labels)}amix=inputs={k}:normalize=0[aout];"
+        if data.get("sfx", True):
+            sfx = make_sfx(tmp, total_len)
+            events = [("impact", 0.62)] if slides[0].get("big") else []
+            events += [("whoosh", max(st - 0.2, 0)) for st in starts[1:]]
+            events += [("pop", starts[i] + t) for i, ts in enumerate(pops) for t in ts]
+            events += [("bed", 0.0)]
+            for name, t0 in events:
+                cmd += ["-i", sfx[name]]
+                ms = int(t0 * 1000)
+                filt += f"[{n+k}:a]adelay={ms}|{ms}[a{k}];"; labels.append(f"[a{k}]"); k += 1
+        if k:
+            filt += f"{''.join(labels)}amix=inputs={k}:normalize=0:duration=longest,atrim=0:{total_len:.2f}[aout];"
             amap = ["-map", "[aout]", "-c:a", "aac", "-b:a", "160k"]
         out = os.path.join(folder, data["outfile"])
         cmd += ["-filter_complex", filt.rstrip(";"), "-map", f"[{last}]", *amap,

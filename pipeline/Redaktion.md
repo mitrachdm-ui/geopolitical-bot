@@ -29,6 +29,8 @@ Alle drei ersten Videos verloren die meisten Zuschauer bei **0:01** (nach 4 s nu
 5. Die Quelle der Hook-Zahl steht nicht auf Folie 1 (Renderer blendet sie dort aus) → **auf Folie 2 wiederholen** (gleiches Thema vertiefen) und in POSTEN.txt.
 6. **Länge hart:** nie über 60 s (Renderer warnt). Kürzere Videos hielten besser (41 s: 23 % Ø gesehen vs. 54 s: 8 %).
 
+**Animation (seit 20.10.):** Jede Folie wird animiert gerendert – Tag/Titel fliegen ein, Stichpunkte erscheinen nacheinander im Takt der Stimme (darum pro Folie 2–3 Stichpunkte, in der Reihenfolge des Sprechertexts), Fortschrittsbalken läuft mit, Zahlen zählen hoch. Dezente Soundeffekte (Wusch beim Folienwechsel, Klick je Stichpunkt, Puls im Hintergrund) – abschaltbar mit `"sfx": false` in slides.json.
+
 Der Renderer setzt automatisch um: Folie 1 ohne Kopfzeile/Datum/Fußzeile, Stimme ab 0,0 s, Zahl zählt hoch, Punch-in-Zoom, Farbschein hinter der Zahl, stärkerer Zoom auf allen Folien.
 
 ## Hook-Formeln
