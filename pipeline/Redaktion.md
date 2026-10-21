@@ -46,6 +46,16 @@ Publikum: DACH, 45+. Wir sind ein Weltlage-Kanal, kein Nahost-Kanal.
 5. Vor der Themenwahl die Spalte „Region“ in `published/log.md` der letzten 7 Tage prüfen. Jede neue Log-Zeile bekommt die Region des Top-Themas.
 6. Die Sonntagsauswertung zählt den Regionen-Mix und empfiehlt keine Serien, die Regel 1 brechen.
 
+## Frage am Ende (CTA, seit 21.10.2026)
+
+Format: **zwei gleichwertige Optionen, Antwort per Emoji.** Leicht zu beantworten, neutral.
+- Muster: „<Option A> <Emoji A> oder <Option B> <Emoji B>? Schreib <Emoji A> oder <Emoji B>.“
+- Beispiel: „Mehr Marineschutz 🛡️ oder Lösung am Verhandlungstisch 🕊️? Schreib 🛡️ oder 🕊️.“
+- Beide Optionen müssen legitim und gleich sachlich formuliert sein – keine Suggestivfrage, keine Wertung, keine Parteinahme, keine Personen/Parteien zur Wahl stellen.
+- Kein „Muss/Soll X …?“ (zu aufwendig, politisch aufgeladen).
+- Auf der Folie die Frage mit beiden Emojis; im say-Text ohne Emojis („Schreib Schild oder Taube“).
+- Die Frage steht vorerst **nur am Ende** des Videos (nicht in der ersten Caption-Zeile).
+
 ## Hook-Formeln
 
 - **Rekord:** „Zehn Schiffe in einer Woche angegriffen. Das gab es noch nie.“
