@@ -24,3 +24,15 @@ Publikum: DACH (DE 66 %, CH 13 %, AT 7 %), 55 % über 45, 68 % männlich, 100 % 
 - Hook nach Regeln oben; erste Sekunde zählt mehr als alles andere.
 - Längen-Test weiterführen, aber Langformat strikt ≤ 60 s.
 - Messgröße pro Video: Anteil Zuschauer nach 3 s (Ziel > 50 %).
+
+## Nachtrag 21.10. (11:09) – erstes Video mit neuem Hook, Animation, Karte
+
+| Video | Länge | Aufrufe | Ø gesehen | Ganz gesehen | Likes | Neue Follower | „Für dich“ |
+|---|---|---|---|---|---|---|---|
+| 21.10. Schwarzes Meer (nach ~4 h) | 31 s | 525 | 9,1 s (29 %) | 5,1 % | 5 | 2 | 99 % |
+
+- Bester Wert bisher bei Ø gesehen (29 % vs. 23/17/8 %) und Abschlussrate.
+- Nach ~3 s sind noch rund 50 % da (vorher ~25 % nach 4 s) → Hook-Fix wirkt.
+- Schnellste Verteilung (Spitze ~230 Aufrufe/h) und nach 4 h noch aktiv (frühere Videos stoppten nach ~6 h).
+- Schwachpunkt: 0 Kommentare, 0 Shares → CTA-Frage konkreter/kontroverser (aber neutral) formulieren.
+- Einschränkung: nur 1 Video, Kurzformat, erst 4 h alt – Trend, kein Beweis.
