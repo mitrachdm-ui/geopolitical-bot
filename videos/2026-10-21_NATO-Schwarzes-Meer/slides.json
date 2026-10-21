@@ -1,0 +1,75 @@
+{
+ "date": "Stand: Mittwoch, 21. Oktober 2026",
+ "outfile": "geopolitical_2026-10-21.mp4",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "slides": [
+  {
+   "sec": 4,
+   "tag": "BULGARIEN · RUMÄNIEN",
+   "map": [
+    "BGR",
+    "ROU"
+   ],
+   "big": "6",
+   "bigcolor": "RED",
+   "title": "Angriffe auf Schiffe in 10 Tagen",
+   "say": "Sechs Angriffe auf Schiffe in zehn Tagen.",
+   "source": "EU-Außenbeauftragte Kallas via Al Jazeera, AFP, BTA, 20.10."
+  },
+  {
+   "sec": 8,
+   "tag": "SCHWARZES MEER",
+   "tagcolor": "RED",
+   "map": [
+    "BGR",
+    "ROU"
+   ],
+   "title": "Drohnen treffen Frachter",
+   "bullets": [
+    "6 Angriffe in 10 Tagen – laut EU",
+    "Frachter vor Bulgarien und Rumänien",
+    "Über 20 Seeleute vermisst oder tot"
+   ],
+   "source": "Kallas via Al Jazeera, AFP/Arab News, BTA; AP, 16.–20.10.",
+   "say": "So zählt die EU. Getroffen wurden Frachter vor Bulgarien und Rumänien. Über zwanzig Seeleute sind vermisst oder tot."
+  },
+  {
+   "sec": 9,
+   "tag": "NATO · SCHWARZES MEER",
+   "tagcolor": "BLUE",
+   "map": [
+    "BGR",
+    "ROU"
+   ],
+   "title": "NATO schickt Aufklärer",
+   "bullets": [
+    "Seeaufklärer, Radar, Drohnen",
+    "EU vermutet russische Drohnen",
+    "NATO nennt offiziell keinen Täter"
+   ],
+   "source": "NATO via Al Jazeera, AFP/Arab News, Kyiv Independent, 20.–21.10.",
+   "say": "NATO-Staaten schicken nun Aufklärer, Radar und Drohnen. Die EU vermutet russische Drohnen. Einen Täter nennt die NATO nicht."
+  },
+  {
+   "sec": 5,
+   "tag": "MÄRKTE · NAHOST",
+   "tagcolor": "AMBER",
+   "title": "Öl bleibt teuer",
+   "bullets": [
+    "▲ Brent knapp 110 $",
+    "Grund: Angriffe im Nahen Osten"
+   ],
+   "source": "Reuters, Trading Economics, 21.10. früh",
+   "say": "Öl: Brent knapp hundertzehn Dollar, wegen Angriffen im Nahen Osten."
+  },
+  {
+   "sec": 5,
+   "title": "Folge Geopolitical_ für die Weltlage in 60 Sekunden",
+   "bullets": [
+    "Muss die NATO Handelsschiffe schützen?"
+   ],
+   "say": "Folge Geopolitical für die Weltlage in sechzig Sekunden. Muss die NATO Handelsschiffe schützen?"
+  }
+ ]
+}
