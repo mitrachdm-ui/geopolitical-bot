@@ -20,7 +20,7 @@ aber **51,6 % weggewischt**, Ø Wiedergabe 0:17 von 0:31, 0 Abonnenten, 0 Kommen
 **Nur Fakten aus dem Tagesordner verwenden** (slides.json, research.md). Keine neue Recherche, keine neuen Zahlen. Kürzen und umstellen ja, neue Aussagen nein.
 
 1. **Ein Thema, 25–35 s.** Nur das Top-Thema plus die passende Markt-Folie. Nebenthemen aus anderen Regionen entfallen
-   (Ausnahme von Regionen-Mix-Regel 2, die nur für TikTok gilt). Ziel: 60–85 Wörter, 4–5 Folien.
+   (Ausnahme von Regionen-Mix-Regel 2, die nur für TikTok gilt). Ziel: 60–70 Wörter, 4–5 Folien (gemessen 22.10.: 80 Wörter = 40 s inkl. Übergänge).
 2. **Hook (Folie 1):** große Zahl + Titel max. 6 Wörter + **Ort im ersten Satz**. Erster Satz max. 10 Wörter, beginnt mit der Zahl.
    Kein „Laut …“ am Anfang (die Quelle steht auf Folie 2). Tag mit Land setzen, damit die Karte im ersten Bild leuchtet.
 3. **Offene Schleife im Hook:** ein kurzer zweiter Satz, der auf das Ende verweist („Und Öl reagiert.“, „Und die USA reagieren.“).
