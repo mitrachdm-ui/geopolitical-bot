@@ -28,12 +28,14 @@ jobs:
       - name: Ordner bestimmen
         id: dir
         run: |
+          # Ordner relativ zu videos/, z. B. "2026-10-22_Thema" oder "2026-10-22_Thema/youtube" (YouTube-Variante)
           F="${{ github.event.inputs.folder }}"
           if [ -z "$F" ] && [ "${{ github.event_name }}" = "push" ]; then
-            F=$(git diff --name-only HEAD~1 HEAD -- 'videos/*/slides.json' | head -1 | cut -d/ -f2)
+            F=$(git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'videos/*/slides.json' 'videos/*/youtube/slides.json' \
+                | sed -e 's#^videos/##' -e 's#/slides.json$##' | sort -u | tr '\n' ' ')
           fi
-          if [ -z "$F" ]; then F=$(ls -1 videos | sort | tail -1); fi
-          echo "folder=$F" >> "$GITHUB_OUTPUT"
+          if [ -z "${F// /}" ]; then F=$(ls -1 videos | sort | tail -1); fi
+          echo "folders=$F" >> "$GITHUB_OUTPUT"
           echo "Ordner: $F"
 
       - uses: actions/setup-python@v5
@@ -46,15 +48,20 @@ jobs:
           pip install -q pillow edge-tts
 
       - name: Rendern (mit KI-Stimme)
-        run: python pipeline/make_video.py "videos/${{ steps.dir.outputs.folder }}"
+        run: |
+          for F in ${{ steps.dir.outputs.folders }}; do
+            echo "== $F"; python pipeline/make_video.py "videos/$F"
+          done
 
       - name: Als Release veröffentlichen
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          F="${{ steps.dir.outputs.folder }}"
-          MP4=$(ls videos/$F/*.mp4 | head -1)
-          TAG="video-$F"
-          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "$F" --notes-file "videos/$F/POSTEN.txt"
-          gh release upload "$TAG" "$MP4" --clobber
-          echo "URL: https://github.com/${{ github.repository }}/releases/download/$TAG/$(basename $MP4)"
+          for F in ${{ steps.dir.outputs.folders }}; do
+            MP4=$(ls videos/$F/*.mp4 | head -1)
+            TAG="video-${F//\//-}"          # 2026-10-22_Thema/youtube -> video-2026-10-22_Thema-youtube
+            NOTES="videos/$F/POSTEN.txt"; [ -f "$NOTES" ] || NOTES="videos/${F%%/*}/POSTEN.txt"
+            gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --title "${F//\// – }" --notes-file "$NOTES"
+            gh release upload "$TAG" "$MP4" --clobber
+            echo "URL: https://github.com/${{ github.repository }}/releases/download/$TAG/$(basename $MP4)"
+          done

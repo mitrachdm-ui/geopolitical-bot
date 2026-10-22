@@ -1,0 +1,65 @@
+{
+ "date": "Stand: Donnerstag, 22. Oktober 2026",
+ "outfile": "geopolitical_2026-10-22_youtube.mp4",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "slides": [
+  {
+   "sec": 4,
+   "tag": "SAUDI-ARABIEN",
+   "big": "3",
+   "bigcolor": "RED",
+   "title": "Tote an Ölfeld und Flughafen",
+   "say": "Drei Tote. Ölfeld und Flughafen in Saudi-Arabien angegriffen. Und Öl reagiert.",
+   "source": "Saudi-Energieministerium, GACA via Al Jazeera, The National, ABC/AFP, 21.–22.10."
+  },
+  {
+   "sec": 9,
+   "tag": "SAUDI-ARABIEN",
+   "tagcolor": "RED",
+   "title": "Ölfeld und Flughafen im Visier",
+   "bullets": [
+    "Ölfeld Schaiba: 2 Tote durch Drohnentrümmer",
+    "Flughafen Dammam: 1 Toter, 8 Verletzte",
+    "Laut Riad: Förderung läuft weiter"
+   ],
+   "source": "Saudi-Energieministerium, GACA via Al Jazeera, The National, ABC/AFP, 21.–22.10.",
+   "say": "Am Ölfeld Schaiba töteten Trümmer einer abgefangenen Drohne zwei Menschen. Am Flughafen Dammam starb ein Mensch, acht wurden verletzt. Die Förderung läuft laut Riad weiter."
+  },
+  {
+   "sec": 8,
+   "tag": "RIAD · WASHINGTON",
+   "tagcolor": "BLUE",
+   "map": ["SAU", "USA"],
+   "title": "USA ziehen Personal ab",
+   "bullets": [
+    "Nicht nötiges Personal und Familien raus",
+    "US-Außenministerium: mehr Huthi-Angriffe",
+    "Schaiba: Riad nennt keinen Absender"
+   ],
+   "source": "US-Außenministerium via CBS, Al Jazeera, ABC/Reuters, The National, 21.–22.10.",
+   "say": "Die USA ziehen nicht benötigtes Botschaftspersonal und Familien ab. Grund laut US-Außenministerium: mehr Angriffe der Huthis. Für Schaiba nennt Riad keinen Absender."
+  },
+  {
+   "sec": 5,
+   "tag": "ÖLPREIS",
+   "tagcolor": "AMBER",
+   "title": "Öl wieder über 110 Dollar",
+   "bullets": [
+    "▲ Brent über 110 $ je Barrel",
+    "Grund: Angriffe in Saudi-Arabien"
+   ],
+   "source": "Reuters, Bloomberg via UNN, Trading Economics, 22.10. früh",
+   "say": "Und Öl? Brent steigt wieder über hundertzehn Dollar."
+  },
+  {
+   "sec": 5,
+   "title": "Abonniere Geopolitical_ – jeden Morgen die Weltlage",
+   "bullets": [
+    "Mehr Luftabwehr oder Verhandlungen?",
+    "Schreib Schild oder Taube."
+   ],
+   "say": "Abonniere Geopolitical, jeden Morgen die Weltlage. Mehr Luftabwehr oder Verhandlungen? Schreib Schild oder Taube."
+  }
+ ]
+}
