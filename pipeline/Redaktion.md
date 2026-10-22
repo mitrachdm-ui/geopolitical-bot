@@ -33,6 +33,8 @@ Alle drei ersten Videos verloren die meisten Zuschauer bei **0:01** (nach 4 s nu
 
 **Weltkarte (seit 20.10.):** Hintergrund ist eine Weltkarte; die Länder des Themas leuchten rot und pulsieren, die Karte zoomt auf die Region. Länder werden automatisch aus dem Tag erkannt (z. B. „JEMEN · SAUDI-ARABIEN“, „RIAD“, „HORMUS“). Sonst in slides.json pro Folie `"map": ["SAU", "YEM"]` (ISO-3-Codes) setzen; `"map": []` = nur Weltkarte. Das zuerst genannte Land ist der Hauptschauplatz: Es bestimmt den Ausschnitt und leuchtet kräftig rot, weitere Länder schwächer bzw. nur umrandet. Darum im Tag den Schauplatz zuerst nennen („TAIWAN · CHINA“, nicht „CHINA · TAIWAN“). Bei Markt-/Ölfolien ohne Land bleibt die Weltkarte ohne Markierung.
 
+**Globus-Übergang (seit 22.10.):** Bei jeder Folie mit neuem Schauplatz dreht sich zuerst ein 3D-Globus vom letzten zum neuen Land (Land leuchtet), dann Zoom in die flache Karte (ca. 1,4 s). Gleicher Schauplatz wie vorher oder Folien ohne Land: kein Globus. Abschalten pro Folie mit `"globe": false`.
+
 Der Renderer setzt automatisch um: Folie 1 ohne Kopfzeile/Datum/Fußzeile, Stimme ab 0,0 s, Zahl zählt hoch, Punch-in-Zoom, Farbschein hinter der Zahl, stärkerer Zoom auf allen Folien.
 
 ## Regionen-Mix (Pflicht, seit 20.10.2026)

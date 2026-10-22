@@ -298,6 +298,9 @@ def draw_map(bg, s, hook):
     if s.get("cal") and not world_view: sc *= 0.75; oy = H * 0.74     # Kalenderkarte braucht Platz
     fx1, fy1, fx2, fy2 = lo1, la1, lo2, la2
     def P(x, y): return (ox + (x - cxl) * kx * sc, oy - (y - cyl) * sc)
+    mc = map_codes(s)
+    draw_map.last = dict(lon=cxl, lat=cyl, sc=sc, ox=ox, oy=oy, codes=set(mc), main=(mc[0] if mc else None),
+                         world=world_view or not sel)
     land = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dl = ImageDraw.Draw(land)
     for c in W_:
         if c["a3"] in codes: continue
@@ -335,18 +338,26 @@ def layout(s, idx, total, date):
     has_map = bool(world())
     bg, d = base(idx, total, date, hook, bar=False, globe=not has_map)
     hl = None
+    plain = bg.copy()
+    layout.last_map = None
     if has_map:
         bg, hl = draw_map(bg, s, hook); d = ImageDraw.Draw(bg)
-        if not hook:
-            d.text((70, H - 300), "KI-Stimme · Keine Anlageberatung · Quellen in der Beschreibung",
-                   font=font(26, False), fill=GREY)
+        layout.last_map = draw_map.last
     dbig = {"erklaert": "TEAL", "ausblick": "AMBER"}.get(THEME, "RED" if hook else "WHITE")
     col_big = COLORS.get(s.get("bigcolor", dbig), WHITE)
-    if s.get("big"):
-        bg = glow(bg, W * 0.42, 720 if hook else 640, 620 if hook else 480, col_big, 0.55 if hook else 0.35)
-        d = ImageDraw.Draw(bg)
-    if s.get("source") and not hook:
-        d.text((70, H - 360), "Quelle: " + s["source"], font=font(26, False), fill=GREY)
+    def decorate(img):
+        dd_ = ImageDraw.Draw(img)
+        if has_map and not hook:
+            dd_.text((70, H - 300), "KI-Stimme · Keine Anlageberatung · Quellen in der Beschreibung",
+                     font=font(26, False), fill=GREY)
+        if s.get("big"):
+            img = glow(img, W * 0.42, 720 if hook else 640, 620 if hook else 480, col_big, 0.55 if hook else 0.35)
+            dd_ = ImageDraw.Draw(img)
+        if s.get("source") and not hook:
+            dd_.text((70, H - 360), "Quelle: " + s["source"], font=font(26, False), fill=GREY)
+        return img
+    bg = decorate(bg); d = ImageDraw.Draw(bg)
+    layout.last_plain = decorate(plain) if has_map else None
     els, y = [], (330 if hook else 400)
     if s.get("tag"):
         tf = font(38); tw = d.textlength(s["tag"], font=tf) + 50
@@ -399,6 +410,76 @@ def layout(s, idx, total, date):
         for e in els: e["y"] += shift
     return bg, els, hl
 
+
+# ============================ Globus-Übergang (seit 22.10.2026) ============================
+# Zu Beginn jeder Folie mit neuem Schauplatz: 3D-Globus dreht sich vom letzten Schauplatz zum
+# neuen, das Zielland leuchtet, dann Zoom hinein und Überblendung in die flache Karte.
+GLOBE_T = 1.4          # Dauer der Globus-Phase in Sekunden
+LAST_CENTER = [None]   # (lon, lat) des vorherigen Schauplatzes
+
+def ocean_col():
+    return {"erklaert": (214, 228, 228), "ausblick": (30, 28, 25)}.get(THEME, (14, 26, 52))
+
+def render_globe(lon0, lat0, R, cx, cy, codes, main):
+    import math
+    L = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(L)
+    # Atmosphäre + Ozean
+    for k, a in ((26, 30), (16, 55), (8, 90)):
+        d.ellipse([cx - R - k, cy - R - k, cx + R + k, cy + R + k], outline=ACCENT + (a,), width=6)
+    d.ellipse([cx - R, cy - R, cx + R, cy + R], fill=ocean_col() + (255,))
+    p0, l0 = math.radians(lat0), math.radians(lon0)
+    sp0, cp0 = math.sin(p0), math.cos(p0)
+    def proj(lon, lat):
+        p, l = math.radians(lat), math.radians(lon) - l0
+        cosc = sp0 * math.sin(p) + cp0 * math.cos(p) * math.cos(l)
+        x = math.cos(p) * math.sin(l); y = cp0 * math.sin(p) - sp0 * math.cos(p) * math.cos(l)
+        if cosc < 0:                       # Rückseite: auf den Rand projizieren
+            n = math.hypot(x, y) or 1; x, y = x / n, y / n
+        return cx + R * x, cy - R * y, cosc >= 0
+    # Gradnetz
+    gcol = LAND_EDGE + (90,)
+    for lon in range(-180, 180, 30):
+        seg = [proj(lon, la) for la in range(-90, 91, 5)]
+        for a, b in zip(seg, seg[1:]):
+            if a[2] and b[2]: d.line([a[:2], b[:2]], fill=gcol, width=2)
+    for lat in range(-60, 61, 30):
+        seg = [proj(lo, lat) for lo in range(-180, 181, 5)]
+        for a, b in zip(seg, seg[1:]):
+            if a[2] and b[2]: d.line([a[:2], b[:2]], fill=gcol, width=2)
+    # Länder
+    for c in world():
+        hot = c["a3"] in codes; is_main = c["a3"] == main
+        for poly in c["p"]:
+            pts = [proj(x, y) for x, y in poly[0]]
+            if not any(v for _, _, v in pts) or len(pts) < 3: continue
+            xy = [(x, y) for x, y, _ in pts]
+            if is_main: d.polygon(xy, fill=HL + (255,), outline=HL_EDGE + (255,))
+            elif hot:   d.polygon(xy, fill=tuple((a + b) // 2 for a, b in zip(HL, LAND)) + (255,), outline=HL_EDGE + (255,))
+            else:       d.polygon(xy, fill=LAND + (255,), outline=LAND_EDGE + (255,))
+    return L
+
+def globe_frames(mapinfo, prev, nf):
+    """Liefert eine Funktion f(i) -> RGBA-Ebene für Bild i der Globus-Phase (oder None danach)."""
+    import math
+    lon1, lat1 = mapinfo["lon"], mapinfo["lat"]
+    lon0, lat0 = prev if prev else (lon1 - 110, 20)
+    dl = ((lon1 - lon0 + 180) % 360) - 180          # kürzester Weg
+    if prev and abs(dl) < 25 and abs(lat1 - lat0) < 15:   # Nachbarland: etwas mehr Schwung
+        lon0 = lon1 - 40; dl = 40
+    R0 = 430
+    R1 = mapinfo["sc"] * 180 / math.pi              # Maßstab der flachen Karte
+    cx, cy = mapinfo["ox"], mapinfo["oy"]
+    def f(i):
+        t = i / FPS
+        if t >= GLOBE_T: return None, 0.0
+        r = ease(t / 0.8)                            # Drehung
+        z = ease((t - 0.75) / 0.55)                  # Zoom
+        lon = lon0 + dl * r; lat = lat0 + (lat1 - lat0) * r
+        R = R0 * (R1 / R0) ** z if R1 > 0 else R0
+        fade = max(0.0, min(1.0, (t - (GLOBE_T - 0.3)) / 0.3))   # Überblendung zur flachen Karte
+        return render_globe(lon, lat, R, cx, cy, mapinfo["codes"], mapinfo["main"]), fade
+    return f
+
 def schedule(els, dur, hook):
     """Einblendzeitpunkte: Tag/Zahl/Titel sofort, Stichpunkte gleichmäßig über die Sprechzeit."""
     bullets = [e for e in els if e["kind"] == "bullet"]
@@ -423,6 +504,13 @@ def anim_clip(s, idx, total, date, dur, path):
     hook = idx == 0
     bg, els, hl = layout(s, idx, total, date)
     pops = schedule(els, dur, hook)
+    mi, plain = layout.last_map, layout.last_plain
+    gf = None
+    if mi and not mi["world"] and s.get("globe", True):
+        prev = LAST_CENTER[0]
+        same = prev and abs(((mi["lon"] - prev[0] + 180) % 360) - 180) < 3 and abs(mi["lat"] - prev[1]) < 3
+        if not same: gf = globe_frames(mi, prev, int(GLOBE_T * FPS))
+        LAST_CENTER[0] = (mi["lon"], mi["lat"])
     pulse = []
     if hl is not None:   # 12 Helligkeitsstufen vorberechnen, dann pulsieren lassen
         import math
@@ -437,8 +525,13 @@ def anim_clip(s, idx, total, date, dur, path):
         "-pix_fmt", "yuv420p", path], stdin=subprocess.PIPE)
     for f in range(nf):
         t = f / FPS
-        fr = bg.copy().convert("RGBA")
-        if pulse:
+        g_layer, g_fade = gf(f) if gf else (None, 1.0)
+        if g_layer is not None:
+            base_g = plain.copy().convert("RGBA"); base_g.alpha_composite(g_layer)
+            fr = Image.blend(base_g, bg.convert("RGBA"), g_fade) if g_fade > 0 else base_g
+        else:
+            fr = bg.copy().convert("RGBA")
+        if pulse and g_layer is None:
             ph = (math.sin(2 * math.pi * t / 1.4) + 1) / 2          # ein Puls alle 1,4 s
             fr.alpha_composite(pulse[int(ph * 11)])
         d = ImageDraw.Draw(fr)
