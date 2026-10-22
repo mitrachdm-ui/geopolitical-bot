@@ -53,7 +53,7 @@ Format: **zwei gleichwertige Optionen, Antwort per Emoji.** Leicht zu beantworte
 - Beispiel: „Mehr Marineschutz 🛡️ oder Lösung am Verhandlungstisch 🕊️? Schreib 🛡️ oder 🕊️.“
 - Beide Optionen müssen legitim und gleich sachlich formuliert sein – keine Suggestivfrage, keine Wertung, keine Parteinahme, keine Personen/Parteien zur Wahl stellen.
 - Kein „Muss/Soll X …?“ (zu aufwendig, politisch aufgeladen).
-- Auf der Folie die Frage mit beiden Emojis; im say-Text ohne Emojis („Schreib Schild oder Taube“).
+- **Keine Emojis auf den Folien** (slides.json: title, bullets, big, tag): Die Renderer-Schrift (Inter) hat keine Emoji-Zeichen, sie erscheinen als „NO GLYPH“-Kästchen (Fehler am 22.10.). Auf der Folie mit Worten („Schreib Schild oder Taube.“), im say-Text genauso. Emojis nur in POSTEN.txt.
 - Die Frage steht vorerst **nur am Ende** des Videos (nicht in der ersten Caption-Zeile).
 
 ## Hook-Formeln
