@@ -1,0 +1,80 @@
+{
+ "date": "Stand: Donnerstag, 22. Oktober 2026",
+ "outfile": "geopolitical_2026-10-22.mp4",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "slides": [
+  {
+   "sec": 4,
+   "tag": "SAUDI-ARABIEN",
+   "big": "3",
+   "bigcolor": "RED",
+   "title": "Tote nach Angriffen an einem Tag",
+   "say": "Drei Tote an einem Tag. Ölfeld und Flughafen angegriffen.",
+   "source": "Saudi-Energieministerium, GACA via Al Jazeera, The National, ABC/AFP, 21.–22.10."
+  },
+  {
+   "sec": 10,
+   "tag": "SAUDI-ARABIEN",
+   "tagcolor": "RED",
+   "title": "Ölfeld und Flughafen im Visier",
+   "bullets": [
+    "Ölfeld Schaiba: 2 Tote durch Drohnentrümmer",
+    "Flughafen Dammam: 1 Toter, 8 Verletzte",
+    "Laut Riad: Förderung läuft weiter"
+   ],
+   "source": "Saudi-Energieministerium, GACA via Al Jazeera, The National, ABC/AFP, 21.–22.10.",
+   "say": "Am Ölfeld Schaiba töteten Trümmer einer abgefangenen Drohne zwei Menschen, von den Philippinen und aus Nepal. Am Flughafen Dammam starb ein Mensch, acht wurden verletzt. Die Ölförderung läuft laut Riad weiter."
+  },
+  {
+   "sec": 10,
+   "tag": "RIAD · WASHINGTON",
+   "tagcolor": "BLUE",
+   "map": [
+    "SAU",
+    "USA"
+   ],
+   "title": "USA ziehen Personal ab",
+   "bullets": [
+    "Nicht nötiges Personal und Familien raus",
+    "US-Außenministerium: mehr Huthi-Angriffe",
+    "Schaiba: Riad nennt keinen Absender"
+   ],
+   "source": "US-Außenministerium via CBS, Al Jazeera, ABC/Reuters, The National, 21.–22.10.",
+   "say": "Die USA ziehen nicht benötigtes Botschaftspersonal und Familien aus Saudi-Arabien ab. Grund laut US-Außenministerium: zunehmende Angriffe der Huthis. Für Schaiba nennt Riad keinen Absender."
+  },
+  {
+   "sec": 10,
+   "tag": "RUSSLAND · UKRAINE",
+   "tagcolor": "BLUE",
+   "title": "Dreiergespräche im November möglich",
+   "bullets": [
+    "US-Gesandter Witkoff traf Putin",
+    "Kreml-Berater: Gespräche im November",
+    "Selenskyj: Kiew ist interessiert"
+   ],
+   "source": "Al Jazeera, CBS, CNN; Treffen auch AP, 21.10.",
+   "say": "Zur Ukraine: US-Gesandter Witkoff traf Putin in Sankt Petersburg. Laut Kreml-Berater Uschakow sind Dreiergespräche mit Kiew und Washington im November möglich. Selenskyj sagt, Kiew ist interessiert."
+  },
+  {
+   "sec": 6,
+   "tag": "ÖLPREIS",
+   "tagcolor": "AMBER",
+   "title": "Öl wieder über 110 Dollar",
+   "bullets": [
+    "▲ Brent über 110 $ je Barrel",
+    "Grund: Angriffe in Saudi-Arabien"
+   ],
+   "source": "Reuters, Bloomberg via UNN, Trading Economics, 22.10. früh",
+   "say": "Und Öl? Brent steigt wieder über hundertzehn Dollar, wegen der Angriffe in Saudi-Arabien."
+  },
+  {
+   "sec": 6,
+   "title": "Folge Geopolitical_ für die Weltlage in 60 Sekunden",
+   "bullets": [
+    "Mehr Luftabwehr 🛡️ oder Verhandlungen 🕊️? Schreib 🛡️ oder 🕊️."
+   ],
+   "say": "Folge Geopolitical für die Weltlage in sechzig Sekunden. Mehr Luftabwehr oder Verhandlungen? Schreib Schild oder Taube."
+  }
+ ]
+}
