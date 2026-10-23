@@ -68,7 +68,7 @@ Publikum: DACH (DE 66 %, CH 13 %, AT 7 %), 55 % über 45, 68 % männlich, 100 % 
 | 23.10. | KI-Ausverkauf | 30 s | 5 (gerade erst online) | 0 | 0 |
 
 **Befund (vorläufig)**
-- Kurz vor lang (TikTok, nur ältere Videos): kurz Ø 748 Aufrufe / 18,4 Likes je 1.000 (19./21.10.), lang Ø 660 / 6,8 (18./20.10.). Das Schwarze-Meer-Video (30 s, neuer Hook) ist auf beiden Plattformen Spitze.
+- Kurz vor lang (TikTok, nur ältere Videos): kurz Ø 748 Aufrufe / 18,0 Likes je 1.000 (19./21.10.), lang Ø 660 / 6,8 (18./20.10.). Das Schwarze-Meer-Video (30 s, neuer Hook) ist auf beiden Plattformen Spitze.
 - Saudi-Arabien: TikTok-Fassung (57 s) nur 261 Aufrufe, YouTube-Fassung (41 s) 608 – *Vermutung:* die Länge kostet auf TikTok Reichweite.
-- YouTube zieht gleich mit TikTok, obwohl der Kanal erst 3 Tage Shorts hat.
+- Gleiche drei Videos (21.–23.10.): YouTube 1.592 Aufrufe vs. TikTok 1.457 – YouTube liegt knapp vorn, obwohl der Kanal erst seit 3 Tagen Shorts hat.
 - Kommentare und Shares fast null auf beiden Plattformen.
