@@ -29,7 +29,7 @@ aber **51,6 % weggewischt**, Ø Wiedergabe 0:17 von 0:31, 0 Abonnenten, 0 Kommen
 5. **CTA (letzte Folie, ~5 s):** „Abonniere Geopolitical, jeden Morgen die Weltlage.“ + die Frage aus der Tagesfassung
    (zwei neutrale Optionen, auf der Folie in Worten, keine Emojis auf Folien).
 6. **Titel (TITEL.txt):** Kernaussage mit Zahl und Ort, sachlich, kein Clickbait, max. 1 Emoji, endet mit ` #Shorts`.
-   Bei Serien vorne „Wochenausblick: “ bzw. „Sonntag erklärt: “. Ohne „Laut …“ am Anfang.
+   Bei Serien vorne „Untergegangen: “ bzw. „Sonntag erklärt: “. Ohne „Laut …“ am Anfang.
 7. **Beschreibung (POSTEN.txt):** Caption der Tagesfassung ohne Sätze zu entfallenen Nebenthemen, danach die Frage mit Emojis,
    eine Abo-Zeile („Jeden Morgen die Weltlage in 30 Sekunden – abonnieren.“), Quellen (nur die zu den gezeigten Aussagen,
    mit Herkunftsland), „KI-Stimme. Keine Anlageberatung. Impressum: mitrachdm-ui.github.io“, Hashtags, `#Shorts`.

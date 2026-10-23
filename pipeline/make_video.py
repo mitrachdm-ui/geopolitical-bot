@@ -25,7 +25,7 @@ WHITE, GREY, DIM = (240, 243, 248), (150, 162, 185), (50, 62, 90)
 AMBER, RED, GREEN, BLUE = (245, 180, 60), (232, 72, 72), (70, 200, 120), (90, 150, 240)
 TEAL = (0, 150, 160)
 SERIES = None          # Serien-Name fürs Logo, aus slides.json ("series")
-THEME = "tag"          # "tag" (Mo–Fr) · "erklaert" (Sonntag) · "ausblick" (Samstag)
+THEME = "tag"          # "tag" (Mo–Fr) · "erklaert" (Sonntag) · "ausblick" (Samstag, Serie WOCHENRÜCKBLICK)
 ACCENT = AMBER
 LAND, LAND_EDGE, HL, HL_EDGE = (24, 37, 66), (48, 68, 108), (232, 72, 72), (255, 120, 120)
 def accent(): return ACCENT
@@ -628,7 +628,7 @@ def main():
     slides = data["slides"]
     global SERIES
     SERIES = data.get("series")
-    apply_theme(data.get("theme") or {"SONNTAG ERKLÄRT": "erklaert", "WOCHENAUSBLICK": "ausblick"}.get(SERIES))
+    apply_theme(data.get("theme") or {"SONNTAG ERKLÄRT": "erklaert", "WOCHENAUSBLICK": "ausblick", "WOCHENRÜCKBLICK": "ausblick"}.get(SERIES))
     tmp = tempfile.mkdtemp(prefix="geo_")
     try:
         voices = make_voice(slides, data, tmp)
