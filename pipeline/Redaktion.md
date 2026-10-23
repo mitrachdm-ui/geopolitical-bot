@@ -150,7 +150,7 @@ Fehler im veröffentlichten Video → sofort Korrektur-Kommentar (anpinnen) bzw.
 - Di / Do: **Langformat** 40–45 s – 5–6 Folien, ca. 85–95 Wörter, max. 2 Themen (hart ≤ 45 s)
 - Sa (Rückblick) / So (Erklärvideo): 45–50 s – 6 Folien, ca. 95–105 Wörter (hart ≤ 50 s); beim Rückblick 3 statt 4 Ereignis-Folien
 - Grund der Anpassung (Zwischenstand 23.10.): Videos über 50 s verloren deutlich gegen kurze. Der Test vergleicht jetzt 30–35 s gegen 40–45 s.
-- Auswertung am 01.11. in `analytics/`: Ø gesehene Sekunden, Abschlussrate, Shares und neue Follower je 1.000 Aufrufe – jeweils kurz vs. lang.
+- Auswertung am 01.11. in `analytics/`: Ø gesehene Sekunden, Abschlussrate, Shares und neue Follower je 1.000 Aufrufe – jeweils kurz vs. lang. Dazu: Hinweis auf den „Fahrplan ab November“ (nächste Stufe und Startdatum).
 
 ## Prüf-Agent (unabhängiger Faktencheck, seit 20.10.2026)
 
@@ -171,6 +171,19 @@ Gemessen: 76 Wörter / 4 Folien = 40 s · 128 Wörter / 7 Folien = 54 s. Richtwe
 Bisher alle Posts 07:00–08:00 → kein Vergleich. Damit sich die Tests nicht überlagern, erst nach dem Längen-Test:
 - Mo/Mi/Fr 07:30 wie bisher, Di/Do 18:30 (Entwurf liegt ab ~07:05 bereit, Denny postet abends).
 - Auswertung in der Sonntagsauswertung 08.11.: Aufrufe nach 24 h und Anteil nach 3 s, morgens vs. abends.
+
+## Fahrplan ab November 2026 (eine Änderung pro Woche)
+
+Grund: Pro Test nur einen Faktor ändern, sonst ist nicht messbar, was wirkt. Jede Stufe gilt **erst ab ihrem Startdatum** (Europe/Berlin); vorher nicht anwenden. Die Sonntagsauswertung bewertet jeweils die Stufe der Vorwoche und schlägt vor, ob sie bleibt.
+
+| Stufe | Start | Änderung | Messgröße |
+|---|---|---|---|
+| 0 | 02.11. | Uhrzeit-Test (siehe oben) | Aufrufe nach 24 h, Anteil nach 3 s |
+| 1 | 09.11. | **Einordnungs-Satz:** Tageslage bekommt auf der Folie vor dem CTA genau einen Satz „Was das bedeutet“ **oder** „Was noch unklar ist“. Nur belegte Folgen oder ausdrücklich offene Punkte, als solche gekennzeichnet („Unklar ist bisher …“, „Laut … könnte …“). Keine eigene Prognose, keine Wertung. Zählt zur Wortgrenze (kein Längenzuschlag). | Ø Wiedergabe, Abschlussrate, Shares |
+| 2 | 15.11. (So) | **Serie „BEHAUPTUNG IM CHECK“** an jedem zweiten Sonntag (15.11., 29.11., …), im Wechsel mit „SONNTAG ERKLÄRT“: eine verbreitete, konkrete Aussage zu einem geopolitischen Thema (z. B. Zahl, Zitat, Karte), aufgeteilt in **belegt / nicht belegt / offen**, jedes mit Quelle. Nur Aussagen über Sachverhalte, keine Personen bloßstellen, keine Parteien; Behauptung neutral zitieren und Herkunft nennen. `"series": "BEHAUPTUNG IM CHECK"` (bis der Renderer einen eigenen Look hat, nutzt er den Standard-Look). Faktencheck-Regel gilt für jede Einstufung. ≤ 50 s. | Follower je 1.000 Aufrufe, Shares |
+| 3 | 16.11. | **Zuschauerfrage:** Gibt es seit dem letzten Video eine sachliche Verständnisfrage in den Kommentaren (Denny trägt sie in `published/fragen.md` ein), wird sie höchstens einmal pro Woche als Tageslage-Ersatz beantwortet (Einstieg: „Ihr habt gefragt: …“; Frage ohne Nutzernamen). Ohne eingetragene Frage entfällt die Stufe. | Kommentare je Video |
+
+Längere Erklärvideos (> 50 s) erst wieder testen, wenn der Anteil nach 3 s stabil über 50 % liegt.
 
 ## Breaking (Zusatzvideo auf Zuruf)
 
