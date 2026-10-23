@@ -335,8 +335,8 @@ def draw_map(bg, s, hook):
 def layout(s, idx, total, date):
     """Hintergrund (statisch) + Liste animierter Elemente: dict(img, x, y, kind, fx)."""
     hook = idx == 0
-    has_map = bool(world())
-    bg, d = base(idx, total, date, hook, bar=False, globe=not has_map)
+    has_map = bool(world()) and s.get("map") is not False and not s.get("stack")
+    bg, d = base(idx, total, date, hook, bar=False, globe=not has_map and not s.get("stack"))
     hl = None
     plain = bg.copy()
     layout.last_map = None
@@ -404,7 +404,8 @@ def layout(s, idx, total, date):
         elif not arrow: dd.ellipse([5, 20, 25, 40], fill=accent())
         for k, line in enumerate(bl): dd.text((x0 - 70, k * 62), line, font=bfnt, fill=col)
         els.append(dict(img=im, x=70, y=y, kind="bullet", fx="right")); y += 62 * len(bl) + 26
-    if not hook and els and not world():   # ohne Karte: Inhalt mittig im sichtbaren Bereich (unten liegt die TikTok-Beschriftung)
+    layout.stack_y = y
+    if not hook and els and not has_map and not s.get("stack"):   # ohne Karte: Inhalt mittig im sichtbaren Bereich (unten liegt die TikTok-Beschriftung)
         top, bottom = 330, H - 520
         shift = max(0, int((bottom - top - (y - els[0]["y"])) / 2 + top - els[0]["y"]))
         for e in els: e["y"] += shift
@@ -500,10 +501,102 @@ def big_sprite(e, text, cache):
         cache[text] = im
     return cache[text]
 
+# ======================= Preis-Zerlegung (seit 23.10.2026) =======================
+# Ein Balken füllt sich von unten Stück für Stück im Takt der Stimme, Beträge zählen hoch,
+# am Ende markiert ein Hinweis die hervorgehobenen Teile. Steuerung in slides.json:
+#   "stack": {"total": "1,75 €", "unit": "pro Liter", "start": 0.15,
+#             "parts": [{"label": "Rohöl", "value": "0,52 €", "color": "AMBER"}, …   (unten -> oben)
+#                       {"label": "Energiesteuer", "value": "0,65 €", "color": "#C83232", "mark": true}],
+#             "highlight": "1,08 € an den Staat"}
+def _col(c, dflt):
+    if isinstance(c, str) and c.startswith("#") and len(c) == 7:
+        return tuple(int(c[i:i + 2], 16) for i in (1, 3, 5))
+    return COLORS.get(c, dflt) if c else dflt
+
+def _num(v):
+    import re
+    m = re.search(r"[0-9][0-9.,]*", str(v)); return float(m.group().replace(".", "").replace(",", ".")) if m else 0.0
+
+def stack_times(st, dur):
+    n = len(st["parts"]); span = max(dur - XF - 1.4, 0.8)
+    t0 = 0.55 + span * float(st.get("start", 0))
+    rest = span * (1 - float(st.get("start", 0)))
+    ts = [t0 + rest * k / max(n, 1) for k in range(n)]
+    th = (ts[-1] + 0.9) if st.get("highlight") else None
+    return ts, th
+
+def draw_stack(fr, st, y0, t, ts, th):
+    d = ImageDraw.Draw(fr)
+    parts = st["parts"]; vals = [_num(p["value"]) for p in parts]; tot = sum(vals) or 1
+    x0, x1 = 600, 880
+    yt, yb = max(int(y0) + 150, 740), H - 520
+    hb = yb - yt
+    # Glas
+    d.rounded_rectangle([x0 - 10, yt - 10, x1 + 10, yb + 10], 30, outline=GREY, width=4)
+    # Gesamtpreis oben
+    if st.get("total"):
+        f = font(72, black=True); tw = d.textlength(st["total"], font=f)
+        d.text(((x0 + x1) / 2 - tw / 2, yt - 150), st["total"], font=f, fill=WHITE)
+        if st.get("unit"):
+            fu = font(30, False); uw = d.textlength(st["unit"], font=fu)
+            d.text(((x0 + x1) / 2 - uw / 2, yt - 62), st["unit"], font=fu, fill=GREY)
+    # Segmente
+    cum, mids, segs = 0.0, [], []
+    for k, (p, v) in enumerate(zip(parts, vals)):
+        h = hb * v / tot
+        a = ease((t - ts[k]) / 0.55)
+        ya, yz = yb - cum - h, yb - cum
+        mids.append((ya + yz) / 2); segs.append((ya, yz))
+        if a > 0:
+            col = _col(p.get("color"), ACCENT)
+            top = yz - h * a
+            y1_, y2_ = int(top) + 3, int(yz) - 3
+            if y2_ - y1_ >= 2: d.rounded_rectangle([x0, y1_, x1, y2_], min(14, (y2_ - y1_) // 2), fill=col)
+        cum += h
+    # Beschriftungen links, Überlappung vermeiden (unten -> oben)
+    pos = []
+    for k, m in enumerate(mids):
+        y = min(m, yb - 45) if k == 0 else min(m, pos[-1] - 118)
+        pos.append(y)
+    if pos and pos[-1] < yt + 40:            # oben anstoßen -> alles nach unten schieben
+        sh = yt + 40 - pos[-1]; pos = [y + sh for y in pos]
+    fl, fv = font(38), font(52, black=True)
+    for k, p in enumerate(parts):
+        if t < ts[k]: continue
+        a = ease((t - ts[k]) / 0.35); off = int(60 * (1 - a))
+        col = _col(p.get("color"), ACCENT)
+        n = int((t - ts[k]) * FPS); cu = countup_values(str(p["value"]), int(0.6 * FPS))
+        val = cu[n] if cu and n < len(cu) else str(p["value"])
+        y = pos[k]
+        d.text((70 - off, y - 52), p["label"], font=fl, fill=WHITE)
+        d.text((70 - off, y - 6), val, font=fv, fill=col)
+        lx = 70 - off + max(d.textlength(p["label"], font=fl), d.textlength(str(p["value"]), font=fv)) + 18
+        d.line([(lx, y + 10), (x0 - 40, y + 10), (x0 - 8, mids[k])], fill=col, width=4)
+        d.ellipse([x0 - 16, mids[k] - 8, x0, mids[k] + 8], fill=col)
+    # Hervorhebung
+    if th is not None and t >= th:
+        mk = [segs[k] for k, p in enumerate(parts) if p.get("mark")]
+        if mk:
+            ya, yz = min(a for a, _ in mk), max(z for _, z in mk)
+            d.rounded_rectangle([x0 - 6, int(ya) - 2, x1 + 6, int(yz) + 2], 18, outline=WHITE, width=7)
+        f = font(50, black=True); txt = st["highlight"]; tw = d.textlength(txt, font=f) + 60
+        im, dd = sprite(tw, 84)
+        dd.rounded_rectangle([0, 0, tw - 1, 83], 42, fill=_col(st.get("hlcolor"), RED))
+        dd.text((30, 12), txt, font=f, fill=(255, 255, 255))
+        sc = 1.0 + 0.25 * (1 - ease((t - th) / 0.25))
+        if sc > 1.001: im = im.resize((int(im.width * sc), int(im.height * sc)), Image.BILINEAR)
+        cx = (x0 + x1) / 2
+        x = int(min(max(cx - im.width / 2, 70), W - RM - im.width))
+        fr.alpha_composite(im, (x, int(yb + 40 - (im.height - 84) / 2)))
+
 def anim_clip(s, idx, total, date, dur, path):
     hook = idx == 0
     bg, els, hl = layout(s, idx, total, date)
     pops = schedule(els, dur, hook)
+    st, sty = s.get("stack"), layout.stack_y
+    if st:
+        sts, sth = stack_times(st, dur)
+        pops = pops + sts + ([sth] if sth is not None and sth < dur - XF else [])
     mi, plain = layout.last_map, layout.last_plain
     gf = None
     if mi and not mi["world"] and s.get("globe", True):
@@ -560,9 +653,12 @@ def anim_clip(s, idx, total, date, dur, path):
             if a < 1:
                 im = im.copy(); im.putalpha(im.getchannel("A").point(lambda v: int(v * a)))
             fr.alpha_composite(im, (int(x), int(y)))
+        if st: draw_stack(fr, st, sty, t, sts, sth)
         fr = fr.convert("RGB")
         if hook:
             z = 1.08 - 0.08 * ease(t / 0.5) if t < 0.5 else 1.0 + 0.012 * (t - 0.5)
+        elif st:
+            z = 1.0                                   # Preis-Zerlegung: kein Zoom, sonst wird links abgeschnitten
         else:
             z = 1.0 + 0.018 * t
         if z != 1.0:

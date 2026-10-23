@@ -1,0 +1,51 @@
+{
+ "date": "BEISPIEL · Demo-Werte, nicht posten",
+ "outfile": "geopolitical_beispiel_sonntag.mp4",
+ "series": "SONNTAG ERKLÄRT",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+10%",
+ "slides": [
+  {
+   "sec": 4,
+   "big": "62 %",
+   "title": "deines Spritpreises geht an den Staat",
+   "say": "Zweiundsechzig Prozent. So viel vom Spritpreis geht an den Staat."
+  },
+  {
+   "sec": 16,
+   "title": "Wohin deine 1,75 € fließen",
+   "stack": {
+    "total": "1,75 €",
+    "unit": "1 Liter Super",
+    "start": 0.12,
+    "parts": [
+     {"label": "Rohöl", "value": "0,52 €", "color": "AMBER"},
+     {"label": "Raffinerie & Tankstelle", "value": "0,15 €", "color": "BLUE"},
+     {"label": "Energiesteuer", "value": "0,65 €", "color": "#C83232", "mark": true},
+     {"label": "CO₂-Preis", "value": "0,15 €", "color": "#E2704E", "mark": true},
+     {"label": "Mehrwertsteuer", "value": "0,28 €", "color": "#9E2236", "mark": true}
+    ],
+    "highlight": "1,08 € an den Staat"
+   },
+   "source": "Beispielwerte (Demo) – echte Zahlen kommen aus ADAC, Zoll, Destatis",
+   "say": "Stell dir einen Liter Super vor, für eins fünfundsiebzig. Zweiundfünfzig Cent sind das eigentliche Öl. Fünfzehn Cent bekommen Raffinerie und Tankstelle. Und jetzt wird's teuer: fünfundsechzig Cent Energiesteuer. Fünfzehn Cent CO2-Preis. Und obendrauf noch achtundzwanzig Cent Mehrwertsteuer."
+  },
+  {
+   "sec": 9,
+   "big": "12 ct",
+   "title": "Steuer auf die Steuer",
+   "bullets": [
+    "Mehrwertsteuer auch auf die Energiesteuer",
+    "Pro Tankfüllung: über 6 €"
+   ],
+   "source": "Beispielwerte (Demo)",
+   "say": "Und wusstest du das? Die Mehrwertsteuer kommt auch auf die Energiesteuer drauf. Steuer auf die Steuer. Allein das sind rund zwölf Cent pro Liter. Bei einer Tankfüllung über sechs Euro."
+  },
+  {
+   "sec": 6,
+   "title": "Folge Geopolitical_ – jeden Sonntag erklären wir ein Thema",
+   "bullets": ["Was hast du zuletzt pro Liter bezahlt?"],
+   "say": "Folge Geopolitical, jeden Sonntag erklären wir ein Thema. Und du: Was hast du zuletzt pro Liter bezahlt?"
+  }
+ ]
+}
