@@ -1,6 +1,6 @@
 # Redaktion – Geopolitical_
 
-## Aufbau jedes Videos (45–60 Sek., 6–8 Folien)
+## Aufbau jedes Videos (Langformat 40–45 Sek., 5–6 Folien; Kurzformat siehe Längen-Test)
 
 | Teil | Zeit | Inhalt |
 |---|---|---|
@@ -27,7 +27,7 @@ Alle drei ersten Videos verloren die meisten Zuschauer bei **0:01** (nach 4 s nu
 3. **Hook-Titel max. 6 Wörter.** Steht groß unter der Zahl.
 4. **Top-Thema nach Relevanz fürs DACH-Publikum** (45+, eher männlich, Börse/Öl-Interesse): Krieg in Europa, Energie/Öl, Börse, Zinsen, China/Taiwan > Gipfel, Konferenzen, Personalien. Lieber das relevanteste bestätigte Thema als das neueste.
 5. Die Quelle der Hook-Zahl steht nicht auf Folie 1 (Renderer blendet sie dort aus) → **auf Folie 2 wiederholen** (gleiches Thema vertiefen) und in POSTEN.txt.
-6. **Länge hart:** nie über 60 s (Renderer warnt). Kürzere Videos hielten besser (41 s: 23 % Ø gesehen vs. 54 s: 8 %).
+6. **Länge hart:** Werktags nie über 45 s, Serien (Sa/So) nie über 50 s (Renderer warnt erst ab 60 s – die Grenze hier gilt trotzdem). Kürzere Videos hielten besser (41 s: 23 % Ø gesehen vs. 54 s: 8 %; Stand 23.10.: kurz 18 Likes je 1.000 Aufrufe vs. lang 7, Saudi-Arabien 57 s auf TikTok 261 Aufrufe vs. 41-s-Fassung auf YouTube 608).
 
 **Animation (seit 20.10.):** Jede Folie wird animiert gerendert – Tag/Titel fliegen ein, Stichpunkte erscheinen nacheinander im Takt der Stimme (darum pro Folie 2–3 Stichpunkte, in der Reihenfolge des Sprechertexts), Fortschrittsbalken läuft mit, Zahlen zählen hoch. Dezente Soundeffekte (Wusch beim Folienwechsel, Klick je Stichpunkt, Puls im Hintergrund) – abschaltbar mit `"sfx": false` in slides.json.
 
@@ -58,6 +58,14 @@ Format: **zwei gleichwertige Optionen, Antwort per Emoji.** Leicht zu beantworte
 - **Keine Emojis auf den Folien** (slides.json: title, bullets, big, tag): Die Renderer-Schrift (Inter) hat keine Emoji-Zeichen, sie erscheinen als „NO GLYPH“-Kästchen (Fehler am 22.10.). Auf der Folie mit Worten („Schreib Schild oder Taube.“), im say-Text genauso. Emojis nur in POSTEN.txt.
 - Die Frage steht vorerst **nur am Ende** des Videos (nicht in der ersten Caption-Zeile).
 
+## Erster Kommentar (KOMMENTAR.txt, seit 24.10.2026)
+
+Bisher fast keine Kommentare (Stand 23.10.: 1 Kommentar auf 6 Videos). Ein angepinnter erster Kommentar senkt die Hürde.
+- Jeder Videoordner bekommt `KOMMENTAR.txt` (max. 150 Zeichen): die CTA-Frage mit den beiden Emojis **plus** ein belegter Zusatzfakt aus research.md, der nicht im Video vorkommt („Zum Vergleich: Vor einem Jahr kostete Brent 74 $. Mehr Schutz 🛡️ oder Verhandlungen 🕊️?“).
+- Nur Fakten aus research.md (bestätigt), neutral, keine Links.
+- **Denny** postet ihn direkt nach dem Video von Hand und pinnt ihn an (TikTok: Kommentar lange drücken → Anpinnen; YouTube: ⋮ → Anpinnen). Nie automatisch.
+- Antworten auf Kommentare in der ersten Stunde (Denny, von Hand) helfen der Verteilung am meisten.
+
 ## Hook-Formeln
 
 - **Rekord:** „Zehn Schiffe in einer Woche angegriffen. Das gab es noch nie.“
@@ -75,7 +83,7 @@ Format: **zwei gleichwertige Optionen, Antwort per Emoji.** Leicht zu beantworte
 | Tag | Format |
 |---|---|
 | Mo–Fr | **Tageslage** – Top-Thema + 2 Nebenthemen + Markt |
-| Samstag | **Serie „WOCHENRÜCKBLICK“ – „Untergegangen diese Woche“** (ab 24.10.2026). Aufbau (7 Folien, Langformat): Hook (z. B. `"big": "4"` + „Meldungen, die diese Woche untergingen“) → **4 Folien** mit je einem relevanten Ereignis der letzten 7 Tage, das in keinem Video Mo–Fr Top- oder Nebenthema war (published/log.md und slides.json der Woche prüfen), möglichst 4 verschiedene Regionen (Afrika, Lateinamerika, Asien, Europa bevorzugt), jedes nach 3-Quellen/2-Regionen-Regel belegt – nicht belegbare Themen weglassen, notfalls 3 statt 4 → **1 Folie „Nächste Woche wichtig“** mit 2–3 feststehenden, offiziell angekündigten Terminen (Zinsentscheide, Wahlen, Gipfel, OPEC, Fristen; `"cal"` für den wichtigsten Termin) → CTA „Folge Geopolitical_ – jeden Samstag, was untergegangen ist.“ + Frage. In slides.json `"series": "WOCHENRÜCKBLICK"` (Look: Anthrazit, Gold). Je Ereignis-Folie Land im Tag (Karte). Keine Prognosen als Tatsache. |
+| Samstag | **Serie „WOCHENRÜCKBLICK“ – „Untergegangen diese Woche“** (ab 24.10.2026). Aufbau (6 Folien, ≤ 50 s): Hook (z. B. `"big": "3"` + „Meldungen, die diese Woche untergingen“) → **3 Folien** mit je einem relevanten Ereignis der letzten 7 Tage, das in keinem Video Mo–Fr Top- oder Nebenthema war (published/log.md und slides.json der Woche prüfen), möglichst 3 verschiedene Regionen (Afrika, Lateinamerika, Asien, Europa bevorzugt), jedes nach 3-Quellen/2-Regionen-Regel belegt – nicht belegbare Themen weglassen, notfalls 2 statt 3 → **1 Folie „Nächste Woche wichtig“** mit 2–3 feststehenden, offiziell angekündigten Terminen (Zinsentscheide, Wahlen, Gipfel, OPEC, Fristen; `"cal"` für den wichtigsten Termin) → CTA „Folge Geopolitical_ – jeden Samstag, was untergegangen ist.“ + Frage. In slides.json `"series": "WOCHENRÜCKBLICK"` (Look: Anthrazit, Gold). Je Ereignis-Folie Land im Tag (Karte). Keine Prognosen als Tatsache. |
 | Sonntag | **Serie „SONNTAG ERKLÄRT“** – in slides.json `"series": "SONNTAG ERKLÄRT"` setzen (Renderer schaltet auf den eigenen Look: helles Atlas-Papier, Türkis, nummerierte Stichpunkte, Serien-Logo). CTA: „Folge Geopolitical_ – jeden Sonntag erklären wir ein Thema.“ Format: **Erklär-Video** – ein Hintergrund (z. B. „Was ist die Straße von Hormus?“, „Wie wirken Sanktionen?“, „Wer sind die Houthis?“) |
 | Bei Eilmeldung | **Breaking** – 20–30 Sek., nur ein Thema |
 
@@ -136,11 +144,12 @@ Für jede Aussage im Video: Aussage · Quelle(n) mit URL · Veröffentlichungsda
 
 Fehler im veröffentlichten Video → sofort Korrektur-Kommentar (anpinnen) bzw. Folgevideo, nie still löschen. Eintrag in `published/korrekturen.md` (Datum, Video, Fehler, Korrektur).
 
-## Längen-Test (19.10.–01.11.2026)
+## Längen-Test (19.10.–01.11.2026, angepasst ab 24.10.)
 
 - Mo / Mi / Fr: **Kurzformat** 30–35 s – 4–5 Folien, ca. 55–62 Wörter, 1 Thema
-- Di / Do: **Langformat** 50–60 s – 6–8 Folien, ca. 115–130 Wörter (hart ≤ 60 s)
-- Sa (Rückblick) / So (Erklärvideo): Langformat
+- Di / Do: **Langformat** 40–45 s – 5–6 Folien, ca. 85–95 Wörter, max. 2 Themen (hart ≤ 45 s)
+- Sa (Rückblick) / So (Erklärvideo): 45–50 s – 6 Folien, ca. 95–105 Wörter (hart ≤ 50 s); beim Rückblick 3 statt 4 Ereignis-Folien
+- Grund der Anpassung (Zwischenstand 23.10.): Videos über 50 s verloren deutlich gegen kurze. Der Test vergleicht jetzt 30–35 s gegen 40–45 s.
 - Auswertung am 01.11. in `analytics/`: Ø gesehene Sekunden, Abschlussrate, Shares und neue Follower je 1.000 Aufrufe – jeweils kurz vs. lang.
 
 ## Prüf-Agent (unabhängiger Faktencheck, seit 20.10.2026)
@@ -155,7 +164,13 @@ Die tägliche Produktion liest vor jedem Video die neueste Datei in `analytics/`
 
 ## Länge (kalibriert)
 
-Gemessen: 76 Wörter / 4 Folien = 40 s · 128 Wörter / 7 Folien = 54 s. Richtwerte: KURZ ca. 55–62 Wörter, LANG ca. 120–135 Wörter. Nach dem Rendern wird die Dauer gemessen; zu lang (kurz > 38 s, lang > 63 s) → einmal kürzen und neu rendern.
+Gemessen: 76 Wörter / 4 Folien = 40 s · 128 Wörter / 7 Folien = 54 s. Richtwerte: KURZ ca. 55–62 Wörter, LANG ca. 85–95 Wörter, SERIE ca. 95–105 Wörter. Nach dem Rendern wird die Dauer gemessen; zu lang (kurz > 38 s, lang > 47 s, Serie > 52 s) → einmal kürzen und neu rendern.
+
+## Uhrzeit-Test (geplant 02.–08.11.2026, nach dem Längen-Test)
+
+Bisher alle Posts 07:00–08:00 → kein Vergleich. Damit sich die Tests nicht überlagern, erst nach dem Längen-Test:
+- Mo/Mi/Fr 07:30 wie bisher, Di/Do 18:30 (Entwurf liegt ab ~07:05 bereit, Denny postet abends).
+- Auswertung in der Sonntagsauswertung 08.11.: Aufrufe nach 24 h und Anteil nach 3 s, morgens vs. abends.
 
 ## Breaking (Zusatzvideo auf Zuruf)
 
@@ -172,7 +187,9 @@ Denny kopiert den kompletten Inhalt 1:1 in die TikTok-Beschreibung. Max. 2.200 Z
 
 ## Kennzahlen (wöchentlich prüfen)
 
+- **Hauptgröße: Anteil Zuschauer nach 3 s** (Ziel > 50 %; seit neuem Hook ~50 %, vorher ~25 %)
 - Ø Wiedergabedauer (Ziel > 50 %) · Abschlussrate · Follower pro Video · Kommentare
+- **TikTok und YouTube** werden beide ausgewertet (YouTube: „Angesehen vs. weggewischt“, Ziel ≥ 60 %)
 - Hook schlecht = Absprung in den ersten 3 Sek. → Hook-Formel wechseln
 - Wöchentliche Auswertung automatisch sonntags in `analytics/JJJJ-KWnn.md`
 
@@ -182,5 +199,6 @@ Denny kopiert den kompletten Inhalt 1:1 in die TikTok-Beschreibung. Max. 2.200 Z
 - [ ] POSTEN.txt komplett eingefügt (Caption + Quellen + Hashtags)
 - [ ] „KI-generierte Inhalte“ eingeschaltet
 - [ ] Öffentlich
+- [ ] KOMMENTAR.txt als ersten Kommentar posten und anpinnen
 - [ ] **Nie „Promote“/Werbung nutzen** – politische Werbung ist auf TikTok verboten
 - [ ] Likes, Kommentare, Antworten nur von Hand
