@@ -687,6 +687,12 @@ def make_sfx(tmp, total_len):
         f"aevalsrc='0.5*sin(2*PI*1600*t)*exp(-90*mod(t,0.5))+0.35*sin(2*PI*65*t)*exp(-6*mod(t,1))':d={total_len:.2f}",
         "-af", "volume=0.07,afade=t=out:st=" + f"{max(total_len-1.5,0):.2f}" + ":d=1.5", p], check=True)
     out["bed"] = p
+    # optional: treibender Beat (~100 BPM, Kick + Hi-Hat), über "music": "beat" in slides.json
+    p = os.path.join(tmp, "sfx_beat.wav")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i",
+        f"aevalsrc='0.9*sin(2*PI*(48+70*exp(-30*mod(t,0.6)))*t)*exp(-9*mod(t,0.6))+0.18*(2*random(0)-1)*exp(-70*mod(t+0.3,0.6))+0.08*(2*random(1)-1)*exp(-120*mod(t+0.15,0.3))':d={total_len:.2f}",
+        "-af", "lowpass=f=9000,volume=0.16,afade=t=in:d=0.4,afade=t=out:st=" + f"{max(total_len-1.5,0):.2f}" + ":d=1.5", p], check=True)
+    out["beat"] = p
     return out
 
 def probe(path):
@@ -759,7 +765,7 @@ def main():
             events = [("impact", 0.62)] if slides[0].get("big") else []
             events += [("whoosh", max(st - 0.2, 0)) for st in starts[1:]]
             events += [("pop", starts[i] + t) for i, ts in enumerate(pops) for t in ts]
-            events += [("bed", 0.0)]
+            events += [("beat" if data.get("music") == "beat" else "bed", 0.0)]
             for name, t0 in events:
                 cmd += ["-i", sfx[name]]
                 ms = int(t0 * 1000)
