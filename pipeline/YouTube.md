@@ -35,6 +35,8 @@ aber **51,6 % weggewischt**, Ø Wiedergabe 0:17 von 0:31, 0 Abonnenten, 0 Kommen
    mit Herkunftsland), „KI-Stimme. Keine Anlageberatung. Impressum: mitrachdm-ui.github.io“, Hashtags, `#Shorts`.
 8. Serien (Samstag/Sonntag): `series` übernehmen; Länge bis 45 s erlaubt.
 
+9. **Erster Kommentar:** Denny postet nach dem Freischalten den Text aus `KOMMENTAR.txt` des Tagesordners und pinnt ihn an (⋮ → Anpinnen). Die Meldung der YouTube-Aufgabe nennt ihn mit.
+
 ## Messen
 
 Nach 48 h in YouTube Studio prüfen: **„Angesehen vs. weggewischt“** (Ziel ≥ 60 % angesehen), Ø Wiedergabedauer (Ziel ≥ 70 %),
