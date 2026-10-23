@@ -2,6 +2,6 @@
 
 | Datum | Ordner | Video-ID | Status |
 |---|---|---|---|
-| 2026-10-21 | 2026-10-21_NATO-Schwarzes-Meer | M6aKIyyeIA8 | privat hochgeladen (Multipart; erster Versuch eLf1Fn5GSGQ: Uploadfehler, löschen) |
-| 2026-10-22 | 2026-10-22_Saudi-Arabien-Angriffe/youtube | kY_hNMYwark | privat hochgeladen (YouTube-Fassung, 40 s) |
-| 2026-10-23 | 2026-10-23_KI-Ausverkauf/youtube | _HQiS8n7nPk | privat hochgeladen (YouTube-Fassung, 30 s) |
+| 2026-10-21 | 2026-10-21_NATO-Schwarzes-Meer | M6aKIyyeIA8 | öffentlich (Stand 23.10.; Multipart; erster Versuch eLf1Fn5GSGQ: Uploadfehler, löschen) |
+| 2026-10-22 | 2026-10-22_Saudi-Arabien-Angriffe/youtube | kY_hNMYwark | öffentlich (Stand 23.10.; YouTube-Fassung, 41 s) |
+| 2026-10-23 | 2026-10-23_KI-Ausverkauf/youtube | _HQiS8n7nPk | öffentlich (Stand 23.10.; YouTube-Fassung, 30 s) |
