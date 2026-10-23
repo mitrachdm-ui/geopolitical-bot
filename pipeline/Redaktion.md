@@ -80,11 +80,22 @@ Format: **zwei gleichwertige Optionen, Antwort per Emoji.** Leicht zu beantworte
 | Bei Eilmeldung | **Breaking** – 20–30 Sek., nur ein Thema |
 
 Erklär-Ideen auf Vorrat (Reihenfolge = Priorität, oberstes passendes Thema nehmen und danach streichen; Regionen-Mix beachten):
-1. **Vorrang – Energie & Wirtschaft (Bezug Deutschland):** Wie funktioniert der Ölpreis – und warum zahlen wir mehr an der Tankstelle? · Seltene Erden: Warum China am längeren Hebel sitzt · Was sind Sanktionen – und wirken sie? · Straße von Hormus: Nadelöhr fürs Öl der Welt
+1. **Vorrang – Energie & Wirtschaft (Bezug Deutschland):** Wie funktioniert der Ölpreis – und warum zahlen wir mehr an der Tankstelle? (**Pflicht-Inhalt:** Preisbestandteile eines Liters Super/Diesel in Deutschland zerlegen – Produkt/Rohöl, Raffinerie & Händlermarge, Energiesteuer, CO₂-Preis, Mehrwertsteuer (auch auf die Steuern) – mit aktuellem Literpreis und Steueranteil; Quellen: ADAC, Zoll/BMF, Destatis/en2x + mind. eine internationale Quelle zum Rohölpreis. Gute Folie: „Von 1,80 € gehen X € an den Staat“.) · Seltene Erden: Warum China am längeren Hebel sitzt · Was sind Sanktionen – und wirken sie? · Straße von Hormus: Nadelöhr fürs Öl der Welt
 2. **Europa & Sicherheit:** Suwalki-Lücke · Kaliningrad: Russlands Exklave in der EU · NATO-Artikel 5: Was passiert im Ernstfall? · Warum die Ostsee so wichtig ist
 3. **Asien:** Taiwan & Chips · Südchinesisches Meer: Wem gehört das Wasser? · Straße von Malakka
 4. **Weltordnung:** BRICS – Gegenmodell zum Westen? · UN-Sicherheitsrat: Warum er sich blockiert · Arktis: Wettlauf ums Eis
 5. **Weitere:** OPEC+ · Strategische Ölreserve · Houthis · Rubel/Ölpreisdeckel · Fed & Ölpreis
+
+## Stil „Sonntag erklärt“ – spannend statt Vorlesung (ab 25.10.2026)
+
+Seriös bleibt Pflicht, aber das Video soll Spaß machen:
+- **Überraschung im Hook:** eine Zahl, die den Alltag trifft („Fast die Hälfte deines Spritpreises geht an den Staat.“) – nur wenn belegt.
+- **Du-Ansprache und Alltagsvergleiche:** „Stell dir vor …“, „Beim nächsten Tanken …“, Vergleiche in Dingen, die man kennt (Tankfüllung, Döner, Monatsmiete).
+- **Spannungsbogen:** jede Folie endet mit einer kleinen offenen Frage oder einem Twist, den die nächste auflöst („Und jetzt kommt der Teil, der richtig teuer ist.“).
+- **Ein Aha-Moment** pro Video, der zum Weiterleiten einlädt („Wusstest du, dass auf die Steuer noch Steuer kommt?“).
+- **Rhythmus:** kurze Sätze, Tempo variieren, maximal eine Zahl pro Satz.
+- **Erlaubt:** leichter Humor und Ironie über Sachverhalte. **Verboten:** Spott über Personen, Parteien oder Länder, Wertungen („Abzocke“), politische Forderungen.
+- **CTA-Frage** zum Mitmachen: „Was hast du zuletzt pro Liter bezahlt? Schreib's in die Kommentare.“
 
 ## Hashtags (3–5 pro Video, präzise)
 
