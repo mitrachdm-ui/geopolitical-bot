@@ -138,7 +138,7 @@ Formulierung:
 
 ## research.md (Quellenprotokoll, pro Video Pflicht)
 
-Für jede Aussage im Video: Aussage · Quelle(n) mit URL · Veröffentlichungsdatum · Region · Status (bestätigt / Berichten zufolge). Am Ende: offene Unsicherheiten. Dient als Beleg, falls ein Video angezweifelt wird.
+Für jede Aussage im Video: Aussage · Quelle(n) mit URL · Veröffentlichungsdatum · Region · **Ursprung** (wer hat es zuerst/eigenständig festgestellt: z. B. „Reuters-Meldung, von AP/Al Jazeera übernommen“ oder „UKMTO-Mitteilung“, „Angabe des russischen Verteidigungsministeriums“) · **unabhängige Bestätigungen** (Anzahl eigenständiger Ursprünge) · Status (bestätigt / Berichten zufolge). Drei Medien, die dieselbe Ursprungsaussage wiedergeben, sind **eine** Bestätigung – das muss in der Tabelle erkennbar sein. Geht eine Aussage nur auf eine Konfliktpartei zurück, bleibt sie „laut …“, egal wie viele Medien sie bringen. Am Ende: offene Unsicherheiten. Dient als Beleg, falls ein Video angezweifelt wird.
 
 ## Korrekturen
 
@@ -152,11 +152,26 @@ Fehler im veröffentlichten Video → sofort Korrektur-Kommentar (anpinnen) bzw.
 - Grund der Anpassung (Zwischenstand 23.10.): Videos über 50 s verloren deutlich gegen kurze. Der Test vergleicht jetzt 30–35 s gegen 40–45 s.
 - Auswertung am 01.11. in `analytics/`: Ø gesehene Sekunden, Abschlussrate, Shares und neue Follower je 1.000 Aufrufe – jeweils kurz vs. lang. Dazu: Hinweis auf den „Fahrplan ab November“ (nächste Stufe und Startdatum).
 
+## Testprotokoll (seit 23.10.2026)
+
+Jede Änderung an Gestaltung, Hook-Aufbau, Länge oder Ton wird in `analytics/testprotokoll.md` mit dem ersten betroffenen Video eingetragen (Phase). Auswertungen vergleichen nur innerhalb einer Phase. **Bis 01.11.2026 ist die Gestaltung der Werktagsvideos eingefroren** (nur Fehlerbehebungen).
+
 ## Prüf-Agent (unabhängiger Faktencheck, seit 20.10.2026)
 
 Vor jedem Push prüft ein zweiter Agent mit frischem Kontext jede Aussage in `slides.json` und der Caption gegen die verlinkten Quellen: Zahlen, Daten, Namen, Zuordnungen, Veröffentlichungsdatum, 3-Quellen/2-Regionen-Regel, Angaben von Konfliktparteien, keine Vorhersagen/Wertungen.
 Urteile: OK / FEHLER / UNBELEGT / ÜBERHOLT → alles außer OK wird korrigiert, gekennzeichnet oder gestrichen. Gesamturteil STOPP fürs Top-Thema = Stopp-Regel.
 Ergebnis steht in `research.md` unter „Faktencheck (Prüf-Agent)“.
+
+## Redaktionelle Endkontrolle (getrennt vom Faktencheck, seit 24.10.2026)
+
+Der Faktencheck sagt nur, ob alles **stimmt** – nicht, ob das Video **funktioniert**. Darum nach dem Faktencheck ein eigener Prüfschritt (zweiter Agent mit frischem Kontext, sieht nur slides.json, KOMMENTAR.txt und diese Datei, nicht research.md) mit Urteil je Punkt OK / ÄNDERN:
+1. **Hook:** erfüllt alle Hook-Regeln? Versteht man Folie 1 ohne Ton in 2 s?
+2. **Eine Kernaussage:** Lässt sich in einem Satz sagen, worum es geht? Rote Linie von Folie 1 zur Frage am Ende?
+3. **Verständlichkeit:** jeder Fachbegriff/jede Abkürzung beim ersten Auftreten in einem kurzen Satz erklärt; keine Sätze > 15 Wörter; maximal eine Zahl pro Satz.
+4. **Text = Bild:** say-Text und Folientext erzählen dasselbe; Karte/Tag zeigt den richtigen Schauplatz.
+5. **Länge:** Wortzahl im Rahmen des Formats.
+6. **CTA/Kommentar:** Frage neutral, zwei gleichwertige Optionen; KOMMENTAR.txt fügt etwas hinzu.
+ÄNDERN-Punkte werden umgesetzt, **ohne Fakten zu verändern** (Änderungen an Aussagen gehen zurück an den Faktencheck). Ergebnis in `research.md` unter „Redaktionelle Endkontrolle“.
 
 ## Lernschleife
 
