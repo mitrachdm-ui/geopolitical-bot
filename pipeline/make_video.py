@@ -765,7 +765,9 @@ def main():
             events = [("impact", 0.62)] if slides[0].get("big") else []
             events += [("whoosh", max(st - 0.2, 0)) for st in starts[1:]]
             events += [("pop", starts[i] + t) for i, ts in enumerate(pops) for t in ts]
-            events += [("beat" if data.get("music") == "beat" else "bed", 0.0)]
+            # Dauer-Klangteppich (Puls/Beat) aus – wirkte als nerviges Piepen (Feedback Denny 23.10.2026).
+            # Nur noch auf ausdrücklichen Wunsch per "music": "bed" oder "beat".
+            if data.get("music") in ("bed", "beat"): events += [(data["music"], 0.0)]
             for name, t0 in events:
                 cmd += ["-i", sfx[name]]
                 ms = int(t0 * 1000)
