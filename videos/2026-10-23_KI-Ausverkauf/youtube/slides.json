@@ -1,0 +1,65 @@
+{
+ "date": "Stand: Freitag, 23. Oktober 2026",
+ "outfile": "geopolitical_2026-10-23_youtube.mp4",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "slides": [
+  {
+   "sec": 4,
+   "tag": "USA · BÖRSE",
+   "map": ["USA"],
+   "big": "–7 %",
+   "bigcolor": "RED",
+   "title": "Meta-Aktie fällt an einem Tag",
+   "say": "Minus sieben Prozent für die Meta-Aktie in den USA. Und Asien folgt.",
+   "source": "Reuters, AP, SBS (Südkorea), 22.–23.10."
+  },
+  {
+   "sec": 7,
+   "tag": "USA · BÖRSE",
+   "tagcolor": "BLUE",
+   "map": ["USA"],
+   "title": "KI-Sorgen treffen Tech-Werte",
+   "bullets": [
+    "Sorge um hohe KI-Ausgaben",
+    "▼ Nasdaq –2,6 %",
+    "Laut Reuters größtes Minus seit Juni"
+   ],
+   "source": "Reuters, AP, SBS (Südkorea), 22.–23.10.",
+   "say": "Grund laut Reuters: Sorge um hohe KI-Ausgaben. Die Nasdaq fiel so stark wie seit Juni nicht."
+  },
+  {
+   "sec": 5,
+   "tag": "MÄRKTE · GOLF",
+   "tagcolor": "AMBER",
+   "title": "Öl so teuer wie seit Mai nicht",
+   "bullets": [
+    "▲ Brent über 113 $",
+    "Sorge um Lieferungen vom Golf"
+   ],
+   "source": "Reuters, AP, Al Jazeera, 22.–23.10.",
+   "say": "Dazu Öl: Brent über hundertdreizehn Dollar, Höchststand seit Mai."
+  },
+  {
+   "sec": 5,
+   "tag": "SÜDKOREA · JAPAN",
+   "tagcolor": "BLUE",
+   "title": "Asien folgt am Freitag",
+   "bullets": [
+    "▼ Seoul (Kospi) im Minus",
+    "▼ Tokio (Nikkei) im Minus"
+   ],
+   "source": "AP, AFP via Kuwait Times, 23.10. früh (Zwischenstand)",
+   "say": "Und Asien? Am Freitag liegen Seoul und Tokio im Minus."
+  },
+  {
+   "sec": 5,
+   "title": "Abonniere Geopolitical_ – jeden Morgen die Weltlage",
+   "bullets": [
+    "KI-Blase oder normale Korrektur?",
+    "Schreib Blase oder Korrektur."
+   ],
+   "say": "Abonniere Geopolitical, jeden Morgen die Weltlage. KI-Blase oder normale Korrektur? Schreib Blase oder Korrektur."
+  }
+ ]
+}
