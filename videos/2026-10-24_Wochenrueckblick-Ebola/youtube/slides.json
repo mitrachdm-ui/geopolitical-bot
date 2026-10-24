@@ -1,0 +1,57 @@
+{
+ "date": "Stand: Samstag, 24. Oktober 2026",
+ "outfile": "geopolitical_2026-10-24_youtube.mp4",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "series": "WOCHENRÜCKBLICK",
+ "renderer": "karte",
+ "slides": [
+  {
+   "sec": 5,
+   "tag": "KONGO",
+   "map": ["COD"],
+   "big": "9.000",
+   "bigcolor": "RED",
+   "title": "Ebola-Fälle – fast untergegangen",
+   "say": "Über neuntausend Ebola-Fälle im Kongo. Das ging fast unter. Und jetzt kommt ein neues Land dazu.",
+   "source": "AP, AFP, Al Jazeera, 20.–23.10."
+  },
+  {
+   "sec": 7,
+   "tag": "KONGO · KENIA",
+   "map": ["COD", "KEN"],
+   "title": "Ausbruch seit Mai",
+   "bullets": [
+    "Kongo: über 9.000 Fälle seit Mai",
+    "Kenia: 9 Fälle",
+    "Zahlen laut Behörden"
+   ],
+   "source": "AP, AFP, Al Jazeera, 20.–23.10.",
+   "say": "Die Zahlen stammen von den Behörden, der Ausbruch läuft seit Mai. Auch Kenia meldet neun Fälle."
+  },
+  {
+   "sec": 7,
+   "tag": "NIGERIA",
+   "map": ["NGA", "COD", "KEN"],
+   "marks": [
+    {"type": "point", "at": [7.49, 9.06], "text": "Abuja"}
+   ],
+   "title": "Ebola erreicht Nigeria",
+   "bullets": [
+    "Erster Fall in der Hauptstadt Abuja",
+    "Bestätigt vom Gesundheitsministerium"
+   ],
+   "source": "AP, AFP, Arise (Nigeria), 20.–21.10.",
+   "say": "Jetzt meldet Nigeria den ersten Fall. Er liegt in der Hauptstadt Abuja. Das Gesundheitsministerium hat ihn bestätigt."
+  },
+  {
+   "sec": 5,
+   "title": "Abonniere Geopolitical_ – jeden Morgen die Weltlage",
+   "bullets": [
+    "Schon gehört oder neu?",
+    "Schreib Gehört oder Neu."
+   ],
+   "say": "Abonniere Geopolitical, jeden Morgen die Weltlage. Schon gehört oder neu? Schreib Gehört oder Neu."
+  }
+ ]
+}
