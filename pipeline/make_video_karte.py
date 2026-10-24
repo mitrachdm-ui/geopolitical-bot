@@ -61,7 +61,10 @@ def flat_bg(clon, clat, span):
     if span > 300: span = 300
     y0 = max(0, y0)
     box = (x0, y0, x0 + span * TPD, y0 + latr * TPD)
-    return timg.resize((W, H), Image.BILINEAR, box=box), s, kx
+    im = timg.resize((W, H), Image.BICUBIC, box=box)
+    if span < 45:   # bei starkem Zoom nachschärfen (Textur hat 15 px/Grad)
+        im = im.filter(ImageFilter.UnsharpMask(radius=2.2, percent=int(70 + (45 - span) * 2), threshold=2))
+    return im, s, kx
 
 def globe_bg(lon0, lat0, R, cx, cy):
     """Texturierter Globus (orthografisch), Hintergrund dunkel."""
@@ -145,7 +148,7 @@ def slide_geo(s):
             lo2 = max(b[2] for b in allb); la2 = max(b[3] for b in allb)
             if lo2 - lo1 > 45 or la2 - la1 > 40: lo1, la1, lo2, la2 = bx   # zu weit verstreut: aufs Hauptland
             clat = (la1 + la2) / 2; kx = math.cos(math.radians(max(min(clat, 70), -70)))
-            span = min(max((lo2 - lo1) * 1.35, (la2 - la1) * 1.35 / kx * W / (H * 0.36), 9), 60)
+            span = min(max((lo2 - lo1) * 1.3, (la2 - la1) * 1.3 / kx * W / (H * 0.40), 8), 60)
             cam = [(lo1 + lo2) / 2, clat, span]
         for i, code in enumerate(codes[:4]):
             c = cb[code]; cp = core_poly(c)[0]
@@ -183,6 +186,7 @@ def draw_overlay(P, codes, t, slide_t0, labels, label_cache, marks, scale_px_per
             if len(pts) < 3 or not any(v for *_, v in pts): continue
             xy = [(x, y) for x, y, _ in pts]
             if not visible_test(xy): continue
+            if max(x for x, _ in xy) - min(x for x, _ in xy) > W * 1.6: continue   # Datumsgrenze
             d.line(xy + xy[:1], fill=(255, 255, 255, 70), width=2)
     # Markierte Länder: Füllung blendet ein, Hauptland pulsiert
     a_in = mv.ease((t - 0.15) / 0.5)
@@ -243,7 +247,8 @@ def draw_overlay(P, codes, t, slide_t0, labels, label_cache, marks, scale_px_per
                 if key not in label_cache: label_cache[key] = label_sprite(mk["text"], 84, -10)
                 sp = label_cache[key]; mx = sum(p[0] for p in xy) / len(xy); my = sum(p[1] for p in xy) / len(xy)
                 ov.alpha_composite(fade(sp, a), (int(mx - sp.width / 2), int(my - sp.height - 20)))
-    # Ländernamen in Handschrift
+    # Ländernamen in Handschrift (weichen Markierungen aus)
+    mpos = [P(*mk["at"])[:2] for mk in (marks or []) if "at" in mk]
     for i, L in enumerate(labels):
         a = mv.ease((t - 0.35 - 0.25 * i) / 0.45)
         if a <= 0: continue
@@ -252,6 +257,9 @@ def draw_overlay(P, codes, t, slide_t0, labels, label_cache, marks, scale_px_per
         key = ("l", L["text"], L["main"])
         if key not in label_cache: label_cache[key] = label_sprite(L["text"], 108 if L["main"] else 78, L["rot"])
         sp = label_cache[key]
+        for mx_, my_ in mpos:
+            if abs(mx_ - x) < sp.width * 0.6 and abs(my_ - y) < 120:
+                y = my_ + 95 if my_ + 95 < H - 400 else my_ - 110
         px_, py_ = int(x - sp.width / 2), int(y - sp.height / 2)
         if 0 < x < W and H * 0.53 < y < H - 120:
             ov.alpha_composite(fade(sp, a), (px_, py_))
@@ -268,7 +276,7 @@ def text_gradient():
     if _GRAD is None:
         g = np.zeros((H, 1), np.float32)
         y = np.arange(H)[:, None] / H
-        top = np.clip(1 - y / 0.58, 0, 1) ** 0.8 * 235
+        top = np.clip(1 - y / 0.54, 0, 1) ** 0.8 * 235
         bot = np.clip((y - 0.80) / 0.20, 0, 1) ** 1.5 * 200
         g = np.maximum(top, bot)
         A = Image.fromarray(np.repeat(g, W, axis=1).astype(np.uint8), "L")
@@ -406,6 +414,16 @@ def anim_clip(s, idx, total, date, dur, path):
     if proc.returncode: raise SystemExit(f"Clip {idx} fehlgeschlagen")
     return pops
 
+def smaller_text():
+    """Text kompakter als im Standard-Renderer, damit die Karte mehr Platz bekommt."""
+    orig = mv.font
+    if getattr(orig, "_karte", False): return
+    def f(size, bold=True, black=False):
+        size = {96: 84, 80: 68, 48: 41}.get(size, size)
+        return orig(size, bold, black)
+    f._karte = True
+    mv.font = f
+
 def main():
     folder = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else ".")
     src = os.path.join(folder, "slides_karte.json")
@@ -413,6 +431,7 @@ def main():
     try:
         shutil.copy(src, os.path.join(tmp, "slides.json"))
         data = json.load(open(src, encoding="utf-8"))
+        smaller_text()
         mv.anim_clip = anim_clip                # Standard-Ablauf (Stimme, Schnitt, Ton) wiederverwenden
         mv.WHITE = (244, 246, 250)               # Text immer hell (Karte ist dunkel)
         sys.argv = [sys.argv[0], tmp]
