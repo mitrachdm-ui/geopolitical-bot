@@ -14,7 +14,7 @@
    "big": "9.000",
    "bigcolor": "RED",
    "title": "Ebola-Fälle – fast untergegangen",
-   "say": "Über neuntausend Ebola-Fälle. Und das ging fast unter.",
+   "say": "Über neuntausend Ebola-Fälle. Das ging fast unter.",
    "source": "AP, AFP, Al Jazeera, 20.–23.10."
   },
   {
@@ -88,10 +88,10 @@
    "sec": 5,
    "title": "Folge Geopolitical_ – jeden Samstag, was untergegangen ist.",
    "bullets": [
-    "Schon gehört oder neu für dich?",
+    "Schon gehört oder neu?",
     "Schreib Gehört oder Neu."
    ],
-   "say": "Folge Geopolitical – jeden Samstag, was untergegangen ist. Schon gehört oder neu für dich? Schreib Gehört oder Neu."
+   "say": "Folge Geopolitical – jeden Samstag, was untergegangen ist. Schon gehört oder neu? Schreib Gehört oder Neu."
   }
  ]
 }

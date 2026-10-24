@@ -57,3 +57,7 @@ Phase D (laut analytics/testprotokoll.md, ab 24.10.); Serie zählt nicht zum Lä
 - Kernaussage: Drei Meldungen der Woche gingen fast unter – Ebola erreicht Nigeria, Ecuadors Ex-Präsidentschaftskandidatin sitzt in U-Haft, vier Staaten vereinbaren eine Rüstungskooperation –, dazu die Termine der nächsten Woche.
 - Urteile: 1 Hook ÄNDERN (klein) · 2 Kernaussage OK · 3 Verständlichkeit ÄNDERN · 4 Text = Bild ÄNDERN (klein) · 5 Länge OK · 6 CTA/Kommentar OK (Hinweis).
 - Geändert: Hook-say „Und das ging fast unter“ (nicht „diese Woche“, Zahl gilt seit Mai); Kenia-Satz mit nur einer Zahl; Folie 2 say an Bullet angeglichen („den ersten Fall, in der Hauptstadt Abuja“); Folie 4 say beginnt mit „In Doha“; KOMMENTAR mit „Schreib 👂 oder 🆕“.
+
+## Rendern / Länge
+- 1. Lauf (Commit ab3f2c4) fehlgeschlagen: TTS-Dienst lieferte keine Audiodaten (edge_tts NoAudioReceived) bei Folie 1 → Renderer um TTS-Wiederholung ergänzt (Commit 6a845ec), Lauf per workflow_dispatch neu gestartet: Erfolg.
+- Gemessen 51,0 s (> 50 s Serien-Grenze) → say-Texte um 3 Wörter gekürzt (Folie 1 „Das ging fast unter“, Folie 6 „Schon gehört oder neu?“), keine Faktenänderung, neu gerendert.
