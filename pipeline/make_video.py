@@ -702,7 +702,15 @@ def probe(path):
 
 async def _tts(text, voice, rate, path):
     import edge_tts
-    await edge_tts.Communicate(text, voice, rate=rate).save(path)
+    # TTS-Dienst liefert gelegentlich kurz keine Audiodaten (NoAudioReceived) -> bis zu 4 Versuche
+    for attempt in range(4):
+        try:
+            await edge_tts.Communicate(text, voice, rate=rate).save(path)
+            return
+        except Exception as e:
+            if attempt == 3: raise
+            print(f"TTS-Fehler ({type(e).__name__}), neuer Versuch {attempt + 2}/4 …")
+            await asyncio.sleep(10 * (attempt + 1))
 
 def make_voice(slides, data, tmp):
     try:
