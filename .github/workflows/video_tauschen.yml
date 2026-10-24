@@ -1,0 +1,34 @@
+name: Video im Release tauschen
+on:
+  workflow_dispatch:
+    inputs:
+      ziel:
+        description: "Ziel-Ordner (offizielles Video), z. B. 2026-10-24_Wochenrueckblick-Ebola"
+        required: true
+      quelle:
+        description: "Quell-Ordner (Ersatz), z. B. 2026-10-24_Beispiel-Satellit"
+        required: true
+      datei:
+        description: "Dateiname im Quell-Release"
+        required: true
+permissions:
+  contents: write
+jobs:
+  swap:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          R: ${{ github.repository }}
+        run: |
+          set -e
+          Z="${{ github.event.inputs.ziel }}"; Q="${{ github.event.inputs.quelle }}"; D="${{ github.event.inputs.datei }}"
+          ORIG=$(gh release view "video-$Z" -R $R --json assets -q '.assets[].name' | grep -v _standard | head -1)
+          gh release download "video-$Z" -R $R -p "$ORIG" -O orig.mp4
+          BASE="${ORIG%.mp4}"
+          cp orig.mp4 "${BASE}_standard.mp4"
+          gh release upload "video-$Z" -R $R "${BASE}_standard.mp4" --clobber
+          gh release download "video-$Q" -R $R -p "$D" -O neu.mp4
+          cp neu.mp4 "$ORIG"
+          gh release upload "video-$Z" -R $R "$ORIG" --clobber
+          gh release view "video-$Z" -R $R --json assets -q '.assets[]|"\(.name) \(.size)"'
