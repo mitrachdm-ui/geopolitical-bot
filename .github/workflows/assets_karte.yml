@@ -1,0 +1,23 @@
+name: Assets Satellitenkarte laden
+on:
+  workflow_dispatch:
+  push:
+    paths: [".github/workflows/assets_karte.yml"]
+permissions:
+  contents: write
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p pipeline/assets pipeline/fonts
+          # NASA Blue Marble Next Generation (Topografie + Bathymetrie), gemeinfrei
+          curl -sSfL -o pipeline/assets/bluemarble_5400.jpg "https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/world.topo.bathy.200412.3x5400x2700.jpg" || echo "BM fehlgeschlagen"
+          # Handschrift-Font Kalam (SIL Open Font License)
+          curl -sSfL -o pipeline/fonts/Kalam-Bold.ttf "https://github.com/google/fonts/raw/main/ofl/kalam/Kalam-Bold.ttf" || echo "Font fehlgeschlagen"
+          curl -sSfL -o pipeline/fonts/Kalam-OFL.txt "https://github.com/google/fonts/raw/main/ofl/kalam/OFL.txt" || true
+          ls -la pipeline/assets pipeline/fonts
+      - run: |
+          git config user.name "github-actions"; git config user.email "actions@github.com"
+          git add pipeline/assets pipeline/fonts && git commit -m "Assets: NASA Blue Marble + Kalam-Font" && git pull --rebase && git push || echo "unverändert"
