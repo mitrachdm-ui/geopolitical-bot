@@ -152,6 +152,19 @@ Fehler im veröffentlichten Video → sofort Korrektur-Kommentar (anpinnen) bzw.
 - Grund der Anpassung (Zwischenstand 23.10.): Videos über 50 s verloren deutlich gegen kurze. Der Test vergleicht jetzt 30–35 s gegen 40–45 s.
 - Auswertung am 01.11. in `analytics/`: Ø gesehene Sekunden, Abschlussrate, Shares und neue Follower je 1.000 Aufrufe – jeweils kurz vs. lang. Dazu: Hinweis auf den „Fahrplan ab November“ (nächste Stufe und Startdatum).
 
+## Satelliten-Stil (seit 24.10.2026 für Samstag und Sonntag)
+
+Sa (WOCHENRÜCKBLICK) und So (SONNTAG ERKLÄRT) werden im **Satelliten-Stil** gerendert: in slides.json `"renderer": "karte"` setzen (Renderer `pipeline/make_video_karte.py`, render.yml wählt ihn automatisch). Werktage bleiben bis 01.11. im Standard-Renderer (Phase D, Testprotokoll); Wechsel danach nur auf Dennys Entscheidung.
+
+Was der Satelliten-Stil kann (alles optional pro Folie):
+- `"map": ["ISO3", …]` – Länder knallig markiert + Name in Handschrift; das erste Land ist Hauptschauplatz (Kamera fliegt hin). Ohne Land: Blick auf Deutschland/Mitteleuropa.
+- `"marks"`: `{"type":"point","at":[lon,lat],"text":"Abuja"}` (Ort mit Puls), `{"type":"line","from":[lon,lat],"to":[lon,lat],"text":"29 km"}` (Entfernung), `{"type":"route","pts":[[lon,lat],…],"text":"40 %"}` (Route/Handelsweg), `{"type":"ring","at":[lon,lat]}`.
+  **Nur verwenden, wenn Ort, Entfernung oder Route in den Quellen steht** (Faktencheck prüft auch Markierungen). Keine Wege andeuten, die niemand gemeldet hat (z. B. Ansteckungs- oder Angriffswege).
+- `"label": {"text":"Bab al-Mandab","at":[lon,lat],"rot":-12}` – eigener Handschrift-Name (Meerengen, Regionen).
+- `"cam": [lon, lat, breite_grad]` – Kamera manuell.
+- `"stack"` (Preis-Zerlegung) funktioniert auch hier.
+- Text kompakt halten: Titel ≤ 6 Wörter, max. 3 kurze Stichpunkte – die Karte soll wirken.
+
 ## Testprotokoll (seit 23.10.2026)
 
 Jede Änderung an Gestaltung, Hook-Aufbau, Länge oder Ton wird in `analytics/testprotokoll.md` mit dem ersten betroffenen Video eingetragen (Phase). Auswertungen vergleichen nur innerhalb einer Phase. **Bis 01.11.2026 ist die Gestaltung der Werktagsvideos eingefroren** (nur Fehlerbehebungen).

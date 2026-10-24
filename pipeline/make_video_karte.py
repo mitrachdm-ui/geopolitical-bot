@@ -158,7 +158,7 @@ def slide_geo(s):
     if s.get("label"):
         L = s["label"]; labels = [dict(text=L["text"], at=tuple(L["at"]), rot=L.get("rot", -8), main=True)] + labels[1:]
     if not cam:
-        cam = [15, 30, 50]           # Europa/Mittelmeer im Blick (Folien ohne Land)
+        cam = [10.5, 50.5, 24]       # Deutschland/Mitteleuropa (Folien ohne Land)
     return codes, cam, labels
 
 # ---------------------------------------------------------------- Zeichnen
@@ -338,6 +338,10 @@ def anim_clip(s, idx, total, date, dur, path):
     hook = idx == 0
     _bg, els, _hl = mv.layout(s, idx, total, date)          # Text-Elemente wie gehabt
     pops = mv.schedule(els, dur, hook)
+    st, sty = s.get("stack"), getattr(mv.layout, "stack_y", None)
+    if st:
+        sts, sth = mv.stack_times(st, dur)
+        pops = pops + sts + ([sth] if sth is not None and sth < dur - mv.XF else [])
     codes, target, labels = slide_geo(s)
     cam = cam_path(target, LAST_CAM[0], dur, hook)
     end = cam(dur); LAST_CAM[0] = (end[1], end[2], end[3]) if end[0] == "flat" else tuple(target)
@@ -380,6 +384,8 @@ def anim_clip(s, idx, total, date, dur, path):
             ov = draw_overlay(P, codes, t, 0, labels, lcache, marks, sc, vis)
             fr = fb.convert("RGBA"); fr.alpha_composite(ov)
         fr.alpha_composite(grad)
+        if st:   # Preis-Zerlegung braucht ruhigen, dunklen Hintergrund
+            fr.alpha_composite(Image.new("RGBA", (W, H), (4, 8, 16, 165)))
         d = ImageDraw.Draw(fr)
         header(d, date) if not hook else (mv.series_badge(d, 70, 140) if mv.SERIES else None)
         for i in range(total):
@@ -409,6 +415,7 @@ def anim_clip(s, idx, total, date, dur, path):
                 elif e["fx"] == "right": x += off
                 elif e["fx"] == "up": y += off
             fr.alpha_composite(fade(im, a), (int(x), int(y)))
+        if st: mv.draw_stack(fr, st, sty, t, sts, sth)
         proc.stdin.write(fr.convert("RGB").tobytes())
     proc.stdin.close(); proc.wait()
     if proc.returncode: raise SystemExit(f"Clip {idx} fehlgeschlagen")
@@ -427,13 +434,21 @@ def smaller_text():
 def main():
     folder = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else ".")
     src = os.path.join(folder, "slides_karte.json")
+    if not os.path.exists(src): src = os.path.join(folder, "slides.json")
     tmp = tempfile.mkdtemp(prefix="geok_")
     try:
         shutil.copy(src, os.path.join(tmp, "slides.json"))
         data = json.load(open(src, encoding="utf-8"))
         smaller_text()
+        orig_theme = mv.apply_theme
+        def theme_light(name):
+            orig_theme(name)
+            mv.WHITE, mv.GREY = (244, 246, 250), (190, 198, 214)
+            mv.COLORS["WHITE"] = mv.WHITE
+            if mv.THEME == "erklaert":
+                mv.GREEN, mv.RED = (70, 200, 120), (232, 72, 72); mv.COLORS.update({"GREEN": mv.GREEN, "RED": mv.RED})
+        mv.apply_theme = theme_light
         mv.anim_clip = anim_clip                # Standard-Ablauf (Stimme, Schnitt, Ton) wiederverwenden
-        mv.WHITE = (244, 246, 250)               # Text immer hell (Karte ist dunkel)
         sys.argv = [sys.argv[0], tmp]
         mv.main()
         # Themes setzen Textfarben – für die Satellitenkarte immer heller Text

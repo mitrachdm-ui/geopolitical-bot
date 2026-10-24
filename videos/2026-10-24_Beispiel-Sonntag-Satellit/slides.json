@@ -1,0 +1,94 @@
+{
+ "date": "BEISPIEL · Preise Stand 21.10.2026 · nicht posten",
+ "outfile": "geopolitical_beispiel_sonntag_satellit.mp4",
+ "series": "SONNTAG ERKLÄRT",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+14%",
+ "slides": [
+  {
+   "sec": 5,
+   "big": "2,11 €",
+   "bigcolor": "RED",
+   "title": "Rate mal, wie viel davon der Staat bekommt",
+   "say": "Zwei Euro elf. Für einen Liter E10. Rate mal, wie viel davon beim Staat landet.",
+   "tag": "DEUTSCHLAND",
+   "map": [
+    "DEU"
+   ]
+  },
+  {
+   "sec": 16,
+   "title": "Wohin deine 2,11 € fließen",
+   "stack": {
+    "total": "2,11 €",
+    "unit": "1 Liter E10",
+    "parts": [
+     {
+      "label": "Öl & Tankstelle",
+      "value": "1,11 €",
+      "color": "AMBER"
+     },
+     {
+      "label": "Energiesteuer",
+      "value": "0,51 €",
+      "color": "#C83232",
+      "mark": true
+     },
+     {
+      "label": "CO₂-Preis (ca.)",
+      "value": "0,15 €",
+      "color": "#E2704E",
+      "mark": true
+     },
+     {
+      "label": "Mehrwertsteuer",
+      "value": "0,34 €",
+      "color": "#9E2236",
+      "mark": true
+     }
+    ],
+    "highlight": "1,00 € an den Staat"
+   },
+   "source": "ADAC 21.10.2026 · Energiesteuer: Bundestag · CO₂: Schätzung (Demo)",
+   "say": "Ein Euro elf sind Öl, Raffinerie und Tankstelle. Und jetzt kommt der Staat: einundfünfzig Cent Energiesteuer. Rund fünfzehn Cent CO2-Preis. Und vierunddreißig Cent Mehrwertsteuer. Macht einen Euro. Fast jeder zweite Euro an der Zapfsäule."
+  },
+  {
+   "sec": 8,
+   "big": "−14 ct",
+   "bigcolor": "GREEN",
+   "title": "Und das ist schon mit Tankrabatt",
+   "bullets": [
+    "Energiesteuer seit 1. Oktober gesenkt",
+    "Gilt nur bis 31. Dezember"
+   ],
+   "source": "Bundestag; ifo/ADAC, 21.–22.10.2026",
+   "say": "Und jetzt der Knaller: Das ist schon mit Tankrabatt. Seit Oktober ist die Energiesteuer um vierzehn Cent gesenkt. Aber nur bis Silvester.",
+   "map": [
+    "DEU"
+   ]
+  },
+  {
+   "sec": 8,
+   "big": "12 ct",
+   "title": "Steuer auf die Steuer",
+   "bullets": [
+    "Mehrwertsteuer auch auf Energiesteuer und CO₂-Preis",
+    "Pro Tankfüllung: über 6 €"
+   ],
+   "source": "eigene Rechnung aus den Werten oben (Demo)",
+   "say": "Und wusstest du das? Auf diese Steuern kommt noch Mehrwertsteuer. Steuer auf die Steuer. Rund zwölf Cent pro Liter. Bei einer Tankfüllung über sechs Euro.",
+   "map": [
+    "DEU"
+   ]
+  },
+  {
+   "sec": 6,
+   "title": "Folge Geopolitical_ – jeden Sonntag erklären wir ein Thema",
+   "bullets": [
+    "Was hast du zuletzt pro Liter bezahlt?"
+   ],
+   "say": "Folge Geopolitical, jeden Sonntag ein Thema. Und du: Was hast du zuletzt pro Liter bezahlt?"
+  }
+ ],
+ "renderer": "karte"
+}
