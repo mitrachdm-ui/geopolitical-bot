@@ -1,6 +1,7 @@
 {
   "date": "Stand: Wochentag, TT. Monat JJJJ",
   "outfile": "geopolitical_JJJJ-MM-TT.mp4",
+  "renderer": "karte",
   "voice": "de-DE-SeraphinaMultilingualNeural",
   "rate": "+18%",
   "slides": [

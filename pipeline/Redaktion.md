@@ -152,9 +152,9 @@ Fehler im veröffentlichten Video → sofort Korrektur-Kommentar (anpinnen) bzw.
 - Grund der Anpassung (Zwischenstand 23.10.): Videos über 50 s verloren deutlich gegen kurze. Der Test vergleicht jetzt 30–35 s gegen 40–45 s.
 - Auswertung am 01.11. in `analytics/`: Ø gesehene Sekunden, Abschlussrate, Shares und neue Follower je 1.000 Aufrufe – jeweils kurz vs. lang. Dazu: Hinweis auf den „Fahrplan ab November“ (nächste Stufe und Startdatum).
 
-## Satelliten-Stil (seit 24.10.2026 für Samstag und Sonntag)
+## Satelliten-Stil (Standard für alle Videos seit 25.10.2026)
 
-Sa (WOCHENRÜCKBLICK) und So (SONNTAG ERKLÄRT) werden im **Satelliten-Stil** gerendert: in slides.json `"renderer": "karte"` setzen (Renderer `pipeline/make_video_karte.py`, render.yml wählt ihn automatisch). Werktage bleiben bis 01.11. im Standard-Renderer (Phase D, Testprotokoll); Wechsel danach nur auf Dennys Entscheidung.
+**Alle Videos** (Mo–So, auch YouTube-Fassungen) werden im **Satelliten-Stil** gerendert: in slides.json immer `"renderer": "karte"` setzen (Renderer `pipeline/make_video_karte.py`, render.yml wählt ihn automatisch). Der alte Renderer (`make_video.py`) bleibt nur als Rückfallebene. Phase E im Testprotokoll.
 
 Was der Satelliten-Stil kann (alles optional pro Folie):
 - `"map": ["ISO3", …]` – Länder knallig markiert + Name in Handschrift; das erste Land ist Hauptschauplatz (Kamera fliegt hin). Ohne Land: Blick auf Deutschland/Mitteleuropa.
@@ -167,7 +167,7 @@ Was der Satelliten-Stil kann (alles optional pro Folie):
 
 ## Testprotokoll (seit 23.10.2026)
 
-Jede Änderung an Gestaltung, Hook-Aufbau, Länge oder Ton wird in `analytics/testprotokoll.md` mit dem ersten betroffenen Video eingetragen (Phase). Auswertungen vergleichen nur innerhalb einer Phase. **Bis 01.11.2026 ist die Gestaltung der Werktagsvideos eingefroren** (nur Fehlerbehebungen).
+Jede Änderung an Gestaltung, Hook-Aufbau, Länge oder Ton wird in `analytics/testprotokoll.md` mit dem ersten betroffenen Video eingetragen (Phase). Auswertungen vergleichen nur innerhalb einer Phase. **Bis 01.11.2026 ist die Gestaltung der Werktagsvideos (Phase E, Satelliten-Stil) eingefroren** (nur Fehlerbehebungen).
 
 ## Prüf-Agent (unabhängiger Faktencheck, seit 20.10.2026)
 
