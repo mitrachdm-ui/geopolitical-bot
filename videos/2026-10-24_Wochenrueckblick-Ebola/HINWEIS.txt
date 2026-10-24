@@ -1,4 +1,4 @@
-24.10.2026: Auf Dennys Wunsch wurde das Release-Video gegen die Satelliten-Fassung getauscht
-(Quelle: videos/2026-10-24_Beispiel-Satellit, gleicher Inhalt und Sprechertext).
+24.10.2026: Auf Dennys Wunsch im Satelliten-Stil neu gerendert ("renderer": "karte" in slides.json,
+Markierungen Abuja und Doha – beide Orte stehen in den Quellen). Inhalt und Sprechertext unverändert.
 Die ursprüngliche Fassung liegt im Release als geopolitical_2026-10-24_standard.mp4.
-YouTube (09:05) nutzt die Satelliten-Fassung. TikTok-Entwurf von 07:05 ist noch die Standardfassung.
+Der TikTok-Entwurf von 07:05 ist noch die Standardfassung – Denny postet die Satelliten-Fassung manuell.

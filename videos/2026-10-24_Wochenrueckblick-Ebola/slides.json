@@ -32,7 +32,17 @@
     "Kenia: 9 Fälle"
    ],
    "source": "AP, AFP, Al Jazeera, Arise (Nigeria), 20.–23.10.",
-   "say": "Laut Behörden über neuntausend Fälle im Kongo seit Mai. Jetzt meldet Nigeria den ersten Fall, in der Hauptstadt Abuja. Kenia meldet neun Fälle."
+   "say": "Laut Behörden über neuntausend Fälle im Kongo seit Mai. Jetzt meldet Nigeria den ersten Fall, in der Hauptstadt Abuja. Kenia meldet neun Fälle.",
+   "marks": [
+    {
+     "type": "point",
+     "at": [
+      7.49,
+      9.06
+     ],
+     "text": "Abuja"
+    }
+   ]
   },
   {
    "sec": 8,
@@ -64,7 +74,17 @@
     "Gemeinsame Produktion und Forschung"
    ],
    "source": "Reuters, Hürriyet (Türkei), Qatar Tribune, 21.10.",
-   "say": "In Doha vereinbaren die Türkei, Katar, Pakistan und Indonesien eine Rüstungskooperation. Geplant: gemeinsame Produktion und Forschung."
+   "say": "In Doha vereinbaren die Türkei, Katar, Pakistan und Indonesien eine Rüstungskooperation. Geplant: gemeinsame Produktion und Forschung.",
+   "marks": [
+    {
+     "type": "point",
+     "at": [
+      51.53,
+      25.29
+     ],
+     "text": "Doha"
+    }
+   ]
   },
   {
    "sec": 7,
@@ -93,5 +113,6 @@
    ],
    "say": "Folge Geopolitical – jeden Samstag, was untergegangen ist. Schon gehört oder neu? Schreib Gehört oder Neu."
   }
- ]
+ ],
+ "renderer": "karte"
 }
