@@ -12,6 +12,8 @@ Zweck: Jedes Video einer Phase zuordnen, damit Vergleiche (z. B. kurz vs. lang) 
 
 **Gestaltung eingefroren bis 01.11.2026:** In Phase D keine Änderungen an Renderer-Look, Hook-Aufbau, Animation oder Ton der Werktagsvideos (nur Fehlerbehebungen, hier mit Datum eintragen). Serien (Sa/So) zählen nicht zum Längen-Test.
 
+**Einzeltest 24.10.2026 (Samstag, Serie):** Video im **Satelliten-Stil** (Test-Renderer `pipeline/make_video_karte.py`: NASA-Satellitenkarte, Kamerafahrten, texturierter Globus, Handschrift-Labels, kompakter Text). Gleicher Inhalt/Sprechertext wie das reguläre Video; reguläre Fassung liegt im Release als `geopolitical_2026-10-24_standard.mp4`. Nicht mit Werktagsvideos mitteln. Werktags-Renderer unverändert (Phase D).
+
 ## Auswertungsregel
 
 - Kurz vs. lang nur **innerhalb einer Phase** vergleichen. Phase-A-Videos und spätere nie kommentarlos mitteln; wenn zusammengefasst, Phase pro Video angeben.
