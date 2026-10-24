@@ -1,0 +1,97 @@
+{
+ "date": "Stand: Samstag, 24. Oktober 2026",
+ "outfile": "geopolitical_2026-10-24.mp4",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "series": "WOCHENRÜCKBLICK",
+ "slides": [
+  {
+   "sec": 4,
+   "tag": "KONGO",
+   "map": [
+    "COD"
+   ],
+   "big": "9.000",
+   "bigcolor": "RED",
+   "title": "Ebola-Fälle – fast untergegangen",
+   "say": "Über neuntausend Ebola-Fälle. Und das ging fast unter.",
+   "source": "AP, AFP, Al Jazeera, 20.–23.10."
+  },
+  {
+   "sec": 9,
+   "tag": "NIGERIA · KONGO · KENIA",
+   "map": [
+    "NGA",
+    "COD",
+    "KEN"
+   ],
+   "title": "Ebola erreicht Nigeria",
+   "bullets": [
+    "Kongo: über 9.000 Fälle seit Mai",
+    "Erster Fall in Nigerias Hauptstadt Abuja",
+    "Kenia: 9 Fälle"
+   ],
+   "source": "AP, AFP, Al Jazeera, Arise (Nigeria), 20.–23.10.",
+   "say": "Laut Behörden über neuntausend Fälle im Kongo seit Mai. Jetzt meldet Nigeria den ersten Fall, in der Hauptstadt Abuja. Kenia meldet neun Fälle."
+  },
+  {
+   "sec": 8,
+   "tag": "ECUADOR",
+   "map": [
+    "ECU"
+   ],
+   "title": "Ex-Kandidatin in U-Haft",
+   "bullets": [
+    "Luisa González in Untersuchungshaft",
+    "Vorwurf: Geldwäsche im Wahlkampf",
+    "Sie spricht von Verfolgung"
+   ],
+   "source": "Reuters, Infobae (Argentinien), Extra (Ecuador), 22.–23.10.",
+   "say": "Ecuador: Ex-Präsidentschaftskandidatin Luisa González sitzt in Untersuchungshaft. Vorwurf der Staatsanwaltschaft: Geldwäsche im Wahlkampf. Sie spricht von Verfolgung."
+  },
+  {
+   "sec": 7,
+   "tag": "KATAR · TÜRKEI · PAKISTAN",
+   "map": [
+    "QAT",
+    "TUR",
+    "PAK",
+    "IDN"
+   ],
+   "title": "Vier Staaten vereinbaren Rüstungskooperation",
+   "bullets": [
+    "Türkei, Katar, Pakistan, Indonesien",
+    "Gemeinsame Produktion und Forschung"
+   ],
+   "source": "Reuters, Hürriyet (Türkei), Qatar Tribune, 21.10.",
+   "say": "In Doha vereinbaren die Türkei, Katar, Pakistan und Indonesien eine Rüstungskooperation. Geplant: gemeinsame Produktion und Forschung."
+  },
+  {
+   "sec": 7,
+   "tag": "TERMINE",
+   "map": [],
+   "cal": [
+    "DO",
+    "29",
+    "OKT"
+   ],
+   "title": "Nächste Woche wichtig",
+   "bullets": [
+    "So: Stichwahl in Brasilien",
+    "Mi: Zinsentscheid US-Notenbank",
+    "Do: Zinsentscheid EZB"
+   ],
+   "source": "ecb.europa.eu, federalreserve.gov, Al Jazeera, AFP",
+   "say": "Nächste Woche: Sonntag Stichwahl in Brasilien. Mittwoch Zinsentscheid der US-Notenbank, Donnerstag der Europäischen Zentralbank."
+  },
+  {
+   "sec": 5,
+   "title": "Folge Geopolitical_ – jeden Samstag, was untergegangen ist.",
+   "bullets": [
+    "Schon gehört oder neu für dich?",
+    "Schreib Gehört oder Neu."
+   ],
+   "say": "Folge Geopolitical – jeden Samstag, was untergegangen ist. Schon gehört oder neu für dich? Schreib Gehört oder Neu."
+  }
+ ]
+}
