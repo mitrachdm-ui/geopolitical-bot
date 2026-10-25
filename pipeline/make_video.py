@@ -187,7 +187,7 @@ def hook_clip(s, total, date, dur, path):
     """Hook-Folie mit Bewegung ab Frame 1: Zahl zählt hoch, Bild zoomt von 108 % auf 100 %, danach langsamer Zoom."""
     nf = int(dur * FPS)
     cu_n = int(0.7 * FPS)
-    vals = countup_values(s.get("big", ""), cu_n) if s.get("big") else None
+    vals = None   # kein Hochzählen auf der Hook-Folie (Frame 0 = Titelbild, muss die echte Zahl zeigen)
     final = render(s, 0, total, date)
     cache = {}
     proc = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
@@ -611,7 +611,9 @@ def anim_clip(s, idx, total, date, dur, path):
         for k in range(12):
             lv = hl.copy(); lv.putalpha(A.point(lambda v, f=0.55 + 0.4 * k / 11: int(v * f))); pulse.append(lv)
     nf, cache = int(dur * FPS), {}
-    cu = countup_values(s["big"], int(0.7 * FPS)) if s.get("big") else None
+    # Hook-Folie: KEIN Hochzählen – Frame 0 ist das Titelbild (TikTok/YouTube) und muss die echte Zahl zeigen
+    # (Fehler bis 25.10.: Cover zeigten „0 Tote“, „−1 %“, „1 Angriffe“). Der „Pop“ bleibt als Bewegung.
+    cu = countup_values(s["big"], int(0.7 * FPS)) if s.get("big") and not hook else None
     seg = (W - 140 - (total - 1) * 12) / total
     proc = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
         "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-preset", "medium", "-crf", "20",

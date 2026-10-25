@@ -347,7 +347,7 @@ def anim_clip(s, idx, total, date, dur, path):
     end = cam(dur); LAST_CAM[0] = (end[1], end[2], end[3]) if end[0] == "flat" else tuple(target)
     marks = s.get("marks", [])
     lcache, bcache = {}, {}
-    cu = mv.countup_values(s["big"], int(0.7 * FPS)) if s.get("big") else None
+    cu = mv.countup_values(s["big"], int(0.7 * FPS)) if s.get("big") and not hook else None   # Hook: kein Hochzählen (Frame 0 = Titelbild)
     seg = (W - 140 - (total - 1) * 12) / total
     grad = text_gradient()
     proc = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
