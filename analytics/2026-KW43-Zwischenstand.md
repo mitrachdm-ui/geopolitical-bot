@@ -117,3 +117,20 @@ Rohdaten: `analytics/tiktok-export/2026-10-17_bis_23_Overview.csv` (Tageswerte d
 - Tagesaufrufe brechen am 22./23.10. auf ~300 ein (vorher 585–965). Da ältere Videos kaum nachlaufen (Verteilung endet nach ~6–24 h), spiegelt das vor allem die schwächeren Tagesvideos 22.10. (Saudi-Arabien, 57 s) und 23.10. (KI-Ausverkauf).
 - Profilaufrufe nur 18 in 6 Tagen (0,5 % der Aufrufe) → wer schaut, klickt selten aufs Profil. *Vermutung:* Kanal-Versprechen im Video zu schwach erkennbar; Messgröße für später (Fahrplan), jetzt keine Änderung (Gestaltung eingefroren).
 - Wiedergabedauer und Anteil nach 3 s sind in diesem Export nicht enthalten – dafür bitte je Video die „Videoanalyse“ (Screenshot) schicken.
+
+## Nachtrag 25.10. – Zuschauer*innen, Video 21.10. Schwarzes Meer (TikTok Studio, Stand 25.10. 12:26)
+
+| Kennzahl | Wert | Vergleich Account (Analyse 20.10., Videos 18.–20.10.) |
+|---|---|---|
+| Zuschauer*innen | 845 | – |
+| Neu / wiederkehrend | 91 % / 9 % | – |
+| Nicht-Follower | 100 % | 100 % |
+| Männer / Frauen | 53 % / 47 % | 68 % Männer |
+| 18–24 / 25–34 / 35–44 / 45–54 / 55+ | 14 / 29 / 19 / 19 / 19 % | 55 % über 45 |
+| DE / AT / CH | 72,4 / 6,9 / 4,8 % | 66 / 7 / 13 % |
+| Weitere | Polen 4,0 %, Italien 2,3 %, Griechenland 1,5 % | – |
+
+- Das beste Video erreichte ein **jüngeres und gemischteres Publikum** (nur 38 % über 45, 47 % Frauen) als die ersten Videos. *Vermutung:* TikTok hat es über die Kern-Nische (ältere Männer, Börse/Öl) hinaus getestet, weil der Einstieg hielt – Reichweite kam aus der Breite.
+- Folge für die Themenwahl: „DACH, 45+, männlich“ (Hook-Regel 4) beschreibt das bisherige Kernpublikum, nicht die Grenze. Sicherheit/Europa-Themen funktionieren offenbar auch bei 25–44. Keine Regeländerung vor dem 01.11.; in der Auswertung 01.11. prüfen.
+- 9 % wiederkehrende Zuschauer – erste Wiedererkennung.
+- Fehlt noch: Tab „Übersicht“ dieses Videos (Wiedergabedauer, Anteil nach 3 s, Haltekurve).
