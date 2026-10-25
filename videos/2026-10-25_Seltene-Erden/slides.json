@@ -1,0 +1,89 @@
+{
+ "date": "Stand: Sonntag, 25. Oktober 2026",
+ "outfile": "geopolitical_2026-10-25.mp4",
+ "renderer": "karte",
+ "series": "SONNTAG ERKLÄRT",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "slides": [
+  {
+   "sec": 4,
+   "tag": "CHINA",
+   "map": [
+    "CHN"
+   ],
+   "big": "90 %",
+   "bigcolor": "RED",
+   "title": "So viel verarbeitet China",
+   "say": "Neunzig Prozent. So viel Seltene Erden verarbeitet China."
+  },
+  {
+   "sec": 8,
+   "tag": "CHINA",
+   "map": [
+    "CHN"
+   ],
+   "title": "Was sind Seltene Erden?",
+   "bullets": [
+    "Metalle für starke Magnete",
+    "In E-Autos, Windrädern, Rüstung",
+    "Eigentlich gar nicht selten"
+   ],
+   "source": "90 %: IEA 2026, Al Jazeera 24.09.2026 · USGS 2026",
+   "say": "Seltene Erden sind Metalle für starke Magnete. Sie stecken in E-Autos, Windrädern und Rüstung. Dabei sind sie gar nicht selten."
+  },
+  {
+   "sec": 8,
+   "tag": "CHINA",
+   "map": [
+    "CHN"
+   ],
+   "title": "Der Engpass: Verarbeitung",
+   "bullets": [
+    "Abbau: knapp 70 % in China",
+    "Trennen und Veredeln: rund 90 %"
+   ],
+   "source": "USGS 2026; IEA 2026; CSIS via Al Jazeera",
+   "say": "Abgebaut werden knapp siebzig Prozent in China. Der Engpass ist aber das Trennen und Veredeln. Das macht fast nur China."
+  },
+  {
+   "sec": 7,
+   "tag": "DEUTSCHLAND · CHINA",
+   "map": [
+    "DEU",
+    "CHN"
+   ],
+   "title": "Und Deutschland?",
+   "bullets": [
+    "2025: 55 % der Importe direkt aus China",
+    "Dazu Österreich, Estland"
+   ],
+   "source": "Destatis via dpa-AFX, 14.04.2026",
+   "say": "Und Deutschland? Gut die Hälfte der Importe kommt direkt aus China. Weitere kommen über Österreich und Estland. Und was macht Peking damit?"
+  },
+  {
+   "sec": 8,
+   "tag": "CHINA · DEUTSCHLAND",
+   "map": [
+    "CHN",
+    "DEU"
+   ],
+   "title": "So nutzt Peking den Hebel",
+   "bullets": [
+    "Seit April 2025: Lizenzpflicht für 7 Metalle",
+    "Juli 2026: Rheinmetall auf Sperrliste"
+   ],
+   "source": "Taylor Wessing 23.04.2026; dpa, Asharq Al-Awsat 24.07.2026",
+   "say": "Seit April zweitausendfünfundzwanzig gilt eine Lizenzpflicht. Sie betrifft sieben Metalle. Im Juli kam Rheinmetall auf Chinas Exportsperrliste."
+  },
+  {
+   "sec": 6,
+   "title": "Folge Geopolitical_ – jeden Sonntag erklären wir ein Thema",
+   "bullets": [
+    "Mehr eigene Verarbeitung oder mehr Recycling?",
+    "Schreib Verarbeitung oder Recycling."
+   ],
+   "say": "Folge Geopolitical, jeden Sonntag ein Thema. Mehr eigene Verarbeitung oder mehr Recycling? Schreib Verarbeitung oder Recycling."
+  }
+ ]
+}
