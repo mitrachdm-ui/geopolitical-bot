@@ -134,3 +134,23 @@ Rohdaten: `analytics/tiktok-export/2026-10-17_bis_23_Overview.csv` (Tageswerte d
 - Folge für die Themenwahl: „DACH, 45+, männlich“ (Hook-Regel 4) beschreibt das bisherige Kernpublikum, nicht die Grenze. Sicherheit/Europa-Themen funktionieren offenbar auch bei 25–44. Keine Regeländerung vor dem 01.11.; in der Auswertung 01.11. prüfen.
 - 9 % wiederkehrende Zuschauer – erste Wiedererkennung.
 - Fehlt noch: Tab „Übersicht“ dieses Videos (Wiedergabedauer, Anteil nach 3 s, Haltekurve).
+
+## Nachtrag 25.10. – Zuschauerprofil aller TikTok-Videos (TikTok Studio, 25.10. ~12:27)
+
+| Video | Phase | Zuschauer | Neu / wiederk. | Männer | 18–24 | 25–34 | 35–44 | 45–54 | 55+ | **über 45** | DE / CH / AT | Auffällig |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 18.10. Hormus | A | 627 | 99 / 1 % | 68 % | 6 | 18 | 21 | 28 | 27 | **55 %** | 66,5 / 12,5 / 7,2 | Luxemburg 1,8 % |
+| 19.10. Drohnen | A | 527 | 96 / 4 % | 61 % | 11 | 15 | 17 | 28 | 29 | **57 %** | 68,1 / 7,1 / 7,8 | Polen 5,0 % |
+| 20.10. FII | A | 590 | 89 / 11 % | 58 % | 4 | 8 | 18 | 35 | 35 | **70 %** | 72,0 / 8,8 / 7,8 | – |
+| 21.10. Schwarzes Meer | B | 845 | 91 / 9 % | 53 % | 14 | 29 | 19 | 19 | 19 | **38 %** | 72,4 / 4,8 / 6,9 | Polen 4,0 % |
+| 22.10. Saudi-Arabien | B2 | 225 | 80 / 20 % | 52 % | 11 | 31 | 34 | 12 | 12 | **24 %** | 73,2 / 9,1 / 8,0 | – |
+| 23.10. KI-Ausverkauf | C | 246 | 94 / 6 % | 52 % | 28 | 32 | 10 | 15 | 15 | **30 %** | 56,6 / 4,7 / 5,1 | Schweden 15,6 % |
+
+Alle Videos: 100 % Nicht-Follower.
+
+**Befund (vorläufig)**
+- **Bruch zwischen Phase A und B:** Die ersten drei Videos erreichten vor allem ältere Männer (55–70 % über 45, 58–68 % Männer). Ab 21.10. kippt es: 24–38 % über 45, Männer/Frauen fast halbe-halbe, 25–44 ist die größte Gruppe.
+- Ursache nicht trennbar: Gleichzeitig kamen neuer Einstieg/Animation/Karte (Phase B) **und** TikTok testet neue Accounts erfahrungsgemäß in wechselnden Gruppen. *Vermutung:* Beides wirkt; der schnellere, animierte Einstieg spricht Jüngere eher an.
+- **Wiederkehrende Zuschauer** beim Saudi-Video 20 % – bei nur 225 Zuschauern. *Vermutung:* TikTok zeigte es vor allem Leuten, die schon ein Video gesehen hatten, und gab es dann nicht breiter frei (Einstieg hielt nicht, siehe 57 s Länge).
+- Schweden 15,6 % beim KI-Video ist bei 246 Zuschauern Rauschen (~38 Personen).
+- **Folge für Regeln (erst ab 01.11. prüfen):** Hook-Regel 4 nennt „DACH, 45+, eher männlich“ als Publikum – das gilt nur für Phase A. Seit Phase B ist das Publikum breiter. Vorschlag für die Auswertung 01.11.: Publikumsbeschreibung auf „DACH, 25–55, gemischt“ anpassen; Themen mit Alltagsbezug (Energie, Sicherheit in Europa, Jobs/Börse) statt reiner Marktsprache.
