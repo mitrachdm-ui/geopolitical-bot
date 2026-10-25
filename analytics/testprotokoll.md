@@ -9,6 +9,7 @@ Zweck: Jedes Video einer Phase zuordnen, damit Vergleiche (z. B. kurz vs. lang) 
 | B2 | 22.10. | + CTA-Frage im Format „zwei Optionen per Emoji“ | 22.10. (lang) |
 | C | 23.10. | + Globus-Übergang bei Schauplatzwechsel | 23.10. (kurz) |
 | D | 24.10. | Langformat 40–45 s statt 50–60 s, Serien ≤ 50 s; angepinnter erster Kommentar (KOMMENTAR.txt); Klangteppich/Puls standardmäßig aus | – (nur Sa 24.10.) |
+| E (geplant) | 02.11. | Uhrzeit-Test (Di/Do 18:30) + Publikumsbeschreibung „DACH, 25–55, gemischt“, Alltagsbezug bei Themenwahl (Fahrplan Stufe 0/0b) | ab 02.11. |
 | E | 25.10. | **Satelliten-Stil für alle Videos** (Dennys Entscheidung 24.10.): NASA-Satellitenkarte, Kamerafahrten, texturierter Globus im Hook, Handschrift-Ländernamen, Ort-/Entfernungs-/Routen-Markierungen, kompakter Text (`"renderer": "karte"`). Längen wie Phase D | ab 26.10. (Werktage) |
 
 **Gestaltung eingefroren bis 01.11.2026:** In Phase E keine Änderungen an Renderer-Look, Hook-Aufbau, Animation oder Ton der Werktagsvideos (nur Fehlerbehebungen, hier mit Datum eintragen). Serien (Sa/So) zählen nicht zum Längen-Test.
