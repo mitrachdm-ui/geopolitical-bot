@@ -1,0 +1,74 @@
+{
+ "date": "Stand: Sonntag, 25. Oktober 2026",
+ "outfile": "geopolitical_2026-10-25_youtube.mp4",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "series": "SONNTAG ERKLÄRT",
+ "renderer": "karte",
+ "slides": [
+  {
+   "sec": 4,
+   "tag": "CHINA",
+   "map": [
+    "CHN"
+   ],
+   "big": "90 %",
+   "bigcolor": "RED",
+   "title": "So viel verarbeitet China",
+   "say": "Neunzig Prozent der Seltenen Erden verarbeitet China. Und Peking nutzt das."
+  },
+  {
+   "sec": 8,
+   "tag": "CHINA",
+   "map": [
+    "CHN"
+   ],
+   "title": "Der Engpass: Verarbeitung",
+   "bullets": [
+    "Metalle für starke Magnete",
+    "Abbau: knapp 70 % in China",
+    "Trennen und Veredeln: rund 90 %"
+   ],
+   "source": "IEA 2026; USGS 2026; CSIS via Al Jazeera",
+   "say": "Seltene Erden sind Metalle für starke Magnete. Knapp siebzig Prozent werden in China abgebaut. Veredelt wird fast nur dort."
+  },
+  {
+   "sec": 6,
+   "tag": "DEUTSCHLAND · CHINA",
+   "map": [
+    "DEU",
+    "CHN"
+   ],
+   "title": "Und Deutschland?",
+   "bullets": [
+    "2025: 55 % der Importe direkt aus China"
+   ],
+   "source": "Destatis via dpa-AFX, 14.04.2026",
+   "say": "Und Deutschland? Gut die Hälfte der Importe kommt direkt aus China."
+  },
+  {
+   "sec": 7,
+   "tag": "CHINA · DEUTSCHLAND",
+   "map": [
+    "CHN",
+    "DEU"
+   ],
+   "title": "So nutzt Peking den Hebel",
+   "bullets": [
+    "Seit April 2025: Lizenzpflicht für 7 Metalle",
+    "Juli 2026: Rheinmetall auf Sperrliste"
+   ],
+   "source": "Taylor Wessing 23.04.2026; dpa, Asharq Al-Awsat 24.07.2026",
+   "say": "Seit April zweitausendfünfundzwanzig gilt eine Lizenzpflicht. Im Juli kam Rheinmetall auf Chinas Exportsperrliste."
+  },
+  {
+   "sec": 5,
+   "title": "Abonniere Geopolitical_ – jeden Morgen die Weltlage",
+   "bullets": [
+    "Mehr eigene Verarbeitung oder mehr Recycling?",
+    "Schreib Verarbeitung oder Recycling."
+   ],
+   "say": "Abonniere Geopolitical, jeden Morgen die Weltlage. Mehr eigene Verarbeitung oder mehr Recycling? Schreib Verarbeitung oder Recycling."
+  }
+ ]
+}
