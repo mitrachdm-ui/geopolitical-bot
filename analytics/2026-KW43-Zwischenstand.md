@@ -154,3 +154,20 @@ Alle Videos: 100 % Nicht-Follower.
 - **Wiederkehrende Zuschauer** beim Saudi-Video 20 % – bei nur 225 Zuschauern. *Vermutung:* TikTok zeigte es vor allem Leuten, die schon ein Video gesehen hatten, und gab es dann nicht breiter frei (Einstieg hielt nicht, siehe 57 s Länge).
 - Schweden 15,6 % beim KI-Video ist bei 246 Zuschauern Rauschen (~38 Personen).
 - **Folge für Regeln (erst ab 01.11. prüfen):** Hook-Regel 4 nennt „DACH, 45+, eher männlich“ als Publikum – das gilt nur für Phase A. Seit Phase B ist das Publikum breiter. Vorschlag für die Auswertung 01.11.: Publikumsbeschreibung auf „DACH, 25–55, gemischt“ anpassen; Themen mit Alltagsbezug (Energie, Sicherheit in Europa, Jobs/Börse) statt reiner Marktsprache.
+
+## Nachtrag 25.10. – Übersicht je Video (Haltekurve, Traffic, Suche; TikTok Studio 12:30)
+
+| Video | Größter Absprung | „Für dich“ | Profil | Suche | Top-Suchbegriffe |
+|---|---|---|---|---|---|
+| 18.10. Hormus | 0:01 | 93,0 % | 3,3 % | 2,4 % | „nasdaq“ 20 %, „geopolitics“ 13 % |
+| 19.10. Drohnen | 0:01 | 90,0 % | 5,0 % | 4,1 % | „sankt petersburg“ 50 %, „russische nachrichten aktuell“, „ukraine“ |
+| 20.10. FII | 0:01 | 96,0 % | 3,3 % | < 0,1 % | – |
+| 21.10. Schwarzes Meer | 0:01 | 95,8 % | 2,4 % | 0,3 % | – |
+| 22.10. Saudi-Arabien | 0:01 | 94,5 % | 4,7 % | 0,4 % | „saudi arbia ukraine“ |
+| 23.10. KI-Ausverkauf | 0:01 | 91,8 % | 4,1 % | 3,1 % | „meta aktie“ 44 %, Reuters-Schlagzeile 33 % |
+
+(Ø Wiedergabedauer / „ganz gesehen“ stehen oben auf der Seite und fehlen in den Screenshots.)
+
+**Fehler gefunden – Titelbild:** Die Titelbilder (Frame 0) der Videos ab 21.10. zeigten wegen des Hochzählens falsche Zahlen: „1 Angriffe auf Schiffe“ (statt 6), „0 Tote nach Angriffen“ (statt 3), „−1 %“ (statt −7 %). Wer im Feed startet, sah in der ersten Sekunde ebenfalls diese Zahlen – genau dort ist der größte Absprung (*Vermutung, kein Beleg*). **Behoben ab 26.10.:** Hook-Zahl steht ab Frame 0 fertig da (geprüft mit Testrender `videos/2026-10-25_Beispiel-Hook-ohne-Hochzaehlen`). Eingetragen im Testprotokoll.
+- Bitte bei den veröffentlichten Videos 21.–23.10. in der App das Titelbild auf einen späteren Moment setzen, falls möglich (TikTok erlaubt das nachträglich meist nicht; dann so lassen).
+- Suche bringt bei konkreten Orten/Firmen 3–4 % Zusatzverkehr („sankt petersburg“, „meta aktie“) → Ortsnamen und Firmennamen in Titel und Caption ausschreiben (gilt schon über Hook-Regel „Ort im ersten Satz“ bei YouTube).
