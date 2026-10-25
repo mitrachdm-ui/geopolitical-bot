@@ -70,7 +70,7 @@ Bisher fast keine Kommentare (Stand 23.10.: 1 Kommentar auf 6 Videos). Ein angep
 
 - **Rekord:** „Zehn Schiffe in einer Woche angegriffen. Das gab es noch nie.“
 - **Zahl + Warum:** „Öl kostet 110 Dollar. Hier sind die drei Gründe.“
-- **Folge für dich:** „Darum wird Tanken nächste Woche teurer.“ (nur wenn belegt)
+- **Folge für dich:** „Das kann Tanken teurer machen.“ – immer „kann“, nie „wird“, und nur mit Quelle (Stopp-Regel: keine Vorhersagen als Tatsache)
 - **Frage:** „Warum redet plötzlich jeder über Taiwan?“
 
 ## Farben auf den Folien
@@ -119,8 +119,8 @@ Pflicht-Abgleich bei jedem Thema:
 - **Westen:** Reuters, AP, BBC, NYT, WSJ, FT, Tagesschau, Handelsblatt
 - **Nahost:** Al Jazeera (Katar), Times of Israel, Arab News (Saudi-Arabien), Middle East Eye
 - **Asien:** SCMP (Hongkong), Nikkei Asia (Japan), The Hindu (Indien), Straits Times (Singapur)
-- **Russland/Ukraine:** Kyiv Independent, Meduza (unabhängig, russisch); Staatsmedien (TASS, RT, Xinhua, Press TV) nur als „laut russischen/chinesischen/iranischen Staatsmedien …“
-- **Fachquellen:** UKMTO, IEA, EIA, ISW, OPEC, Zentralbanken
+- **Russland/Ukraine:** Kyiv Independent, Meduza (unabhängig, russisch); Staatsmedien (TASS, RT, Xinhua, Press TV) nur als „laut russischen/chinesischen/iranischen Staatsmedien …“ – **zählen nie als unabhängige Bestätigung**
+- **Fachquellen:** UKMTO, IEA, EIA, ISW, OPEC, WHO, Zentralbanken
 
 Achtung: Viele Zeitungen übernehmen dieselbe Agenturmeldung (Reuters/AP). Das zählt als **eine** Quelle, nicht als mehrere.
 
@@ -142,7 +142,7 @@ Für jede Aussage im Video: Aussage · Quelle(n) mit URL · Veröffentlichungsda
 
 ## Korrekturen
 
-Fehler im veröffentlichten Video → sofort Korrektur-Kommentar (anpinnen) bzw. Folgevideo, nie still löschen. Eintrag in `published/korrekturen.md` (Datum, Video, Fehler, Korrektur).
+Fehler im veröffentlichten Video → sofort Korrektur-Kommentar (anpinnen) bzw. Folgevideo **auf beiden Plattformen** (TikTok und YouTube-Short desselben Tages), nie still löschen. Eintrag in `published/korrekturen.md` (Datum, Plattform, Video, Fehler, Korrektur).
 
 ## Längen-Test (19.10.–01.11.2026, angepasst ab 24.10.)
 
@@ -211,6 +211,8 @@ Grund: Pro Test nur einen Faktor ändern, sonst ist nicht messbar, was wirkt. Je
 | 2 | 15.11. (So) | **Serie „BEHAUPTUNG IM CHECK“** an jedem zweiten Sonntag (15.11., 29.11., …), im Wechsel mit „SONNTAG ERKLÄRT“: eine verbreitete, konkrete Aussage zu einem geopolitischen Thema (z. B. Zahl, Zitat, Karte), aufgeteilt in **belegt / nicht belegt / offen**, jedes mit Quelle. Nur Aussagen über Sachverhalte, keine Personen bloßstellen, keine Parteien; Behauptung neutral zitieren und Herkunft nennen. `"series": "BEHAUPTUNG IM CHECK"` (bis der Renderer einen eigenen Look hat, nutzt er den Standard-Look). Faktencheck-Regel gilt für jede Einstufung. ≤ 50 s. | Follower je 1.000 Aufrufe, Shares |
 | 3 | 16.11. | **Zuschauerfrage:** Gibt es seit dem letzten Video eine sachliche Verständnisfrage in den Kommentaren (Denny trägt sie in `published/fragen.md` ein), wird sie höchstens einmal pro Woche als Tageslage-Ersatz beantwortet (Einstieg: „Ihr habt gefragt: …“; Frage ohne Nutzernamen). Ohne eingetragene Frage entfällt die Stufe. | Kommentare je Video |
 
+| 4 | 23.11. | **Ein Thema pro Tageslage:** Mo–Fr nur noch das Top-Thema, keine Nebenthemen; Markt nur als direkte Folge des Themas (z. B. Angriff auf Ölfeld → Ölpreis), kein eigener Markt-Block. Regionen-Mix-Regel 2 (zweite Region im Video) entfällt dann für Werktage; Regel 1 (max. 2 Top-Themen pro Region und Woche) bleibt. Wortgrenzen laut Ergebnis des Längen-Tests. Vorschlag aus Perplexity-Überarbeitung 25.10.; Datenbasis dort nicht nachprüfbar → erst messen. | Abschlussrate, Angesehen vs. weggewischt |
+
 Längere Erklärvideos (> 50 s) erst wieder testen, wenn der Anteil nach 3 s stabil über 50 % liegt.
 
 ## Breaking (Zusatzvideo auf Zuruf)
@@ -230,16 +232,26 @@ Denny kopiert den kompletten Inhalt 1:1 in die TikTok-Beschreibung. Max. 2.200 Z
 
 - **Hauptgröße: Anteil Zuschauer nach 3 s** (Ziel > 50 %; seit neuem Hook ~50 %, vorher ~25 %)
 - Ø Wiedergabedauer (Ziel > 50 %) · Abschlussrate · Follower pro Video · Kommentare
-- **TikTok und YouTube** werden beide ausgewertet (YouTube: „Angesehen vs. weggewischt“, Ziel ≥ 60 %)
+- **TikTok und YouTube** werden beide ausgewertet, getrennt pro Plattform. YouTube Studio → Inhalte → Shorts: „Angesehen vs. weggewischt“ (Ziel ≥ 60 %), Ø Wiedergabe (Ziel ≥ 70 %); Zielgruppe: neue Abos je 1.000 Aufrufe. Klickrate der Impressionen bei Shorts ignorieren (Shorts-Feed zählt nicht als Impression).
+- Viele Weggewischte = Hook/erste Folie schwach · niedrige Abschlussrate bei guter Ansehen-Quote = Mitte zu lang → kürzen
 - Hook schlecht = Absprung in den ersten 3 Sek. → Hook-Formel wechseln
 - Wöchentliche Auswertung automatisch sonntags in `analytics/JJJJ-KWnn.md`
 
-## Checkliste vor dem Posten (Denny, in der App)
+## Checkliste vor dem Posten (Denny, in der App – gleiche Fassung im Projekt-Handbuch)
 
+**Beide Plattformen**
 - [ ] Video komplett angesehen (Ton, Zahlen, Folien)
+- [ ] KOMMENTAR.txt als ersten Kommentar posten und anpinnen
+- [ ] **Nie „Promote“/Werbung nutzen** – politische Werbung ist verboten
+- [ ] Likes, Kommentare, Antworten nur von Hand
+
+**TikTok** (Entwurf in der Inbox)
 - [ ] POSTEN.txt komplett eingefügt (Caption + Quellen + Hashtags)
 - [ ] „KI-generierte Inhalte“ eingeschaltet
 - [ ] Öffentlich
-- [ ] KOMMENTAR.txt als ersten Kommentar posten und anpinnen
-- [ ] **Nie „Promote“/Werbung nutzen** – politische Werbung ist auf TikTok verboten
-- [ ] Likes, Kommentare, Antworten nur von Hand
+
+**YouTube** (Short liegt privat in YouTube Studio; Titel/Beschreibung sind schon gesetzt)
+- [ ] „Veränderte oder synthetische Inhalte“: im Zweifel JA (KI-Stimme)
+- [ ] Zielgruppe: „Nein, nicht speziell für Kinder“
+- [ ] Playlist „Tageslage“ bzw. „Erklärt“ (sobald angelegt)
+- [ ] Sichtbarkeit „Öffentlich“ → Speichern

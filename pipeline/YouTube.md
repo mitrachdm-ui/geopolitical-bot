@@ -13,7 +13,8 @@ aber **51,6 % weggewischt**, Ø Wiedergabe 0:17 von 0:31, 0 Abonnenten, 0 Kommen
    - `POSTEN.txt` (Beschreibung)
 3. Push → GitHub Actions rendert sie als Release `video-<ORDNER>-youtube`.
 4. Upload privat über Composio (`YOUTUBE_MULTIPART_UPLOAD_VIDEO` zuerst – `YOUTUBE_UPLOAD_VIDEO` lieferte am 21.10. eine kaputte Datei).
-5. Denny schaltet in YouTube Studio auf „Öffentlich“.
+5. Denny schaltet in YouTube Studio auf „Öffentlich“ und setzt dabei, was der Upload nicht setzen kann: „Veränderte oder synthetische Inhalte“ (im Zweifel JA), Zielgruppe „Nicht speziell für Kinder“, Playlist (siehe Checkliste in `Redaktion.md`).
+6. Scheitert der Upload (z. B. 429 = Tageskontingent leer), bekommt Denny Video-Link, Titel und Beschreibung zum manuellen Hochladen.
 
 ## Regeln für die YouTube-Fassung
 
@@ -35,7 +36,10 @@ aber **51,6 % weggewischt**, Ø Wiedergabe 0:17 von 0:31, 0 Abonnenten, 0 Kommen
    mit Herkunftsland), „KI-Stimme. Keine Anlageberatung. Impressum: mitrachdm-ui.github.io“, Hashtags, `#Shorts`.
 8. Serien (Samstag/Sonntag): `series` übernehmen; Länge bis 45 s erlaubt.
 
-9. **Erster Kommentar:** Denny postet nach dem Freischalten den Text aus `KOMMENTAR.txt` des Tagesordners und pinnt ihn an (⋮ → Anpinnen). Die Meldung der YouTube-Aufgabe nennt ihn mit.
+9. **Titel-Regeln gehen hier vor:** Für YouTube gelten Regel 6 und diese Datei (`#Shorts` am Titelende, Serien-Präfix „Untergegangen: “/„Sonntag erklärt: “, kein „Laut …“ am Anfang). Andere Vorschläge (z. B. Perplexity 25.10.: `#Shorts` nur in die Beschreibung, Quelle in den Titel) erst nach Messung umstellen.
+10. **Korrekturen** gelten auch hier: Fehler im TikTok-Video desselben Tages → Korrektur-Kommentar auch unter dem Short (siehe `Redaktion.md`).
+
+11. **Erster Kommentar:** Denny postet nach dem Freischalten den Text aus `KOMMENTAR.txt` des Tagesordners und pinnt ihn an (⋮ → Anpinnen). Die Meldung der YouTube-Aufgabe nennt ihn mit.
 
 ## Messen
 
