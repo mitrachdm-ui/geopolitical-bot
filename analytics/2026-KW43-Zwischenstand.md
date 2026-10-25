@@ -73,3 +73,29 @@ Publikum: DACH (DE 66 %, CH 13 %, AT 7 %), 55 % über 45, 68 % männlich, 100 % 
 - Saudi-Arabien: TikTok-Fassung (57 s) nur 261 Aufrufe, YouTube-Fassung (41 s) 608 – *Vermutung:* die Länge kostet auf TikTok Reichweite.
 - Gleiche drei Videos (21.–23.10.): YouTube 1.592 Aufrufe vs. TikTok 1.457 – YouTube liegt knapp vorn, obwohl der Kanal erst seit 3 Tagen Shorts hat.
 - Kommentare und Shares fast null auf beiden Plattformen.
+
+## Nachtrag 25.10. – YouTube Studio (KI-Zusammenfassung, Zeitraum 27.09.–24.10.2026, von Denny)
+
+| Kennzahl | Wert |
+|---|---|
+| Aufrufe | 2.297 |
+| Wiedergabezeit | 7 Std. 10 Min. |
+| Abonnenten | +2 |
+| Ø Wiedergabedauer (laut Studio-KI) | 21 s – **passt nicht** zu 7:10 h / 2.297 Aufrufe = **~11 s**; bis zur Klärung mit ~11 s rechnen (Screenshot aus Studio „Übersicht“ würde das klären) |
+| Impressionen / Klickrate | 225 / 4,4 % – betrifft nur Startseite/Vorschläge, für Shorts kaum aussagekräftig (Shorts kommen über den Feed ohne Klick) |
+
+**Je Short (Ø gesehen = Wiedergabezeit ÷ Aufrufe, gerechnet)**
+
+| Short | Länge | Phase | Aufrufe | Wiedergabezeit | Ø gesehen | Anteil |
+|---|---|---|---|---|---|---|
+| 21.10. Schwarzes Meer | 31 s | B | 1.132 | 4:26 h | 14,1 s | **45 %** |
+| 22.10. Saudi-Arabien | 41 s | B2 | 798 | 2:08 h | 9,6 s | 23 % |
+| 23.10. KI-Ausverkauf | 30 s | C | 141 | ~16 min | ~6,8 s | ~23 % |
+| 24.10. Rückblick Ebola (Serie) | 29 s | Serie | 226 | ~20 min | ~5,3 s | ~18 % |
+
+**Befund (vorläufig)**
+- Schwarzes Meer ist auf beiden Plattformen klar das stärkste Video – auch bei der Bindung (45 % gesehen, rund doppelt so viel wie die anderen). Gemeinsamkeiten: Europa-Bezug, eine konkrete Zahl, NATO/Sicherheit, 31 s.
+- Die anderen drei liegen bei ~20 % – dort verliert der Einstieg die meisten Zuschauer. Ziel laut YouTube.md (≥ 70 %) ist weit weg.
+- *Vermutung:* Thema mit direktem Europa-/Deutschland-Bezug hält besser als Golf, Börse oder Afrika. Mit 4 Videos noch kein Beleg – Themenwahl bleibt nach Regionen-Mix, Europa bei Gleichstand bevorzugen (gilt schon).
+- Studio-KI-Aussage „viele schauen einen großen Teil des Videos“ gilt nur für Schwarzes Meer, nicht im Schnitt.
+- 25.10.: YouTube-Upload „Seltene Erden“ scheiterte am API-Kontingent (429) → manuell hochladen.
