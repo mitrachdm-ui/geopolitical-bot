@@ -99,3 +99,21 @@ Publikum: DACH (DE 66 %, CH 13 %, AT 7 %), 55 % über 45, 68 % männlich, 100 % 
 - *Vermutung:* Thema mit direktem Europa-/Deutschland-Bezug hält besser als Golf, Börse oder Afrika. Mit 4 Videos noch kein Beleg – Themenwahl bleibt nach Regionen-Mix, Europa bei Gleichstand bevorzugen (gilt schon).
 - Studio-KI-Aussage „viele schauen einen großen Teil des Videos“ gilt nur für Schwarzes Meer, nicht im Schnitt.
 - 25.10.: YouTube-Upload „Seltene Erden“ scheiterte am API-Kontingent (429) → manuell hochladen.
+
+## Nachtrag 25.10. – TikTok-Export „Übersicht“ (17.–23.10., von Denny)
+
+Rohdaten: `analytics/tiktok-export/2026-10-17_bis_23_Overview.csv` (Tageswerte des ganzen Accounts, nicht je Video).
+
+| Tag | Aufrufe | Profilaufrufe | Likes | Kommentare | Shares |
+|---|---|---|---|---|---|
+| 18.10. | 698 | 5 | 4 | 0 | 0 |
+| 19.10. | 585 | 1 | 14 | 0 | 0 |
+| 20.10. | 668 | 1 | 5 | 3 | 0 |
+| 21.10. | 965 | 2 | 17 | 0 | 0 |
+| 22.10. | 286 | 2 | 1 | 0 | 0 |
+| 23.10. | 318 | 7 | 5 | 0 | 0 |
+| **Summe** | **3.520** | **18** | **46** | **3** | **0** |
+
+- Tagesaufrufe brechen am 22./23.10. auf ~300 ein (vorher 585–965). Da ältere Videos kaum nachlaufen (Verteilung endet nach ~6–24 h), spiegelt das vor allem die schwächeren Tagesvideos 22.10. (Saudi-Arabien, 57 s) und 23.10. (KI-Ausverkauf).
+- Profilaufrufe nur 18 in 6 Tagen (0,5 % der Aufrufe) → wer schaut, klickt selten aufs Profil. *Vermutung:* Kanal-Versprechen im Video zu schwach erkennbar; Messgröße für später (Fahrplan), jetzt keine Änderung (Gestaltung eingefroren).
+- Wiedergabedauer und Anteil nach 3 s sind in diesem Export nicht enthalten – dafür bitte je Video die „Videoanalyse“ (Screenshot) schicken.
