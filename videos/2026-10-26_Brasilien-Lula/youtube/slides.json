@@ -1,0 +1,78 @@
+{
+ "date": "Stand: Montag, 26. Oktober 2026",
+ "outfile": "geopolitical_2026-10-26_youtube.mp4",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "renderer": "karte",
+ "slides": [
+  {
+   "sec": 4,
+   "tag": "BRASILIEN",
+   "map": [
+    "BRA"
+   ],
+   "big": "80",
+   "bigcolor": "RED",
+   "title": "Jahre alt – und wiedergewählt",
+   "say": "Achtzig Jahre alt und wieder Präsident von Brasilien. Und das betrifft auch Europa."
+  },
+  {
+   "sec": 7,
+   "tag": "BRASILIEN · WAHL",
+   "tagcolor": "BLUE",
+   "map": [
+    "BRA"
+   ],
+   "title": "Lula gewinnt die Stichwahl",
+   "bullets": [
+    "Lula da Silva (80): 51,8 %",
+    "Vierte Amtszeit"
+   ],
+   "source": "Wahlgericht via AP, Bloomberg, Al Jazeera, 26.10.",
+   "say": "Lula gewinnt die Stichwahl. Laut Wahlgericht mit einundfünfzig Komma acht Prozent. Vierte Amtszeit."
+  },
+  {
+   "sec": 7,
+   "tag": "BRASILIEN · WAHL",
+   "tagcolor": "BLUE",
+   "map": [
+    "BRA"
+   ],
+   "title": "Gegner erkennt Ergebnis nicht an",
+   "bullets": [
+    "Flávio Bolsonaro will Annullierung",
+    "Kritik: Wahllokale 2 Std. länger offen",
+    "Beantragt hatten das beide Lager"
+   ],
+   "source": "AP, Al Jazeera, Bloomberg, 26.10.",
+   "say": "Gegner Flávio Bolsonaro will annullieren. Er kritisiert längere Öffnungszeiten. Beantragt hatten die beide Lager."
+  },
+  {
+   "sec": 6,
+   "tag": "EU · MERCOSUR",
+   "tagcolor": "BLUE",
+   "map": [
+    "BRA",
+    "ARG",
+    "URY",
+    "PRY"
+   ],
+   "title": "Und Europa?",
+   "bullets": [
+    "EU-Abkommen mit Handelsbund Mercosur",
+    "Gilt vorläufig seit 1. Mai"
+   ],
+   "source": "EU-Kommission; Euronews; Agência Brasil",
+   "say": "Für Europa zählt: Das EU-Abkommen mit dem südamerikanischen Handelsbund Mercosur gilt seit Mai vorläufig."
+  },
+  {
+   "sec": 5,
+   "title": "Abonniere Geopolitical_ – jeden Morgen die Weltlage",
+   "bullets": [
+    "Mehr Handel oder mehr Schutz für Bauern?",
+    "Schreib Handel oder Bauern."
+   ],
+   "say": "Abonniere Geopolitical, jeden Morgen die Weltlage. Mehr Handel oder Schutz für Bauern? Schreib Handel oder Bauern."
+  }
+ ]
+}
