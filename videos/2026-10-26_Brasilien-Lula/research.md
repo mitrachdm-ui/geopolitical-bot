@@ -1,6 +1,6 @@
 # Quellenprotokoll – 2026-10-26_Brasilien-Lula
 
-Recherche-Stand: 26.10.2026, ca. 07:00 Uhr MEZ · Format: KURZ (Mo, Längen-Test) · 5 Folien, 69 Wörter (Kalibrierung: 68 Wörter/5 Folien = 32,5 s am 23.10.)
+Recherche-Stand: 26.10.2026, ca. 07:00 Uhr MEZ · Format: KURZ (Mo, Längen-Test) · 5 Folien, 69 Wörter, gemessen 35,6 s (Kalibrierung: 68 Wörter/5 Folien = 32,5 s am 23.10.)
 
 | Aussage im Video | Quelle(n) | Datum | Region | Ursprung | unabhängige Bestätigungen | Status |
 |---|---|---|---|---|---|---|
@@ -10,6 +10,7 @@ Recherche-Stand: 26.10.2026, ca. 07:00 Uhr MEZ · Format: KURZ (Mo, Längen-Test
 | Flávio Bolsonaro erkennt nicht an, will Wahl annullieren lassen | AP (refused to concede, asked for results to be annulled); Al Jazeera (pledged to annul, Zitat „impossible to recognise the results“); France 24/AFP – Titel „rival Bolsonaro demands annulment“ (Seite nicht abrufbar, nur Suchtreffer-Titel) | 26.10.2026 | USA, Katar, Frankreich | Bolsonaros eigene Erklärung | 1 Ursprung (Bolsonaro), von 3 Medien berichtet | bestätigt als seine Forderung (eigene Aussage, im Video ihm zugeordnet) |
 | Kritik: Abstimmung kurzfristig um 2 Stunden verlängert | AP (last-minute decision to extend voting by two hours); Al Jazeera (Richter Zanin verlängerte von 17 auf 19 Uhr Brasília-Zeit, auf Antrag beider Lager); CBS/AP | 26.10.2026 | USA, Katar | Verlängerung: Entscheidung Richter Cristiano Zanin (Tatsache, AP + Al Jazeera); Kritik: Bolsonaro | Verlängerung 2 (AP, AJ) + amtliche Entscheidung; Kritik = Bolsonaro | Verlängerung bestätigt; Kritik ihm zugeordnet („Er kritisiert …“) |
 | EU-Handelsabkommen mit Mercosur (Argentinien, Brasilien, Paraguay, Uruguay) gilt vorläufig seit 1. Mai 2026 | [EU-Kommission](https://commission.europa.eu/topics/trade/eu-mercosur-trade-agreement_en) („applies provisionally from 1 May 2026“); [Euronews 23.03.2026](https://euronews.com/my-europe/2026/03/23/eu-says-mercosur-deal-set-for-provisional-application-from-1-may); [Agência Brasil 01.05.2026](https://agenciabrasil.ebc.com.br/en/economia/noticia/2026-04/mercosur-eu-agreement-set-take-effect-may-1); [Vinetur 08.05.2026](https://www.vinetur.com/en/20260508100417/brazil-brings-mercosur-eu-trade-deal-into-force.html) (Brasilien Dekret 12.953/2026); [Rio Times 01.05.2026](https://www.riotimesonline.com/mercosur-eu-trade-deal-day-one-may-2026/) | März–Mai 2026 (Hintergrund, aktuell gültig) | EU, Brasilien, Spanien | amtlich: Ratsbeschluss EU + Dekret Brasilien; berichtet von Kommission, Euronews, Agência Brasil, Rio Times | amtlicher Ursprung, 4 unabhängige Darstellungen aus 2 Regionen | bestätigt |
+| Ergänzung Folie 3: Verlängerung hatten beide Lager beantragt (Starkregen im Süden) | AP (via The News Minute/CBS); Al Jazeera („Both campaigns petitioned the Supreme Court“) | 26.10.2026 | USA, Katar | AP, Al Jazeera (eigene Berichte) über Gerichtsentscheidung Zanin | 2 Berichte + amtliche Entscheidung | bestätigt (Kontext zur Kritik, vom Prüf-Agenten empfohlen) |
 | KOMMENTAR: In Runde 1 lag Bolsonaro vorn, 47 zu 45 % | Al Jazeera (47,03 % zu 45,16 %); AP (47 % zu 45 %, via CBS); [Diário do Grande ABC](https://www.dgabc.com.br/Noticia/4350923/com-100-das-secoes-totalizadas-flavio-tem-47-03-lula-tem-45-16-e-cury-2-89) (100 % ausgezählt: 47,03 % / 45,16 %) | 04.–26.10.2026 | Katar, USA, Brasilien | amtliches Ergebnis TSE (1. Runde 04.10.) | 3 Berichte, amtlicher Ursprung | bestätigt |
 
 ## Nicht verwendet
@@ -36,7 +37,6 @@ KW44 beginnt heute (noch keine Top-Themen) → Amerika (Brasilien-Stichwahl, gr�
 
 ## Phase
 Phase E (Satelliten-Stil, "renderer": "karte", inkl. Fix Hook-Zahl ab Frame 0) – erstes Werktagsvideo der Phase E, Gruppe KURZ (Mo).
-| Ergänzung Folie 3: Verlängerung hatten beide Lager beantragt (Starkregen im Süden) | AP (via The News Minute/CBS); Al Jazeera („Both campaigns petitioned the Supreme Court“) | 26.10.2026 | USA, Katar | AP, Al Jazeera (eigene Berichte) über Gerichtsentscheidung Zanin | 2 Berichte + amtliche Entscheidung | bestätigt (Kontext zur Kritik, vom Prüf-Agenten empfohlen) |
 
 Hinweis: Paraguays Notifizierung zum 1. Mai nicht einzeln geprüft (Euronews 23.03.: „expected“); Video sagt nur „gilt vorläufig seit Mai“ (laut EU-Kommission). France 24/AFP aus Quellen gestrichen (nur Titel geprüft).
 
