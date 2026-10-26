@@ -1,0 +1,78 @@
+{
+ "date": "Stand: Montag, 26. Oktober 2026",
+ "outfile": "geopolitical_2026-10-26.mp4",
+ "renderer": "karte",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "slides": [
+  {
+   "sec": 4,
+   "tag": "BRASILIEN",
+   "map": [
+    "BRA"
+   ],
+   "big": "80",
+   "bigcolor": "RED",
+   "title": "Jahre alt – und wiedergewählt",
+   "say": "Achtzig Jahre alt. Und wieder Präsident von Brasilien."
+  },
+  {
+   "sec": 7,
+   "tag": "BRASILIEN · WAHL",
+   "tagcolor": "BLUE",
+   "map": [
+    "BRA"
+   ],
+   "title": "Lula gewinnt die Stichwahl",
+   "bullets": [
+    "Lula da Silva (80): 51,8 %",
+    "Vierte Amtszeit"
+   ],
+   "source": "Wahlgericht via AP, Bloomberg, Al Jazeera, 26.10.",
+   "say": "Lula gewinnt die Stichwahl. Laut Wahlgericht mit einundfünfzig Komma acht Prozent. Seine vierte Amtszeit."
+  },
+  {
+   "sec": 7,
+   "tag": "BRASILIEN · WAHL",
+   "tagcolor": "BLUE",
+   "map": [
+    "BRA"
+   ],
+   "title": "Gegner erkennt Ergebnis nicht an",
+   "bullets": [
+    "Flávio Bolsonaro will Annullierung",
+    "Kritik: Wahllokale 2 Std. länger offen",
+    "Beantragt hatten das beide Lager"
+   ],
+   "source": "AP, Al Jazeera, Bloomberg, 26.10.",
+   "say": "Gegner Flávio Bolsonaro will annullieren. Er kritisiert längere Öffnungszeiten. Die hatten beide Lager beantragt."
+  },
+  {
+   "sec": 6,
+   "tag": "EU · MERCOSUR",
+   "tagcolor": "BLUE",
+   "map": [
+    "BRA",
+    "ARG",
+    "URY",
+    "PRY"
+   ],
+   "title": "Und Europa?",
+   "bullets": [
+    "EU-Abkommen mit Handelsbund Mercosur",
+    "Gilt vorläufig seit 1. Mai"
+   ],
+   "source": "EU-Kommission; Euronews; Agência Brasil",
+   "say": "Wichtig für Europa: Das EU-Abkommen mit dem südamerikanischen Handelsbund Mercosur gilt seit Mai vorläufig."
+  },
+  {
+   "sec": 5,
+   "title": "Folge Geopolitical_ für die Weltlage in 60 Sekunden",
+   "bullets": [
+    "Mehr Handel oder mehr Schutz für Bauern?",
+    "Schreib Handel oder Bauern."
+   ],
+   "say": "Folge Geopolitical für die Weltlage in sechzig Sekunden. Mehr Handel oder mehr Schutz für Bauern? Schreib Handel oder Bauern."
+  }
+ ]
+}
