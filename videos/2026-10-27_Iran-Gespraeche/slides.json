@@ -1,0 +1,92 @@
+{
+ "date": "Stand: Dienstag, 27. Oktober 2026",
+ "outfile": "geopolitical_2026-10-27.mp4",
+ "renderer": "karte",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "slides": [
+  {
+   "sec": 4,
+   "tag": "IRAN",
+   "map": [
+    "IRN"
+   ],
+   "big": "3",
+   "bigcolor": "RED",
+   "title": "Länder auf Krisenbesuch in Teheran",
+   "say": "Drei Länder schicken Spitzenleute nach Teheran. Mitten in der Iran-Krise."
+  },
+  {
+   "sec": 8,
+   "tag": "IRAN · SAUDI-ARABIEN · PAKISTAN · TÜRKEI",
+   "tagcolor": "RED",
+   "map": [
+    "IRN",
+    "SAU",
+    "PAK",
+    "TUR"
+   ],
+   "title": "Treffen mit Präsident Peseschkian",
+   "bullets": [
+    "Saudi-Arabien: Verteidigungsminister",
+    "Pakistan: Armeechef",
+    "Türkei: Geheimdienstchef"
+   ],
+   "source": "AP, Al Jazeera, Arab News, Al-Monitor, 26.10.",
+   "say": "Saudi-Arabiens Verteidigungsminister, Pakistans Armeechef und der türkische Geheimdienstchef trafen Irans Präsidenten Peseschkian."
+  },
+  {
+   "sec": 8,
+   "tag": "IRAN",
+   "tagcolor": "RED",
+   "map": [
+    "IRN"
+   ],
+   "title": "Worum es geht",
+   "bullets": [
+    "Krieg seit Februar, Sorge vor neuen Kämpfen",
+    "Saudi-Arabien: Eskalation verhindern",
+    "Ein Abkommen gibt es noch nicht"
+   ],
+   "source": "AP, Al Jazeera, Arab News, Al-Monitor, 26.10.",
+   "say": "Der Krieg begann im Februar. Saudi-Arabien will eine neue Eskalation verhindern. Ein Abkommen gibt es noch nicht."
+  },
+  {
+   "sec": 7,
+   "tag": "BRASILIEN",
+   "tagcolor": "BLUE",
+   "map": [
+    "BRA"
+   ],
+   "title": "Lulas Wahlsieg anerkannt",
+   "bullets": [
+    "Bolsonaros Partei: ja",
+    "Flávio Bolsonaro selbst: bisher nicht"
+   ],
+   "source": "AFP, Reuters, Agência Brasil, 26.–27.10.",
+   "say": "Brasilien: Die Partei von Flávio Bolsonaro erkennt Lulas Wahlsieg an. Er selbst bisher nicht."
+  },
+  {
+   "sec": 7,
+   "tag": "MÄRKTE · TERMINE",
+   "tagcolor": "AMBER",
+   "title": "Öl teuer, Zinsen im Blick",
+   "bullets": [
+    "Brent um 115 $",
+    "Mi: Zinsentscheid US-Notenbank",
+    "Do: Zinsentscheid EZB"
+   ],
+   "source": "finanzen.at, Free Press Journal, 27.10.; federalreserve.gov, ecb.europa.eu",
+   "say": "Öl bleibt teuer: Brent um hundertfünfzehn Dollar. Mittwoch entscheidet die US-Notenbank über die Zinsen. Donnerstag die Europäische Zentralbank."
+  },
+  {
+   "sec": 5,
+   "title": "Folge Geopolitical_ für die Weltlage in 60 Sekunden",
+   "bullets": [
+    "Iran: Lösung aus Region oder mit Großmächten?",
+    "Schreib Region oder Großmächte."
+   ],
+   "say": "Folge Geopolitical für die Weltlage in sechzig Sekunden. Iran: Lösung aus der Region oder mit Großmächten? Schreib Region oder Großmächte."
+  }
+ ]
+}
