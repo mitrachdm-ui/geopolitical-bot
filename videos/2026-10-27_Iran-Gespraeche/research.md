@@ -1,6 +1,6 @@
 # Quellenprotokoll – 2026-10-27_Iran-Gespraeche
 
-Recherche-Stand: 27.10.2026, ca. 17:15 Uhr MEZ (manuell auf Dennys Auftrag, Abgleich mit Perplexity-Briefing 27.10. 06:40) · Format: LANG (Di, Längen-Test) · 6 Folien, 94 Wörter
+Recherche-Stand: 27.10.2026, ca. 17:15 Uhr MEZ (manuell auf Dennys Auftrag, Abgleich mit Perplexity-Briefing 27.10. 06:40) · Format: LANG (Di, Längen-Test) · 6 Folien, 85 Wörter (1. Render 91 Wörter = 47,0 s → einmal gekürzt, Fakten unverändert)
 
 | Aussage im Video | Quelle(n) | Datum | Region | Ursprung | unabhängige Bestätigungen | Status |
 |---|---|---|---|---|---|---|
