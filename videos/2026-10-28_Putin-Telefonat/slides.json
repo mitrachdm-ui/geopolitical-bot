@@ -1,0 +1,99 @@
+{
+ "date": "Stand: Mittwoch, 28. Oktober 2026",
+ "outfile": "geopolitical_2026-10-28.mp4",
+ "renderer": "karte",
+ "voice": "de-DE-SeraphinaMultilingualNeural",
+ "rate": "+18%",
+ "slides": [
+  {
+   "sec": 4,
+   "tag": "FINNLAND · NORWEGEN · RUSSLAND",
+   "map": [
+    "FIN",
+    "NOR",
+    "RUS"
+   ],
+   "big": "90",
+   "bigcolor": "RED",
+   "title": "Minuten mit Putin – laut Støre",
+   "say": "Rund neunzig Minuten mit Putin am Telefon, sagt Norwegens Regierungschef."
+  },
+  {
+   "sec": 7,
+   "tag": "FINNLAND · NORWEGEN",
+   "tagcolor": "BLUE",
+   "map": [
+    "FIN",
+    "NOR",
+    "RUS"
+   ],
+   "marks": [
+    {
+     "type": "point",
+     "at": [
+      24.94,
+      60.17
+     ],
+     "text": "Helsinki"
+    }
+   ],
+   "title": "Seltener Anruf im Kreml",
+   "bullets": [
+    "Norwegen: Regierungschef Støre",
+    "Finnland: Präsident Stubb",
+    "Dauer laut Støre: rund 90 Min."
+   ],
+   "source": "Reuters, Al Jazeera, Präsidialamt Finnland, 27.10.",
+   "say": "Angerufen haben Jonas Gahr Støre und Finnlands Präsident Stubb. Ein seltener direkter Kontakt."
+  },
+  {
+   "sec": 6,
+   "tag": "RUSSLAND",
+   "tagcolor": "RED",
+   "map": [
+    "RUS"
+   ],
+   "title": "Kreml bleibt bei Forderungen",
+   "bullets": [
+    "Frieden nur, wenn Russlands",
+    "„legitime Interessen“ voll beachtet"
+   ],
+   "source": "Kreml via Reuters, Euronews, NV, 27.10.",
+   "say": "Der Kreml: Frieden nur, wenn Russlands legitime Interessen voll beachtet werden."
+  },
+  {
+   "sec": 6,
+   "tag": "VEREINIGTE ARABISCHE EMIRATE",
+   "tagcolor": "AMBER",
+   "map": [
+    "ARE"
+   ],
+   "marks": [
+    {
+     "type": "point",
+     "at": [
+      54.37,
+      24.45
+     ],
+     "text": "Abu Dhabi"
+    }
+   ],
+   "title": "Nächste Runde: Abu Dhabi",
+   "bullets": [
+    "USA, Ukraine, Russland",
+    "Laut Kreml: erste Novemberhälfte"
+   ],
+   "source": "Kreml via NV, Keystone-SDA; Reuters, 27.10.",
+   "say": "Verhandelt wird in Abu Dhabi: USA, Ukraine, Russland. Laut Kreml in der ersten Novemberhälfte."
+  },
+  {
+   "sec": 5,
+   "title": "Folge Geopolitical_ für die Weltlage in 60 Sekunden",
+   "bullets": [
+    "Mehr Gespräche oder weiter Funkstille?",
+    "Schreib Gespräche oder Funkstille."
+   ],
+   "say": "Folge Geopolitical für die Weltlage in sechzig Sekunden. Mehr Gespräche oder weiter Funkstille? Schreib Gespräche oder Funkstille."
+  }
+ ]
+}
